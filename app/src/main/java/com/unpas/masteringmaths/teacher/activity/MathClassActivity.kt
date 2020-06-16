@@ -1,0 +1,13 @@
+package com.unpas.masteringmaths.teacher.activity
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import com.unpas.masteringmaths.R
+
+class MathClassActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_math_class)
+    }
+}

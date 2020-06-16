@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="24dp"
+            android:baselineAligned="false"
+            android:gravity="center"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+
+        <androidx.cardview.widget.CardView
+                android:id="@+id/card_pembelajaran"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="6dp"
+                app:cardElevation="4dp">
+
+            <LinearLayout
+                    android:id="@+id/menu_pembelajaran"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img_pembelajaran"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp" />
+
+                <TextView
+                        android:id="@+id/tv_pembelajaran"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Kompetensi Dasar"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+                android:id="@+id/card_indikator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="6dp"
+                app:cardElevation="4dp">
+
+            <LinearLayout
+                    android:id="@+id/menu_indikator"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img_indikator"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp" />
+
+                <TextView
+                        android:id="@+id/tv_indikator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Peta Konsep"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="24dp"
+            android:baselineAligned="false"
+            android:gravity="center"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+
+        <androidx.cardview.widget.CardView
+                android:id="@+id/card_sejarah"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="6dp"
+                app:cardElevation="4dp">
+
+            <LinearLayout
+                    android:id="@+id/menu_sejarah"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img_sejarah"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp" />
+
+                <TextView
+                        android:id="@+id/tv_sejarah"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Sejarah"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+                android:id="@+id/card_relasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="6dp"
+                app:cardElevation="4dp">
+
+            <LinearLayout
+                    android:id="@+id/menu_relasi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img_relasi"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp" />
+
+                <TextView
+                        android:id="@+id/tv_relasi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Relasi"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="24dp"
+            android:baselineAligned="false"
+            android:gravity="center"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+
+        <androidx.cardview.widget.CardView
+                android:id="@+id/card_fungsi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="6dp"
+                app:cardElevation="4dp">
+
+            <LinearLayout
+                    android:id="@+id/menu_fungsi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img_fungsi"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp" />
+
+                <TextView
+                        android:id="@+id/tv_fungsi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Fungsi"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+                android:id="@+id/card_rumus_fungsi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="6dp"
+                app:cardElevation="4dp">
+
+            <LinearLayout
+                    android:id="@+id/menu_rumus_fungsi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img_rumus_fungsi"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp" />
+
+                <TextView
+                        android:id="@+id/tv_rumus_fungsi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Rumus Fungsi"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/laytambah"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="24dp"
+            android:baselineAligned="false"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            tools:ignore="UselessParent">
+
+        <androidx.cardview.widget.CardView
+                android:id="@+id/card_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="6dp"
+                app:cardElevation="4dp">
+
+            <LinearLayout
+                    android:id="@+id/menu_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img_1"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        app:srcCompat="@drawable/fungsi" />
+
+                <TextView
+                        android:id="@+id/tv_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="1"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+                android:id="@+id/card_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="6dp"
+                app:cardElevation="4dp">
+
+            <LinearLayout
+                    android:id="@+id/menu_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img_2"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        app:srcCompat="@drawable/rumus" />
+
+                <TextView
+                        android:id="@+id/tv_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="2"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="24dp"
+            android:baselineAligned="false"
+            android:gravity="center"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+
+        <androidx.cardview.widget.CardView
+                android:id="@+id/card_rangkuman"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="6dp"
+                app:cardElevation="4dp">
+
+            <LinearLayout
+                    android:id="@+id/menu_rangkuman"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img_rangkuman"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp" />
+
+                <TextView
+                        android:id="@+id/tv_rangkuman"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Rangkuman"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+                android:id="@+id/card_referensi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="6dp"
+                app:cardElevation="4dp">
+
+            <LinearLayout
+                    android:id="@+id/menu_referensi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img_referensi"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp" />
+
+                <TextView
+                        android:id="@+id/tv_referensi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Referensi"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="24dp"
+            android:baselineAligned="false"
+            android:gravity="center"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+
+        <androidx.cardview.widget.CardView
+                android:id="@+id/card_postes"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="6dp"
+                app:cardElevation="4dp">
+
+            <LinearLayout
+                    android:id="@+id/menu_postes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img_postes"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp" />
+
+                <TextView
+                        android:id="@+id/tv_postes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Postes"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+                android:id="@+id/card_soal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="6dp"
+                app:cardElevation="4dp">
+
+            <LinearLayout
+                    android:id="@+id/menu_soal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img_soal"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp" />
+
+                <TextView
+                        android:id="@+id/tv_soal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Latihan Soal"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:baselineAligned="false"
+            android:gravity="center"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+
+        <androidx.cardview.widget.CardView
+                android:id="@+id/card_kuis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="6dp"
+                app:cardElevation="4dp">
+
+            <LinearLayout
+                    android:id="@+id/menu_kuis"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img_kuis"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp" />
+
+                <TextView
+                        android:id="@+id/tv_kuis"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kuis"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</LinearLayout>

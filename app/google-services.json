@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1007687315979",
+    "firebase_url": "https://mastering-maths.firebaseio.com",
+    "project_id": "mastering-maths",
+    "storage_bucket": "mastering-maths.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1007687315979:android:91d9a12edc43f95d",
+        "android_client_info": {
+          "package_name": "com.unpas.masteringmaths"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1007687315979-svkifad31vi07khljdqq94pbekh78dgb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.unpas.masteringmaths",
+            "certificate_hash": "8bd07f02ef3d551befa701ec8c9683e37c8038b0"
+          }
+        },
+        {
+          "client_id": "1007687315979-qfdieqlb1t8vtu3q2bhgr0tpk46eeb8m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9G6u494i2RxJ_R0ehHwca2H6XmEwqjS4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1007687315979-qfdieqlb1t8vtu3q2bhgr0tpk46eeb8m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

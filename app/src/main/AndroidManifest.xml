@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:dist="http://schemas.android.com/apk/distribution"
+        xmlns:tools="http://schemas.android.com/tools"
+        package="com.unpas.masteringmaths">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <dist:module dist:instant="true" />
+
+    <application
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_maths_new_launcher"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_maths_new_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme"
+            tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+        <activity android:name=".main.activity.ProfileUserActivity" />
+        <activity android:name=".student.activity.StudentChatActivity" />
+        <activity android:name=".teacher.activity.TeacherChatActivity" />
+        <activity android:name=".teacher.activity.CreateAssignmentActivity" />
+        <activity android:name=".teacher.activity.PostActivity" />
+        <activity android:name=".teacher.activity.SettingClassActivity" />
+        <activity android:name=".teacher.activity.ClassRoomActivity" />
+        <activity android:name=".teacher.activity.CreateClassActivity" />
+        <activity android:name=".teacher.activity.EditProfileActivity" />
+        <activity android:name=".main.activity.ForgotPassActivity" />
+        <activity android:name=".student.activity.StudentDashboardActivity" />
+        <activity android:name=".teacher.activity.MathClassActivity" />
+        <activity android:name=".teacher.activity.TeacherDashboardActivity" />
+        <activity android:name=".student.activity.PostesRelasi" />
+        <activity android:name=".student.activity.ReferensiRelasi" />
+        <activity android:name=".student.activity.PostesPythagoras" />
+        <activity android:name=".student.activity.ReferensiPythagoras" />
+        <activity android:name=".student.activity.SejarahActivity" />
+        <activity android:name=".student.activity.PaketPythagoras" />
+        <activity android:name=".student.activity.ExamTeorema" />
+        <activity android:name=".student.activity.MasKonActivity" />
+        <activity android:name=".student.activity.TujuanPembelajaran" />
+        <activity android:name=".student.activity.StudentPostActivity" />
+        <activity android:name=".student.activity.InMateriActivity" />
+        <activity android:name=".student.activity.ExamRumusFungsi" />
+        <activity android:name=".student.activity.InsideClassActivity" />
+        <activity android:name=".student.activity.RumusFungsiActivity" />
+        <activity android:name=".student.activity.StudentInClassActivity" />
+        <activity android:name=".student.activity.ExamFungsiActivity" />
+        <activity android:name=".student.activity.PaketRelasiActivity" />
+        <activity android:name=".student.activity.SudentQuizeActivity" />
+        <activity android:name=".student.activity.StudentResultExamActivity" />
+        <activity android:name=".student.activity.StudentClassRoomActivity" />
+        <activity android:name=".student.activity.StudentExamActivity" />
+        <activity android:name=".student.activity.StudentKonsepActivity" />
+        <activity android:name=".student.activity.StudentMateriActivity" />
+        <activity android:name=".student.activity.StudentResultActivity" />
+        <activity android:name=".student.activity.EditProfileStudentActivity" />
+        <activity android:name=".student.activity.UjikomActivity" />
+        <activity android:name=".student.StudentRegisterActivity" />
+        <activity android:name=".teacher.activity.TeacherRegisterActivity" />
+        <activity android:name=".teacher.activity.GradedActivity" />
+        <activity android:name=".teacher.activity.ViewAssignmentActivity" />
+        <activity android:name=".student.activity.AssignmentViewActivity" />
+        <activity android:name=".student.activity.LingkaranActivity" />
+        <activity android:name=".student.activity.Bangun_ruangActivity" />
+        <activity android:name=".student.activity.StatisticActivity" />
+        <activity android:name=".student.activity.PeluangActivity" />
+        <activity android:name=".student.activity.QuizePythagorasActivity" />
+        <activity android:name=".student.activity.KompetensiActivity" />
+        <activity android:name=".student.activity.StudentLessonActivity" />
+        <activity android:name=".student.activity.QuizePolaBilangan" />
+        <activity android:name=".student.activity.QuizePersamaanGaris" />
+        <activity android:name=".student.activity.QuizeKordinat" />
+        <activity android:name=".student.activity.QuizeSpldv" />
+        <activity android:name=".student.activity.ReferensiPersamaanGaris" />
+        <activity android:name=".student.activity.ReferensiKordinat" />
+        <activity android:name=".student.activity.PostesPersamaanGaris" />
+        <activity android:name=".student.activity.PostesKordinat" />
+        <activity android:name=".student.activity.PaketPersamaanGaris" />
+        <activity android:name=".student.activity.ExamKemiringan" />
+        <activity android:name=".student.activity.ExamGarisLurus" />
+        <activity android:name=".student.activity.ExamDuaGaris" />
+        <activity android:name=".student.activity.PaketKordinat" />
+        <activity android:name=".student.activity.ExamKartesius" />
+        <activity android:name=".student.activity.ExamPosisiTitik" />
+        <activity android:name=".student.activity.ExamPosisiGaris" />
+        <activity android:name=".student.activity.SubActivity" />
+        <activity android:name=".student.activity.MateriActivity" />
+        <activity android:name=".student.activity.PostesPolaBilangan" />
+        <activity android:name=".student.activity.PostesSpldv" />
+        <activity android:name=".student.activity.PaketPolaBilanganActivity" />
+        <activity android:name=".student.activity.ReferensiSpldv" />
+        <activity android:name=".student.activity.ReferensiPolabilangan" />
+        <activity android:name=".student.activity.RangkumanActivity" />
+        <activity android:name=".student.activity.ExamSegitigaPythagoras" />
+        <activity android:name=".student.activity.KonsepActivity" />
+        <activity android:name=".student.activity.ExamBarisBilangan" />
+        <activity android:name=".student.activity.ExamAritmetika" />
+        <activity android:name=".student.activity.ExamGeometri" />
+        <activity android:name=".student.activity.PaketSpldv" />
+        <activity android:name=".student.activity.ExamEliminasi" />
+        <activity android:name=".student.activity.ExamSubstitusi" />
+        <activity android:name=".student.activity.ExamTripelPythagoras" />
+        <activity android:name=".student.activity.ExamGrafik" />
+        <activity android:name=".student.activity.ExamPenerapanPythagoras" />
+        <activity android:name=".main.activity.SplashScreenActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".main.activity.ChooseRegisterActivity" />
+        <activity android:name=".main.activity.LoginActivity" />
+        <activity
+                android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+                android:theme="@style/Base.Theme.AppCompat" />
+    </application>
+
+</manifest>

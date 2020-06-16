@@ -1,0 +1,203 @@
+<resources>
+    <string name="app_name">Mastering Maths</string>
+    <string name="register_as_teacher">Daftar Sebagai Guru</string>
+    <string name="register_as_student">Daftar Sebagai Siswa</string>
+    <string name="I_already_have_an_account">Saya Sudah Punya Akun</string>
+    <string name="create_new_account">Daftar</string>
+    <string name="login">Masuk</string>
+    <string name="password">Password</string>
+    <string name="app_intro">Selamat Datang di Mastering Maths</string>
+    <string name="input_email">Masukan Email</string>
+    <string name="nomor_nip">Nomor NIP</string>
+    <string name="full_name">Nama Lengkap</string>
+    <string name="email_address">Email</string>
+    <string name="re_type_password">Re-type Password</string>
+    <string name="daftar">Daftar</string>
+    <string name="nomor_nis">Nomor NISN</string>
+    <string name="forgot_password">Lupa Password?</string>
+    <string name="home">Home</string>
+    <string name="chat">Chat</string>
+    <string name="forum">Forum</string>
+    <string name="profil">Profil</string>
+
+    <string-array name="grade_level_list">
+        <item>SMP</item>
+        <item>SMA</item>
+    </string-array>
+
+    <string-array name="junior_high_school">
+        <item>Kelas VIII</item>
+    </string-array>
+
+    <string-array name="senior_high_school">
+        <item>Kelas X</item>
+    </string-array>
+
+    <string-array name="lesson_list">
+        <item>Relasi dan Fungsi</item>
+        <item>Teorema Pythagoras</item>
+        <item>Pola Bilangan</item>
+        <item>Persamaan Garis Lurus</item>
+        <item>Koordinat Cartesius</item>
+        <item>SPLDV</item>
+    </string-array>
+
+    <string name="pythagoras">Pythagoras</string>
+    <string name="peluang">Peluang</string>
+    <string name="lingkaran">Lingkaran</string>
+    <string name="bangun_ruang">Bangun Ruang</string>
+    <string name="statistics">Statistics</string>
+    <string name="uji_kompetensi">Uji Kompetensi</string>
+    <string name="search">Cari</string>
+    <string name="list_chat_name">Nama:</string>
+    <string name="list_chat_nis">NIS:</string>
+    <string name="no_discussion">Belum ada diskusi</string>
+    <string name="warning_input_data">Data tidak boleh ada yang kosong</string>
+    <string name="email_not_valid">Email yang dimasukan tidak valid</string>
+    <string name="register_failed">Registrasi gagal, silakan coba lagi</string>
+    <string name="password_not_valid">Password yang dimasukan tidak sama</string>
+    <string name="register_success">Registrasi berhasil</string>
+    <string name="error_user_not_found">Email atau Password salah</string>
+    <string name="error_wrong_password">Password yang anda masukan salah</string>
+    <string name="error_request">Terjadi kesalahan, silakan coba lagi</string>
+    <string name="email_password_null">Masukan Email dan Password</string>
+    <string name="lupa_password">Reset Password</string>
+    <string name="logo_app">logo_app</string>
+    <string name="send_reset_password">Silakan cek Inbox pada Email anda</string>
+    <string name="request_data">...........</string>
+    <string name="request_error">Data gagal dimuat, silakan coba lagi</string>
+    <string name="icon">icon</string>
+    <string name="user_address">Alamat Lengkap</string>
+    <string name="user_phone">Nomor Telepon</string>
+    <string name="edit_profil">Edit Profil</string>
+    <string name="logout">Logout</string>
+    <string name="btn_simpan">Simpan</string>
+    <string name="success_edit_profile">Profil berhasil di ubah</string>
+    <string name="txt_email_autentikasi">*Email ini digunakan untuk proses autentikasi</string>
+    <string name="nama_sekolah">Nama Sekolah</string>
+    <string name="nama_kota">Nama Kota</string>
+    <string name="upload_failed">Upload Gagal</string>
+    <string name="failed_show_photo">Gagal Menampilkan Foto</string>
+    <string name="upload_success">Foto berhasil diunggah</string>
+    <string name="data_not_found">Tidak ada data yang dimuat</string>
+    <string name="none_data">-</string>
+    <string name="no_student">0 Anggota</string>
+    <string name="alamat_email">Alamat Email</string>
+    <string name="nama_kelas">Nama Kelas</string>
+    <string name="jenjang_pendidikan">Jenjang Pendidikan</string>
+    <string name="buat_kelas">Buat Kelas</string>
+    <string name="empty_class">Nama kelas tidak boleh kosong</string>
+    <string name="success_create_class">Kelas berhasil dibuat</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="posts">Postingan</string>
+    <string name="members">Anggota</string>
+    <string name="no_active_class">Tidak ada kelas yang aktif</string>
+    <string name="class_relasi_fungsi">Relasi dan Fungsi</string>
+    <string name="gambar">gambar</string>
+    <string name="judul_tugas">Judul Tugas</string>
+    <string name="relasi_dan_fungsi">Relasi dan Fungsi</string>
+    <string name="pengaturan">Pengaturan</string>
+    <string name="text_access_id">User ID dan Kode Kelas digunakan untuk mengundang murid masuk kedalam kelas</string>
+    <string name="salin">Salin</string>
+    <string name="kode_kelas">Kode Kelas</string>
+    <string name="akses">AKSES</string>
+    <string name="use_id">Use ID</string>
+    <string name="edit_kelas">Edit Kelas</string>
+    <string name="profil_kelas">PROFIL</string>
+    <string name="hapus_kelas">Hapus Kelas</string>
+    <string name="success_edit_class">Data berhasil diubah</string>
+    <string name="success_delete_class">Kelas berhasil dihapus</string>
+    <string name="post">Post</string>
+    <string name="posting_sesuatu">Posting sesuatu....</string>
+    <string name="success_upload_post">Postingan berhasil di upload</string>
+    <string name="no_post_active">Tidak ada postingan</string>
+    <string name="nothing_member">Tidak ada member yang aktif</string>
+    <string name="item_menu">item_menu</string>
+    <string name="update_success">Postingan berhasil diubah</string>
+    <string name="post_has_editted">Postingan telah dihapus</string>
+    <string name="input_message">Ketik pesan</string>
+    <string name="discussion">Diskusi</string>
+    <string name="pesan">Pesan</string>
+    <string name="zero_class">0 Kelas</string>
+    <string name="nothing_notification">Tidak ada notifikasi</string>
+    <string name="no_chat_data">Tidak ada obrolan</string>
+    <string name="view_assignment">View Assignment</string>
+    <string name="assignment_title">Judul</string>
+    <string name="assignment_description">Instruksi / Deskripsi</string>
+    <string name="upload_file">Upload File</string>
+    <string name="nomor_nisn">Nomor Nisn</string>
+    <string name="lanjut">Lanjut</string>
+    <string name="sebelumnya">Sebelumnya</string>
+    <string name="id_guru">Id Guru</string>
+    <string name="masukan_id_guru">Masukan Id Guru</string>
+    <string name="masukan_kode_kelas">Masukan Kode Kelas</string>
+    <string name="submit">Submit</string>
+    <string name="s">S</string>
+    <string name="sejarah">Sejarah</string>
+    <string name="sejarah_relasi_dan_fungsi">Sejarah Relasi dan Fungsi</string>
+    <string name="r">R</string>
+    <string name="relasi">Relasi</string>
+    <string name="materi_relasi_smp_kelas_viii">Materi Relasi SMP Kelas VIII</string>
+    <string name="f">F</string>
+    <string name="fungsi">Fungsi</string>
+    <string name="materi_fungsi_smp_kelas_viii">Materi Fungsi SMP Kelas VIII</string>
+    <string name="m1">M1</string>
+    <string name="matematika_paket_1">Matematika Paket 1</string>
+    <string name="m2">M2</string>
+    <string name="matematika_paket_2">Matematika Paket 2</string>
+    <string name="m3">M3</string>
+    <string name="matematika_paket_3">Matematika Paket 3</string>
+    <string name="m4">M4</string>
+    <string name="matematika_paket_4">Matematika Paket 4</string>
+    <string name="m5">M5</string>
+    <string name="matematika_paket_5">Matematika Paket 5</string>
+    <string name="m6">M6</string>
+    <string name="matematika_paket_6">Matematika Paket 6</string>
+    <string name="m7">M7</string>
+    <string name="matematika_paket_7">Matematika Paket 7</string>
+    <string name="m8">M8</string>
+    <string name="matematika_paket_8">Matematika Paket 8</string>
+    <string name="m9">M9</string>
+    <string name="matematika_paket_9">Matematika Paket 9</string>
+    <string name="m10">M10</string>
+    <string name="matematika_paket_10">Matematika Paket 10</string>
+    <string name="kumpulan_soal_matematika_bab_relasi">Kumpulan Soal Matematika Bab Relasi</string>
+    <string name="kumpulan_soal_matematika_bab_fungsi">Kumpulan Soal Matematika Bab Fungsi</string>
+    <string name="create_a_post">Create a post</string>
+    <string name="rf">RF</string>
+    <string name="finish">Finish</string>
+    <string name="selesai">Selesai</string>
+    <string name="notification">Notifikasi</string>
+    <string name="loading_progress">Sedang Memuat.....</string>
+    <string name="teorema_pythagoras">Teorema Pythagoras</string>
+    <string name="pola_bilangan">Pola Bilangan</string>
+    <string name="persamaan_garis_lurus">Persamaan Garis Lurus</string>
+    <string name="koordinat_cartesius">Koordinat Cartesius</string>
+    <string name="spldv">SPLDV</string>
+    <string name="download_assignment">Download Assignment</string>
+    <string name="tulis_sesuatu">Tulis sesuatu…</string>
+    <string name="attach">Attach</string>
+    <string name="grade">Grade: 0/100</string>
+    <string name="pengumpulan_tugas">PENGUMPULAN TUGAS</string>
+    <string name="txt_no_graded">Belum ada yang mengumpulkan tugas</string>
+    <string name="kirim">KIRIM</string>
+    <string name="assignment_status">Status:</string>
+    <string name="unduh_berkas">Unduh Berkas</string>
+    <string name="submission">Submission</string>
+    <string name="beri_nilai_0_100">Beri Nilai 0 – 100</string>
+    <string name="grade_menu">GRADE</string>
+    <string name="class_teorema_pyithagoras">Teorema Pythagoras</string>
+    <string name="class_pola_bilangan">Pola Bilangan</string>
+    <string name="class_persamaan_garis">Persamaan Garis</string>
+    <string name="class_koordinat_cartesius">Koordinat Cartesius</string>
+    <string name="class_spldv">SPLDV</string>
+    <string name="kirm_pesan">Kirm Pesan</string>
+    <string name="join_class">Join Class</string>
+    <string name="pilih_mata_pelajaran">Pilih Mata Pelajaran</string>
+    <string name="matrik_pencacahan">Matrik Pencacahan</string>
+    <string name="txt_register">Belum punya akun?</string>
+    <string name="sign_up_now">Daftar Sekarang</string>
+    <string name="class_list">Kelas</string>
+</resources>
