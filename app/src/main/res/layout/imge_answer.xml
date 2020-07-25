@@ -1,188 +1,192 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent" android:visibility="visible">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:orientation="vertical">
+
         <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" android:layout_margin="8dp">
+            android:id="@+id/getAnsImgA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:orientation="horizontal">
 
-            <LinearLayout
-                    android:id="@+id/getAnsImgA"
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginBottom="2dp"
+                app:cardBackgroundColor="@color/card_view_color"
+                app:cardElevation="@dimen/card_elevation">
+
+                <RelativeLayout
+                    android:id="@+id/cardImgA"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:orientation="horizontal">
+                    android:layout_height="match_parent"
+                    android:gravity="center">
 
-                <androidx.cardview.widget.CardView
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_marginStart="2dp"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginEnd="2dp"
-                        android:layout_marginRight="2dp"
-                        android:layout_marginBottom="2dp"
-                        app:cardElevation="3dp">
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/char_ImgA"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="@string/card_a"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
-                    <RelativeLayout
-                            android:id="@+id/cardImgA"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center">
+                </RelativeLayout>
 
-                        <TextView
-                                android:id="@+id/char_ImgA"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:gravity="center"
-                                android:text="A"
-                                android:textSize="16sp"
-                                android:textStyle="bold"/>
-                    </RelativeLayout>
-                </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
-                <ImageView android:layout_width="150dp"
-                           android:layout_height="150dp"
-                           android:id="@+id/img_answer_A"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/img_answer_A"
+                android:layout_width="150dp"
+                android:layout_height="150dp" />
 
-            </LinearLayout>
-
-            <LinearLayout
-                    android:id="@+id/getAnsImgB"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:orientation="horizontal">
-
-                <androidx.cardview.widget.CardView
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_marginStart="2dp"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginEnd="2dp"
-                        android:layout_marginRight="2dp"
-                        android:layout_marginBottom="2dp"
-                        app:cardElevation="3dp"
-                        tools:ignore="NestedWeights">
-
-                    <RelativeLayout
-                            android:id="@+id/cardImgB"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center">
-
-                        <TextView
-                                android:id="@+id/char_ImgB"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:gravity="center"
-                                android:text="B"
-                                android:textSize="16sp"
-                                android:textStyle="bold"/>
-                    </RelativeLayout>
-                </androidx.cardview.widget.CardView>
-
-                <ImageView android:layout_width="150dp"
-                           android:layout_height="150dp"
-                           android:id="@+id/img_answer_B"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                    android:id="@+id/getAnsImgC"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:orientation="horizontal">
-
-                <androidx.cardview.widget.CardView
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_marginStart="2dp"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginEnd="2dp"
-                        android:layout_marginRight="2dp"
-                        android:layout_marginBottom="2dp"
-                        app:cardElevation="3dp"
-                        tools:ignore="NestedWeights">
-
-                    <RelativeLayout
-                            android:id="@+id/cardImgC"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center">
-
-                        <TextView
-                                android:id="@+id/char_ImgC"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:gravity="center"
-                                android:text="C"
-                                android:textSize="16sp"
-                                android:textStyle="bold"/>
-                    </RelativeLayout>
-                </androidx.cardview.widget.CardView>
-
-                <ImageView android:layout_width="150dp"
-                           android:layout_height="150dp"
-                           android:id="@+id/img_answer_C"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                    android:id="@+id/getAnsImgD"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:orientation="horizontal">
-
-                <androidx.cardview.widget.CardView
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_marginStart="2dp"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginEnd="2dp"
-                        android:layout_marginRight="2dp"
-                        android:layout_marginBottom="2dp"
-                        app:cardElevation="3dp"
-                        tools:ignore="NestedWeights">
-
-                    <RelativeLayout
-                            android:id="@+id/cardImgD"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center">
-
-                        <TextView
-                                android:id="@+id/char_ImgD"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:gravity="center"
-                                android:text="D"
-                                android:textSize="16sp"
-                                android:textStyle="bold"/>
-                    </RelativeLayout>
-                </androidx.cardview.widget.CardView>
-
-                <ImageView android:layout_width="150dp"
-                           android:layout_height="150dp"
-                           android:id="@+id/img_answer_D"/>
-
-            </LinearLayout>
         </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/getAnsImgB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginBottom="2dp"
+                app:cardBackgroundColor="@color/card_view_color"
+                app:cardElevation="@dimen/card_elevation">
+
+                <RelativeLayout
+                    android:id="@+id/cardImgB"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/char_ImgB"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="@string/card_b"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/img_answer_B"
+                android:layout_width="150dp"
+                android:layout_height="150dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/getAnsImgC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginBottom="2dp"
+                app:cardBackgroundColor="@color/card_view_color"
+                app:cardElevation="@dimen/card_elevation">
+
+                <RelativeLayout
+                    android:id="@+id/cardImgC"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/char_ImgC"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="@string/card_c"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/img_answer_C"
+                android:layout_width="150dp"
+                android:layout_height="150dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/getAnsImgD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginBottom="2dp"
+                app:cardBackgroundColor="@color/card_view_color"
+                app:cardElevation="@dimen/card_elevation">
+
+                <RelativeLayout
+                    android:id="@+id/cardImgD"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/char_ImgD"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="@string/card_d"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/img_answer_D"
+                android:layout_width="150dp"
+                android:layout_height="150dp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

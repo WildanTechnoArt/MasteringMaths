@@ -12,13 +12,7 @@ import com.unpas.masteringmaths.R
 import com.unpas.masteringmaths.student.presenter.EditProfilePresenter
 import com.unpas.masteringmaths.student.view.EditProfileView
 import kotlinx.android.synthetic.main.activity_edit_profile_student.*
-import kotlinx.android.synthetic.main.activity_edit_profile_student.btn_save
-import kotlinx.android.synthetic.main.activity_edit_profile_student.input_city
-import kotlinx.android.synthetic.main.activity_edit_profile_student.input_email
-import kotlinx.android.synthetic.main.activity_edit_profile_student.input_name
-import kotlinx.android.synthetic.main.activity_edit_profile_student.input_nisn
-import kotlinx.android.synthetic.main.activity_edit_profile_student.input_phone
-import kotlinx.android.synthetic.main.activity_edit_profile_student.swipe_refresh
+import kotlinx.android.synthetic.main.toolbar_layout.*
 
 class EditProfileStudentActivity : AppCompatActivity(), EditProfileView.View {
 
@@ -46,7 +40,7 @@ class EditProfileStudentActivity : AppCompatActivity(), EditProfileView.View {
             mNewNisn = input_nisn.text.toString()
             mNewUsername = input_name.text.toString()
             mNewEmail = input_email.text.toString()
-            mNewCity = input_city.text.toString()
+            mNewCity = input_address.text.toString()
             mNewPhoneNumber = input_phone.text.toString()
             presenter.requestEditProfile(mNewNisn, mNewUsername, mNewEmail, mNewCity, mNewPhoneNumber)
         }
@@ -64,12 +58,12 @@ class EditProfileStudentActivity : AppCompatActivity(), EditProfileView.View {
         input_nisn.setText(nisn)
         input_name.setText(name)
         input_email.setText(email)
-        input_city.setText(city)
+        input_address.setText(city)
         input_phone.setText(phone)
     }
 
     override fun handleResponse(message: String) {
-        btn_save.hideProgress(R.string.btn_simpan)
+        btn_save.hideProgress(R.string.btn_save)
         Toast.makeText(
             this, message,
             Toast.LENGTH_SHORT
@@ -90,6 +84,7 @@ class EditProfileStudentActivity : AppCompatActivity(), EditProfileView.View {
             setDisplayShowHomeEnabled(true)
             setHomeButtonEnabled(true)
             setDisplayHomeAsUpEnabled(true)
+            title = "Edit Profil"
         }
 
         swipe_refresh.isRefreshing = true

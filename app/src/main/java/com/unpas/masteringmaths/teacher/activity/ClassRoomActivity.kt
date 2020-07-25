@@ -1,13 +1,12 @@
 package com.unpas.masteringmaths.teacher.activity
 
 import android.content.Intent
-import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.firestore.FirebaseFirestore
 import com.unpas.masteringmaths.R
 import com.unpas.masteringmaths.database.SharedPrefManager
@@ -32,7 +31,50 @@ class ClassRoomActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_class_room)
-        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        prepare()
+        fab_create_post.setOnClickListener {
+            val intent = Intent(this, CreatePostActivity::class.java)
+            intent.putExtra(CLASS_ID, classId)
+            intent.putExtra(CLASS_NAME, className)
+            intent.putExtra(TOOLBAR_TITLE, "Buat Postingan")
+            startActivity(intent)
+        }
+        checkMemberExists()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val close = intent?.getBooleanExtra(CLOSE_ACTIVITY, false)
+        if (close == true) {
+            finish()
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.class_room, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.setting -> {
+                val intent = Intent(this, SettingClassActivity::class.java)
+                intent.putExtra(CLASS_ID, classId)
+                intent.putExtra(CLASS_TITLE, classTitle)
+                intent.putExtra(CLASS_NAME, className)
+                intent.putExtra(CLASS_GRADE, classGrade)
+                startActivity(intent)
+            }
+        }
+        return true
+    }
+
+    private fun prepare() {
+        val tabMenus = arrayOf(
+            getString(R.string.posts),
+            getString(R.string.members),
+            getString(R.string.discussion)
+        )
 
         classId = intent?.getStringExtra(CLASS_ID).toString()
         classTitle = intent?.getStringExtra(CLASS_TITLE).toString()
@@ -44,54 +86,34 @@ class ClassRoomActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         getClassName()
 
-        tabs_class.addTab(tabs_class.newTab().setText(resources.getString(R.string.posts)))
-        tabs_class.addTab(tabs_class.newTab().setText(resources.getString(R.string.members)))
-        tabs_class.addTab(tabs_class.newTab().setText(getString(R.string.discussion)))
+        val pageAdapter = ClassRoomAdapter(this)
 
-        val pageAdapter = ClassRoomAdapter(
-            supportFragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
-        )
+        view_pager.adapter = pageAdapter
 
-        container.adapter = pageAdapter
-        container.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabs_class))
+        TabLayoutMediator(
+            tab_layout,
+            view_pager,
+            TabLayoutMediator.TabConfigurationStrategy { tab, position ->
+                tab.text = tabMenus[position]
+            }
+        ).attach()
 
-        tabs_class.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-            override fun onTabSelected(tab: TabLayout.Tab) {
-                container.currentItem = tab.position
+        tab_layout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabReselected(tab: TabLayout.Tab?) {}
 
-                when (tab.position) {
-                    2 -> menuFab.visibility = View.GONE
-                    else -> {
-                        menuFab.visibility = View.VISIBLE
-                    }
+            override fun onTabUnselected(tab: TabLayout.Tab?) {}
+
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                when (tab?.position) {
+                    0 -> fab_create_post.show()
+                    else -> fab_create_post.hide()
                 }
             }
 
-            override fun onTabUnselected(tab: TabLayout.Tab) {}
-
-            override fun onTabReselected(tab: TabLayout.Tab) {}
         })
-
-        fab_posts.setOnClickListener {
-            val intent = Intent(this, PostActivity::class.java)
-            intent.putExtra(CLASS_ID, classId)
-            intent.putExtra(CLASS_NAME, className)
-            intent.putExtra(TOOLBAR_TITLE, "Buat Postingan")
-            startActivity(intent)
-        }
-
-        fab_exam.setOnClickListener {
-            val intent = Intent(this, CreateAssignmentActivity::class.java)
-            intent.putExtra(CLASS_ID, classId)
-            intent.putExtra(CLASS_NAME, className)
-            intent.putExtra(TOOLBAR_TITLE, "Buat Tugas")
-            startActivity(intent)
-        }
-
-        checkMemberExists()
     }
 
-    private fun getClassName(){
+    private fun getClassName() {
         val db = FirebaseFirestore.getInstance()
         db.collection("teacher")
             .document("classList")
@@ -134,38 +156,6 @@ class ClassRoomActivity : AppCompatActivity() {
                     createMember()
                 }
             }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        menuFab.close(true)
-        val close = intent?.getBooleanExtra(CLOSE_ACTIVITY, false)
-        if (close == true) {
-            finish()
-        }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.class_room, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.setting -> {
-                val intent = Intent(this, SettingClassActivity::class.java)
-                intent.putExtra(CLASS_ID, classId)
-                intent.putExtra(CLASS_TITLE, classTitle)
-                intent.putExtra(CLASS_NAME, className)
-                intent.putExtra(CLASS_GRADE, classGrade)
-                startActivity(intent)
-            }
-        }
-        return true
-    }
-
-    companion object {
-        const val BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT = 1
     }
 }
 

@@ -1,25 +1,25 @@
 package com.unpas.masteringmaths.student.adapter
 
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentStatePagerAdapter
+import androidx.fragment.app.FragmentActivity
+import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.unpas.masteringmaths.student.fragment.classroom.StudentDiscussionFragment
 import com.unpas.masteringmaths.student.fragment.classroom.StudentMembersFragment
-import com.unpas.masteringmaths.student.fragment.classroom.StudentPostsFragment
+import com.unpas.masteringmaths.teacher.fragment.PostsFragment
 
-class StudentClassRoomAdapter(fm: FragmentManager, behavior: Int) :
-    FragmentStatePagerAdapter(fm, behavior) {
+class StudentClassRoomAdapter(fm: FragmentActivity) :
+    FragmentStateAdapter(fm) {
 
     private val pages = listOf(
-        StudentPostsFragment(), StudentMembersFragment(),
+        PostsFragment(), StudentMembersFragment(),
         StudentDiscussionFragment()
     )
 
-    override fun getItem(position: Int): Fragment {
-        return pages[position]
+    override fun getItemCount(): Int {
+        return pages.size
     }
 
-    override fun getCount(): Int {
-        return pages.size
+    override fun createFragment(position: Int): Fragment {
+        return pages[position]
     }
 }

@@ -4,22 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.FirebaseFirestore
 import com.unpas.masteringmaths.R
 import com.unpas.masteringmaths.main.adapter.FirestoreMemberAdapter
 import com.unpas.masteringmaths.teacher.model.MemberData
 import com.unpas.masteringmaths.utils.UtilsConstant
+import kotlinx.android.synthetic.main.fragment_members.*
 
 class StudentMembersFragment : Fragment() {
 
-    private lateinit var rvMemberList: RecyclerView
-    private lateinit var tvNoMember: TextView
     private lateinit var teacherId: String
     private lateinit var codeClass: String
     private lateinit var className: String
@@ -30,8 +27,6 @@ class StudentMembersFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        rvMemberList = view.findViewById(R.id.rv_member_list)
-        tvNoMember = view.findViewById(R.id.tv_nothing_members)
         teacherId = (context as AppCompatActivity).intent?.getStringExtra(UtilsConstant.TEACHER_ID).toString()
         codeClass = (context as AppCompatActivity).intent?.getStringExtra(UtilsConstant.CLASS_ID).toString()
         className = (context as AppCompatActivity).intent?.getStringExtra(UtilsConstant.CLASS_NAME).toString()
@@ -53,11 +48,11 @@ class StudentMembersFragment : Fragment() {
             .setLifecycleOwner(this)
             .build()
 
-        rvMemberList.layoutManager = LinearLayoutManager(context)
-        rvMemberList.setHasFixedSize(true)
+        rv_member_list?.layoutManager = LinearLayoutManager(context)
+        rv_member_list?.setHasFixedSize(true)
 
         val adapter = FirestoreMemberAdapter(options)
-        rvMemberList.adapter = adapter
+        rv_member_list?.adapter = adapter
     }
 
     private fun getDataCount() {
@@ -70,11 +65,11 @@ class StudentMembersFragment : Fragment() {
 
         db.addSnapshotListener { snapshot, _ ->
             if ((snapshot?.size() ?: 0) > 0) {
-                rvMemberList.visibility = View.VISIBLE
-                tvNoMember.visibility = View.GONE
+                rv_member_list?.visibility = View.VISIBLE
+                tv_nothing_members?.visibility = View.GONE
             } else {
-                rvMemberList.visibility = View.GONE
-                tvNoMember.visibility = View.VISIBLE
+                rv_member_list?.visibility = View.GONE
+                tv_nothing_members?.visibility = View.VISIBLE
             }
         }
     }

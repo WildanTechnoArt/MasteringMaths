@@ -12,6 +12,7 @@ import com.unpas.masteringmaths.R
 import com.unpas.masteringmaths.main.presenter.ForgotPasswordPresenter
 import com.unpas.masteringmaths.main.view.ForgotPasswordView
 import kotlinx.android.synthetic.main.activity_forgot_pass.*
+import kotlinx.android.synthetic.main.toolbar_layout.*
 
 class ForgotPassActivity : AppCompatActivity(), ForgotPasswordView.View {
 
@@ -47,7 +48,7 @@ class ForgotPassActivity : AppCompatActivity(), ForgotPasswordView.View {
     }
 
     override fun hideProgressBar() {
-        btn_forgot_password.hideProgress(R.string.lupa_password)
+        btn_forgot_password.hideProgress(R.string.btn_reset_password)
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -61,6 +62,7 @@ class ForgotPassActivity : AppCompatActivity(), ForgotPasswordView.View {
             setDisplayHomeAsUpEnabled(true)
             setHomeButtonEnabled(true)
             setDisplayShowHomeEnabled(true)
+            title = "Lupa Password"
         }
 
         presenter = ForgotPasswordPresenter(this, this)

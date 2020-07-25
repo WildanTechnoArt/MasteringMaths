@@ -12,6 +12,5 @@ data class PostData (
     var postType: Int? = null,
     var fileUrl: String? = null,
     var isTeacher: Boolean? = null,
-    var postTitle: String ? = null,
     var postContent: String ? = null
 ): Parcelable

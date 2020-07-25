@@ -3,7 +3,7 @@ package com.unpas.masteringmaths.database
 import android.annotation.SuppressLint
 import android.content.Context
 
-class  SharedPrefManager private constructor(context: Context) {
+class SharedPrefManager private constructor(context: Context) {
 
     init {
         mContext = context

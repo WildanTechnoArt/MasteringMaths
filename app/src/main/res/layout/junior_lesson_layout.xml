@@ -9,204 +9,198 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/card_relasi_fungsi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            app:cardCornerRadius="6dp"
-            app:cardElevation="3dp">
+            android:layout_marginStart="@dimen/margin_small_size"
+            android:layout_marginTop="@dimen/margin_small_size"
+            android:layout_marginEnd="@dimen/margin_small_size"
+            android:layout_marginBottom="@dimen/margin_small_size"
+            app:cardCornerRadius="@dimen/card_radius_corner"
+            app:cardElevation="@dimen/card_elevation">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/button_hover"
                 android:orientation="vertical"
                 android:padding="14dp">
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/relasi_dan_fungsi"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tv_class1_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/zero_class" />
 
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/card_phytagoras"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            app:cardCornerRadius="6dp"
-            app:cardElevation="3dp">
+            android:layout_marginStart="@dimen/margin_small_size"
+            android:layout_marginTop="@dimen/margin_small_size"
+            android:layout_marginEnd="@dimen/margin_small_size"
+            android:layout_marginBottom="@dimen/margin_small_size"
+            app:cardCornerRadius="@dimen/card_radius_corner"
+            app:cardElevation="@dimen/card_elevation">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/button_hover"
                 android:orientation="vertical"
                 android:padding="14dp">
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Teorema Phythagoras"
+                    android:text="@string/card_teorema_phythagoras"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/zero_class" />
 
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/card_pola_bilangan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            app:cardCornerRadius="6dp"
-            app:cardElevation="3dp">
+            android:layout_marginStart="@dimen/margin_small_size"
+            android:layout_marginTop="@dimen/margin_small_size"
+            android:layout_marginEnd="@dimen/margin_small_size"
+            android:layout_marginBottom="@dimen/margin_small_size"
+            app:cardCornerRadius="@dimen/card_radius_corner"
+            app:cardElevation="@dimen/card_elevation">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/button_hover"
                 android:orientation="vertical"
                 android:padding="14dp">
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Pola Bilangan"
+                    android:text="@string/card_pola_bilangan"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/zero_class" />
 
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/card_persamaan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            app:cardCornerRadius="6dp"
-            app:cardElevation="3dp">
+            android:layout_marginStart="@dimen/margin_small_size"
+            android:layout_marginTop="@dimen/margin_small_size"
+            android:layout_marginEnd="@dimen/margin_small_size"
+            android:layout_marginBottom="@dimen/margin_small_size"
+            app:cardCornerRadius="@dimen/card_radius_corner"
+            app:cardElevation="@dimen/card_elevation">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/button_hover"
                 android:orientation="vertical"
                 android:padding="14dp">
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Persamaan Garis Lurus"
+                    android:text="@string/card_persamaan_garis_lurus"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/zero_class" />
 
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/card_koordinat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            app:cardCornerRadius="6dp"
-            app:cardElevation="3dp">
+            android:layout_marginStart="@dimen/margin_small_size"
+            android:layout_marginTop="@dimen/margin_small_size"
+            android:layout_marginEnd="@dimen/margin_small_size"
+            android:layout_marginBottom="@dimen/margin_small_size"
+            app:cardCornerRadius="@dimen/card_radius_corner"
+            app:cardElevation="@dimen/card_elevation">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/button_hover"
                 android:orientation="vertical"
                 android:padding="14dp">
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Koordinat Cartesius"
+                    android:text="@string/card_koordinat_cartesius"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/zero_class" />
 
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/card_spldv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            app:cardCornerRadius="6dp"
-            app:cardElevation="3dp">
+            android:layout_marginStart="@dimen/margin_small_size"
+            android:layout_marginTop="@dimen/margin_small_size"
+            android:layout_marginEnd="@dimen/margin_small_size"
+            android:layout_marginBottom="@dimen/margin_small_size"
+            app:cardCornerRadius="@dimen/card_radius_corner"
+            app:cardElevation="@dimen/card_elevation">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/button_hover"
                 android:orientation="vertical"
                 android:padding="14dp">
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="SPLDV"
+                    android:text="@string/card_spldv"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/zero_class" />
 
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
 

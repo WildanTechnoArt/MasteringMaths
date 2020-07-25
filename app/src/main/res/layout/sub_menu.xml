@@ -1,547 +1,625 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="8dp">
+        android:layout_height="wrap_content">
 
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="24dp"
-            android:baselineAligned="false"
-            android:gravity="center"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
-
-        <androidx.cardview.widget.CardView
-                android:id="@+id/card_pembelajaran"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:layout_weight="1"
-                app:cardCornerRadius="6dp"
-                app:cardElevation="4dp">
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_pembelajaran"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_big_size"
+            android:layout_marginLeft="@dimen/margin_big_size"
+            android:layout_marginTop="@dimen/margin_big_size"
+            android:layout_marginEnd="@dimen/margin_small_size"
+            android:layout_marginRight="@dimen/margin_small_size"
+            app:cardBackgroundColor="@color/card_view_color"
+            app:cardCornerRadius="@dimen/card_radius_corner"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintEnd_toStartOf="@+id/card_indikator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
-                    android:id="@+id/menu_pembelajaran"
+                android:id="@+id/menu_pembelajaran"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|center_horizontal"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/img_pembelajaran"
                     android:layout_width="match_parent"
+                    android:layout_height="70dp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_pembelajaran"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center|center_horizontal"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/img_pembelajaran"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp" />
-
-                <TextView
-                        android:id="@+id/tv_pembelajaran"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Kompetensi Dasar"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp" />
+                    android:layout_marginTop="@dimen/margin_small_size"
+                    android:gravity="center"
+                    android:ellipsize="marquee"
+                    android:focusable="auto"
+                    android:focusableInTouchMode="true"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:text="@string/card_kompetensi_dasar"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <androidx.cardview.widget.CardView
-                android:id="@+id/card_indikator"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:layout_weight="1"
-                app:cardCornerRadius="6dp"
-                app:cardElevation="4dp">
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_indikator"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small_size"
+            android:layout_marginLeft="@dimen/margin_small_size"
+            android:layout_marginEnd="@dimen/margin_big_size"
+            android:layout_marginRight="@dimen/margin_big_size"
+            app:cardBackgroundColor="@color/card_view_color"
+            app:cardCornerRadius="@dimen/card_radius_corner"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/card_pembelajaran"
+            app:layout_constraintTop_toTopOf="@+id/card_pembelajaran">
 
             <LinearLayout
-                    android:id="@+id/menu_indikator"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center|center_horizontal"
-                    android:orientation="vertical"
-                    android:padding="12dp">
+                android:id="@+id/menu_indikator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|center_horizontal"
+                android:orientation="vertical"
+                android:padding="12dp">
 
                 <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/img_indikator"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp" />
+                    android:id="@+id/img_indikator"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp" />
 
-                <TextView
-                        android:id="@+id/tv_indikator"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Peta Konsep"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_indikator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small_size"
+                    android:gravity="center"
+                    android:text="@string/card_peta_konsep"
+                    android:ellipsize="marquee"
+                    android:focusable="auto"
+                    android:focusableInTouchMode="true"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-
-    </LinearLayout>
-
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="24dp"
-            android:baselineAligned="false"
-            android:gravity="center"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
-
-        <androidx.cardview.widget.CardView
-                android:id="@+id/card_sejarah"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:layout_weight="1"
-                app:cardCornerRadius="6dp"
-                app:cardElevation="4dp">
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_sejarah"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_big_size"
+            android:layout_marginEnd="@dimen/margin_small_size"
+            android:layout_marginRight="@dimen/margin_small_size"
+            app:cardBackgroundColor="@color/card_view_color"
+            app:cardCornerRadius="@dimen/card_radius_corner"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintEnd_toStartOf="@+id/card_relasi"
+            app:layout_constraintStart_toStartOf="@+id/card_pembelajaran"
+            app:layout_constraintTop_toBottomOf="@+id/card_pembelajaran">
 
             <LinearLayout
-                    android:id="@+id/menu_sejarah"
+                android:id="@+id/menu_sejarah"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|center_horizontal"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/img_sejarah"
                     android:layout_width="match_parent"
+                    android:layout_height="70dp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_sejarah"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center|center_horizontal"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/img_sejarah"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp" />
-
-                <TextView
-                        android:id="@+id/tv_sejarah"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Sejarah"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp" />
+                    android:layout_marginTop="@dimen/margin_small_size"
+                    android:gravity="center"
+                    android:text="@string/card_sejarah"
+                    android:ellipsize="marquee"
+                    android:focusable="auto"
+                    android:focusableInTouchMode="true"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <androidx.cardview.widget.CardView
-                android:id="@+id/card_relasi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:layout_weight="1"
-                app:cardCornerRadius="6dp"
-                app:cardElevation="4dp">
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_relasi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small_size"
+            android:layout_marginLeft="@dimen/margin_small_size"
+            app:cardBackgroundColor="@color/card_view_color"
+            app:cardCornerRadius="@dimen/card_radius_corner"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintEnd_toEndOf="@+id/card_indikator"
+            app:layout_constraintStart_toEndOf="@+id/card_sejarah"
+            app:layout_constraintTop_toTopOf="@+id/card_sejarah">
 
             <LinearLayout
-                    android:id="@+id/menu_relasi"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center|center_horizontal"
-                    android:orientation="vertical"
-                    android:padding="12dp">
+                android:id="@+id/menu_relasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|center_horizontal"
+                android:orientation="vertical"
+                android:padding="12dp">
 
                 <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/img_relasi"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp" />
+                    android:id="@+id/img_relasi"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp" />
 
-                <TextView
-                        android:id="@+id/tv_relasi"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Relasi"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_relasi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small_size"
+                    android:gravity="center"
+                    android:ellipsize="marquee"
+                    android:focusable="auto"
+                    android:focusableInTouchMode="true"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:text="@string/card_relasi"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-
-    </LinearLayout>
-
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="24dp"
-            android:baselineAligned="false"
-            android:gravity="center"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
-
-        <androidx.cardview.widget.CardView
-                android:id="@+id/card_fungsi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:layout_weight="1"
-                app:cardCornerRadius="6dp"
-                app:cardElevation="4dp">
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_fungsi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_big_size"
+            android:layout_marginEnd="@dimen/margin_small_size"
+            android:layout_marginRight="@dimen/margin_small_size"
+            app:cardBackgroundColor="@color/card_view_color"
+            app:cardCornerRadius="@dimen/card_radius_corner"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintEnd_toStartOf="@+id/card_rumus_fungsi"
+            app:layout_constraintStart_toStartOf="@+id/card_sejarah"
+            app:layout_constraintTop_toBottomOf="@+id/card_sejarah">
 
             <LinearLayout
-                    android:id="@+id/menu_fungsi"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center|center_horizontal"
-                    android:orientation="vertical"
-                    android:padding="12dp">
+                android:id="@+id/menu_fungsi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|center_horizontal"
+                android:orientation="vertical"
+                android:padding="12dp">
 
                 <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/img_fungsi"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp" />
+                    android:id="@+id/img_fungsi"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp" />
 
-                <TextView
-                        android:id="@+id/tv_fungsi"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Fungsi"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_fungsi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small_size"
+                    android:gravity="center"
+                    android:text="@string/card_fungsi"
+                    android:ellipsize="marquee"
+                    android:focusable="auto"
+                    android:focusableInTouchMode="true"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <androidx.cardview.widget.CardView
-                android:id="@+id/card_rumus_fungsi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:layout_weight="1"
-                app:cardCornerRadius="6dp"
-                app:cardElevation="4dp">
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_rumus_fungsi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small_size"
+            android:layout_marginLeft="@dimen/margin_small_size"
+            app:cardBackgroundColor="@color/card_view_color"
+            app:cardCornerRadius="@dimen/card_radius_corner"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintEnd_toEndOf="@+id/card_relasi"
+            app:layout_constraintStart_toEndOf="@+id/card_fungsi"
+            app:layout_constraintTop_toTopOf="@+id/card_fungsi">
 
             <LinearLayout
-                    android:id="@+id/menu_rumus_fungsi"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center|center_horizontal"
-                    android:orientation="vertical"
-                    android:padding="12dp">
+                android:id="@+id/menu_rumus_fungsi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|center_horizontal"
+                android:orientation="vertical"
+                android:padding="12dp">
 
                 <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/img_rumus_fungsi"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp" />
+                    android:id="@+id/img_rumus_fungsi"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp" />
 
-                <TextView
-                        android:id="@+id/tv_rumus_fungsi"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Rumus Fungsi"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_rumus_fungsi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small_size"
+                    android:gravity="center"
+                    android:text="@string/card_rumus_fungsi"
+                    android:ellipsize="marquee"
+                    android:focusable="auto"
+                    android:focusableInTouchMode="true"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-
-    </LinearLayout>
-
-    <LinearLayout
-            android:id="@+id/laytambah"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="24dp"
-            android:baselineAligned="false"
-            android:gravity="center"
-            android:orientation="horizontal"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_big_size"
+            android:layout_marginEnd="@dimen/margin_small_size"
+            android:layout_marginRight="@dimen/margin_small_size"
             android:visibility="gone"
-            tools:ignore="UselessParent">
+            app:cardBackgroundColor="@color/card_view_color"
+            app:cardCornerRadius="@dimen/card_radius_corner"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintEnd_toStartOf="@+id/card_2"
+            app:layout_constraintStart_toStartOf="@+id/card_sejarah"
+            app:layout_constraintTop_toBottomOf="@+id/card_fungsi">
 
-        <androidx.cardview.widget.CardView
-                android:id="@+id/card_1"
+            <LinearLayout
+                android:id="@+id/menu_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:layout_weight="1"
-                app:cardCornerRadius="6dp"
-                app:cardElevation="4dp">
+                android:gravity="center|center_horizontal"
+                android:orientation="vertical"
+                android:padding="12dp">
 
-            <LinearLayout
-                    android:id="@+id/menu_1"
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/img_1"
                     android:layout_width="match_parent"
+                    android:layout_height="70dp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_1"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center|center_horizontal"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/img_1"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        app:srcCompat="@drawable/fungsi" />
-
-                <TextView
-                        android:id="@+id/tv_1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="1"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp" />
+                    android:layout_marginTop="@dimen/margin_small_size"
+                    android:gravity="center"
+                    android:text="@string/request_data"
+                    android:ellipsize="marquee"
+                    android:focusable="auto"
+                    android:focusableInTouchMode="true"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <androidx.cardview.widget.CardView
-                android:id="@+id/card_2"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small_size"
+            android:layout_marginLeft="@dimen/margin_small_size"
+            android:visibility="gone"
+            app:cardBackgroundColor="@color/card_view_color"
+            app:cardCornerRadius="@dimen/card_radius_corner"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintEnd_toEndOf="@+id/card_rumus_fungsi"
+            app:layout_constraintStart_toEndOf="@+id/card_1"
+            app:layout_constraintTop_toTopOf="@+id/card_1">
+
+            <LinearLayout
+                android:id="@+id/menu_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:layout_weight="1"
-                app:cardCornerRadius="6dp"
-                app:cardElevation="4dp">
-
-            <LinearLayout
-                    android:id="@+id/menu_2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center|center_horizontal"
-                    android:orientation="vertical"
-                    android:padding="12dp">
+                android:gravity="center|center_horizontal"
+                android:orientation="vertical"
+                android:padding="12dp">
 
                 <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/img_2"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        app:srcCompat="@drawable/rumus" />
+                    android:id="@+id/img_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp" />
 
-                <TextView
-                        android:id="@+id/tv_2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="2"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small_size"
+                    android:gravity="center"
+                    android:text="@string/request_data"
+                    android:ellipsize="marquee"
+                    android:focusable="auto"
+                    android:focusableInTouchMode="true"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_rangkuman"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_big_size"
+            android:layout_marginEnd="@dimen/margin_small_size"
+            android:layout_marginRight="@dimen/margin_small_size"
+            app:cardBackgroundColor="@color/card_view_color"
+            app:cardCornerRadius="@dimen/card_radius_corner"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintEnd_toStartOf="@+id/card_referensi"
+            app:layout_constraintStart_toStartOf="@+id/card_fungsi"
+            app:layout_constraintTop_toBottomOf="@+id/card_1">
 
-    </LinearLayout>
-
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="24dp"
-            android:baselineAligned="false"
-            android:gravity="center"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
-
-        <androidx.cardview.widget.CardView
-                android:id="@+id/card_rangkuman"
+            <LinearLayout
+                android:id="@+id/menu_rangkuman"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:layout_weight="1"
-                app:cardCornerRadius="6dp"
-                app:cardElevation="4dp">
+                android:gravity="center|center_horizontal"
+                android:orientation="vertical"
+                android:padding="12dp">
 
-            <LinearLayout
-                    android:id="@+id/menu_rangkuman"
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/img_rangkuman"
                     android:layout_width="match_parent"
+                    android:layout_height="70dp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_rangkuman"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center|center_horizontal"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/img_rangkuman"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp" />
-
-                <TextView
-                        android:id="@+id/tv_rangkuman"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Rangkuman"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp" />
+                    android:layout_marginTop="@dimen/margin_small_size"
+                    android:gravity="center"
+                    android:text="@string/card_rangkuman"
+                    android:ellipsize="marquee"
+                    android:focusable="auto"
+                    android:focusableInTouchMode="true"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <androidx.cardview.widget.CardView
-                android:id="@+id/card_referensi"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_referensi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small_size"
+            android:layout_marginLeft="@dimen/margin_small_size"
+            app:cardBackgroundColor="@color/card_view_color"
+            app:cardCornerRadius="@dimen/card_radius_corner"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintEnd_toEndOf="@+id/card_rumus_fungsi"
+            app:layout_constraintStart_toEndOf="@+id/card_rangkuman"
+            app:layout_constraintTop_toTopOf="@+id/card_rangkuman">
+
+            <LinearLayout
+                android:id="@+id/menu_referensi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:layout_weight="1"
-                app:cardCornerRadius="6dp"
-                app:cardElevation="4dp">
-
-            <LinearLayout
-                    android:id="@+id/menu_referensi"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center|center_horizontal"
-                    android:orientation="vertical"
-                    android:padding="12dp">
+                android:gravity="center|center_horizontal"
+                android:orientation="vertical"
+                android:padding="12dp">
 
                 <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/img_referensi"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp" />
+                    android:id="@+id/img_referensi"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp" />
 
-                <TextView
-                        android:id="@+id/tv_referensi"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Referensi"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_referensi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small_size"
+                    android:gravity="center"
+                    android:text="@string/card_referensi"
+                    android:ellipsize="marquee"
+                    android:focusable="auto"
+                    android:focusableInTouchMode="true"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-
-    </LinearLayout>
-
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="24dp"
-            android:baselineAligned="false"
-            android:gravity="center"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
-
-        <androidx.cardview.widget.CardView
-                android:id="@+id/card_postes"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="8dp"
-                android:layout_weight="1"
-                app:cardCornerRadius="6dp"
-                app:cardElevation="4dp">
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_postes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_big_size"
+            android:layout_marginEnd="@dimen/margin_small_size"
+            android:layout_marginRight="@dimen/margin_small_size"
+            app:cardBackgroundColor="@color/card_view_color"
+            app:cardCornerRadius="@dimen/card_radius_corner"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintEnd_toStartOf="@+id/card_soal"
+            app:layout_constraintStart_toStartOf="@+id/card_rangkuman"
+            app:layout_constraintTop_toBottomOf="@+id/card_rangkuman">
 
             <LinearLayout
-                    android:id="@+id/menu_postes"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center|center_horizontal"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/img_postes"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp" />
-
-                <TextView
-                        android:id="@+id/tv_postes"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Postes"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp" />
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-                android:id="@+id/card_soal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="8dp"
-                android:layout_weight="1"
-                app:cardCornerRadius="6dp"
-                app:cardElevation="4dp">
-
-            <LinearLayout
-                    android:id="@+id/menu_soal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center|center_horizontal"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/img_soal"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp" />
-
-                <TextView
-                        android:id="@+id/tv_soal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Latihan Soal"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp" />
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-    </LinearLayout>
-
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="24dp"
-            android:baselineAligned="false"
-            android:gravity="center"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
-
-        <androidx.cardview.widget.CardView
-                android:id="@+id/card_kuis"
+                android:id="@+id/menu_postes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                app:cardCornerRadius="6dp"
-                app:cardElevation="4dp">
+                android:gravity="center|center_horizontal"
+                android:orientation="vertical"
+                android:padding="12dp">
 
-            <LinearLayout
-                    android:id="@+id/menu_kuis"
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/img_postes"
                     android:layout_width="match_parent"
+                    android:layout_height="70dp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_postes"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center|center_horizontal"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/img_kuis"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp" />
-
-                <TextView
-                        android:id="@+id/tv_kuis"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Kuis"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp" />
+                    android:layout_marginTop="@dimen/margin_small_size"
+                    android:gravity="center"
+                    android:text="@string/card_postes"
+                    android:ellipsize="marquee"
+                    android:focusable="auto"
+                    android:focusableInTouchMode="true"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-    </LinearLayout>
-</LinearLayout>
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_soal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small_size"
+            android:layout_marginLeft="@dimen/margin_small_size"
+            app:cardBackgroundColor="@color/card_view_color"
+            app:cardCornerRadius="@dimen/card_radius_corner"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintEnd_toEndOf="@+id/card_referensi"
+            app:layout_constraintStart_toEndOf="@+id/card_postes"
+            app:layout_constraintTop_toTopOf="@+id/card_postes">
+
+            <LinearLayout
+                android:id="@+id/menu_soal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|center_horizontal"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/img_soal"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_soal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small_size"
+                    android:gravity="center"
+                    android:text="@string/card_latihan_soal"
+                    android:ellipsize="marquee"
+                    android:focusable="auto"
+                    android:focusableInTouchMode="true"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_kuis"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_big_size"
+            android:layout_marginBottom="@dimen/margin_big_size"
+            app:cardBackgroundColor="@color/card_view_color"
+            app:cardCornerRadius="@dimen/card_radius_corner"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/card_soal"
+            app:layout_constraintStart_toStartOf="@+id/card_postes"
+            app:layout_constraintTop_toBottomOf="@+id/card_postes">
+
+            <LinearLayout
+                android:id="@+id/menu_kuis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|center_horizontal"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/img_kuis"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_kuis"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small_size"
+                    android:gravity="center"
+                    android:text="@string/card_kuis"
+                    android:ellipsize="marquee"
+                    android:focusable="auto"
+                    android:focusableInTouchMode="true"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

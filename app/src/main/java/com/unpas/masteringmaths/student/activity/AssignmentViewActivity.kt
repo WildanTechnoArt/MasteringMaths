@@ -2,12 +2,14 @@ package com.unpas.masteringmaths.student.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import com.unpas.masteringmaths.R
 import com.unpas.masteringmaths.student.adapter.PagerAdapterAssignment
 import kotlinx.android.synthetic.main.activity_assignment_view.*
 
 class AssignmentViewActivity : AppCompatActivity() {
+
+    private val tabMenus = arrayListOf("Intruksi", "Pengajuan")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,23 +20,14 @@ class AssignmentViewActivity : AppCompatActivity() {
     private fun init() {
         setSupportActionBar(toolbar)
 
-        val pagerAdapterAssignment =
-            PagerAdapterAssignment(supportFragmentManager, 1)
-        container.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabs_assignment))
-
-        tabs_assignment.addTab(tabs_assignment.newTab().setText("Instructions"))
-        tabs_assignment.addTab(tabs_assignment.newTab().setText("Submissions"))
+        val pagerAdapterAssignment = PagerAdapterAssignment(this)
 
         container.adapter = pagerAdapterAssignment
 
-        tabs_assignment.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-            override fun onTabSelected(tab: TabLayout.Tab) {
-                container.currentItem = tab.position
+        TabLayoutMediator(
+            tab_layout, container, TabLayoutMediator.TabConfigurationStrategy { tab, position ->
+                tab.text = tabMenus[position]
             }
-
-            override fun onTabUnselected(tab: TabLayout.Tab) {}
-
-            override fun onTabReselected(tab: TabLayout.Tab) {}
-        })
+        )
     }
 }

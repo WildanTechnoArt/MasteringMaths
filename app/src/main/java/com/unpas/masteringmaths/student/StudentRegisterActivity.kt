@@ -87,7 +87,7 @@ class StudentRegisterActivity : AppCompatActivity() {
                     .addOnSuccessListener {
                         it.user?.uid?.let { it1 -> addDataUser(it1) }
                     }.addOnFailureListener {
-                        btn_register.hideProgress(R.string.daftar)
+                        btn_register.hideProgress(R.string.btn_register)
                         Toast.makeText(
                             this, getString(R.string.register_failed),
                             Toast.LENGTH_SHORT
@@ -125,7 +125,7 @@ class StudentRegisterActivity : AppCompatActivity() {
                 startActivity(Intent(this, StudentDashboardActivity::class.java))
                 finishAffinity()
             }.addOnFailureListener {
-                btn_register.hideProgress(R.string.daftar)
+                btn_register.hideProgress(R.string.btn_register)
 
                 Toast.makeText(
                     this, getString(R.string.register_failed),

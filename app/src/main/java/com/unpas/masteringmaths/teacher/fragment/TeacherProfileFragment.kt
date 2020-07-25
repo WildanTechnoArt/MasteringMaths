@@ -6,38 +6,24 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.*
-import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.theartofdev.edmodo.cropper.CropImage
 import com.unpas.masteringmaths.R
+import com.unpas.masteringmaths.database.SharedPrefManager
 import com.unpas.masteringmaths.main.GlideApp
 import com.unpas.masteringmaths.main.activity.LoginActivity
 import com.unpas.masteringmaths.teacher.activity.EditProfileActivity
-import com.unpas.masteringmaths.database.SharedPrefManager
 import com.unpas.masteringmaths.teacher.presenter.ProfilePresenter
 import com.unpas.masteringmaths.teacher.view.ProfileFragmentView
-import de.hdodenhof.circleimageview.CircleImageView
+import kotlinx.android.synthetic.main.fragment_teacher_profile.*
+import kotlinx.android.synthetic.main.toolbar_layout.*
 
 class TeacherProfileFragment : Fragment(), ProfileFragmentView.View {
-
-    private lateinit var tvNip: TextView
-    private lateinit var tvUsername: TextView
-    private lateinit var tvEmail: TextView
-    private lateinit var tvSchool: TextView
-    private lateinit var tvCity: TextView
-    private lateinit var tvPhoneNumber: TextView
-    private lateinit var swipeRefresh: SwipeRefreshLayout
-    private lateinit var mToolbar: Toolbar
-    private lateinit var fabChangePhoto: FloatingActionButton
-    private lateinit var imageProfile: CircleImageView
 
     private lateinit var presenter: ProfileFragmentView.Presenter
     private lateinit var mContext: Context
@@ -54,11 +40,11 @@ class TeacherProfileFragment : Fragment(), ProfileFragmentView.View {
         presenter.requestDataUser()
         presenter.getPhotoFromStorage()
 
-        swipeRefresh.setOnRefreshListener {
+        swipe_refresh.setOnRefreshListener {
             presenter.requestDataUser()
         }
 
-        fabChangePhoto.setOnClickListener {
+        fab_change_photo.setOnClickListener {
             getPhotoFromStorage(it.context)
         }
     }
@@ -71,7 +57,7 @@ class TeacherProfileFragment : Fragment(), ProfileFragmentView.View {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.logout -> {
-                val alert = AlertDialog.Builder(mContext)
+                val alert = MaterialAlertDialogBuilder(mContext)
                     .setTitle("Konfirmasi")
                     .setMessage("Anda yakin ingin keluar?")
                     .setPositiveButton("YA") { _, _ ->
@@ -101,12 +87,12 @@ class TeacherProfileFragment : Fragment(), ProfileFragmentView.View {
         nip: String, name: String, email: String,
         school: String, city: String, phone: String
     ) {
-        tvNip.text = nip
-        tvUsername.text = name
-        tvEmail.text = email
-        tvSchool.text = school
-        tvCity.text = city
-        tvPhoneNumber.text = phone
+        tv_nip?.text = nip
+        tv_teacher_name?.text = name
+        tv_email?.text = email
+        tv_school?.text = school
+        tv_city?.text = city
+        tv_phone_number?.text = phone
     }
 
     override fun handleResponse(message: String?) {
@@ -118,11 +104,11 @@ class TeacherProfileFragment : Fragment(), ProfileFragmentView.View {
     }
 
     override fun hideProgressBar() {
-        swipeRefresh.isRefreshing = false
+        swipe_refresh?.isRefreshing = false
     }
 
     override fun showProgressBar() {
-        swipeRefresh.isRefreshing = true
+        swipe_refresh?.isRefreshing = true
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -166,7 +152,7 @@ class TeacherProfileFragment : Fragment(), ProfileFragmentView.View {
             GlideApp.with(it)
                 .load(photoUrl)
                 .placeholder(R.drawable.profile_placeholder)
-                .into(imageProfile)
+                .into(img_profile)
         }
     }
 
@@ -176,20 +162,10 @@ class TeacherProfileFragment : Fragment(), ProfileFragmentView.View {
     }
 
     private fun prepare(view: View) {
-        tvNip = view.findViewById(R.id.tv_nip)
-        tvUsername = view.findViewById(R.id.tv_teacher_name)
-        tvEmail = view.findViewById(R.id.tv_email)
-        tvSchool = view.findViewById(R.id.tv_school)
-        tvCity = view.findViewById(R.id.tv_city)
-        tvPhoneNumber = view.findViewById(R.id.tv_phone_number)
-        swipeRefresh = view.findViewById(R.id.swipe_refresh)
-        mToolbar = view.findViewById(R.id.toolbar)
-        fabChangePhoto = view.findViewById(R.id.fab_change_photo)
-        imageProfile = view.findViewById(R.id.img_profile)
-
         mContext = view.context
 
-        (mContext as AppCompatActivity).setSupportActionBar(mToolbar)
+        (mContext as AppCompatActivity).setSupportActionBar(toolbar)
+        (mContext as AppCompatActivity).supportActionBar?.title = "Profil Guru"
 
         presenter = ProfilePresenter(mContext, this)
     }

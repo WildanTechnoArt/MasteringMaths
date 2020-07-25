@@ -1,8 +1,8 @@
 package com.unpas.masteringmaths.student.activity
 
 import android.os.Bundle
-import android.view.View
-import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
@@ -10,13 +10,13 @@ import com.unpas.masteringmaths.R
 import com.unpas.masteringmaths.database.SharedPrefManager
 import com.unpas.masteringmaths.student.model.DataClass
 import kotlinx.android.synthetic.main.activity_inside_class.*
+import kotlinx.android.synthetic.main.toolbar_layout.*
 
 class InsideClassActivity : AppCompatActivity() {
 
     private var getIdTeacher: String? = null
     private var getCodeClass: String? = null
     private var getClassTitle: String? = null
-    private var getClassName: String? = null
     private var getClassGrade: String? = null
     private var getStudentCount: Long? = null
     private var getTeacherName: String? = null
@@ -31,22 +31,22 @@ class InsideClassActivity : AppCompatActivity() {
             setDisplayHomeAsUpEnabled(true)
             setHomeButtonEnabled(true)
             setDisplayShowHomeEnabled(true)
+            title = "Masuk kelas"
         }
 
         userId = SharedPrefManager.getInstance(this).getUserId.toString()
 
-        sp_lesson.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onNothingSelected(p0: AdapterView<*>?) {}
-
-            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-                getClassName = resources.getStringArray(R.array.lesson_list)[position].toString()
-            }
-        }
+        // Menampilkan Daftar Mata Pelajaran
+        val lessonAdapter = ArrayAdapter(
+            this, R.layout.support_simple_spinner_dropdown_item,
+            resources.getStringArray(R.array.lesson_list)
+        )
+        (add_lesson as? AutoCompleteTextView)?.setAdapter(lessonAdapter)
 
         swipe_refresh.isEnabled = false
 
         btn_submit.setOnClickListener {
-            getIdTeacher = input_id_teacher.text.toString()
+            getIdTeacher = input_teacher_id.text.toString()
             getCodeClass = input_code_class.text.toString()
             if ((getIdTeacher?.isNotEmpty() == true) && (getCodeClass?.isNotEmpty() == true)) {
                 checkClass()
@@ -85,7 +85,7 @@ class InsideClassActivity : AppCompatActivity() {
 
         val data = DataClass()
         data.classTitle = getClassTitle
-        data.className = getClassName
+        data.className = add_lesson.text.toString()
         data.studentCount = getStudentCount
         data.classGrade = getClassGrade
         data.teacherName = getTeacherName
@@ -120,7 +120,7 @@ class InsideClassActivity : AppCompatActivity() {
             .get()
             .addOnSuccessListener {
                 val mClassName = it.getString("className")
-                if (it.exists() && (mClassName == getClassName)) {
+                if (it.exists() && (mClassName == add_lesson.text.toString())) {
                     btn_submit.isEnabled = true
                     swipe_refresh.isRefreshing = false
 

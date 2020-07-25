@@ -3,12 +3,9 @@ package com.unpas.masteringmaths.student.fragment
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.FirebaseFirestore
 import com.unpas.masteringmaths.R
@@ -22,13 +19,11 @@ import com.unpas.masteringmaths.utils.UtilsConstant.Companion.CLASS_ID
 import com.unpas.masteringmaths.utils.UtilsConstant.Companion.CLASS_NAME
 import com.unpas.masteringmaths.utils.UtilsConstant.Companion.CLASS_TITLE
 import com.unpas.masteringmaths.utils.UtilsConstant.Companion.TEACHER_ID
+import kotlinx.android.synthetic.main.fragment_student_kelas.*
 
 class ClassFragment : Fragment(), StudentClassListener {
 
-    private lateinit var rvClassList: RecyclerView
-    private lateinit var tvNothingClass: TextView
     private lateinit var mUserId: String
-    private lateinit var mToolbar: Toolbar
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,13 +35,10 @@ class ClassFragment : Fragment(), StudentClassListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
-        mToolbar = view.findViewById(R.id.toolbar)
-        (context as AppCompatActivity).setSupportActionBar(mToolbar)
+        (context as AppCompatActivity).setSupportActionBar(toolbar)
 
-        tvNothingClass = view.findViewById(R.id.tv_nothing_class)
-        rvClassList = view.findViewById(R.id.rv_class_list)
-        rvClassList.layoutManager = LinearLayoutManager(view.context)
-        rvClassList.setHasFixedSize(true)
+        rv_class_list?.layoutManager = LinearLayoutManager(view.context)
+        rv_class_list?.setHasFixedSize(true)
 
         mUserId = SharedPrefManager.getInstance(view.context).getUserId.toString()
 
@@ -92,7 +84,7 @@ class ClassFragment : Fragment(), StudentClassListener {
             .build()
 
         val adapter = FirestoreStudentClassAdapter(options, this)
-        rvClassList.adapter = adapter
+        rv_class_list?.adapter = adapter
     }
 
     private fun getDataCount() {
@@ -103,11 +95,11 @@ class ClassFragment : Fragment(), StudentClassListener {
 
         db.addSnapshotListener { snapshot, _ ->
             if ((snapshot?.size() ?: 0) > 0) {
-                rvClassList.visibility = View.VISIBLE
-                tvNothingClass.visibility = View.GONE
+                rv_class_list?.visibility = View.VISIBLE
+                tv_nothing_class?.visibility = View.GONE
             } else {
-                rvClassList.visibility = View.GONE
-                tvNothingClass.visibility = View.VISIBLE
+                rv_class_list?.visibility = View.GONE
+                tv_nothing_class?.visibility = View.VISIBLE
             }
         }
     }

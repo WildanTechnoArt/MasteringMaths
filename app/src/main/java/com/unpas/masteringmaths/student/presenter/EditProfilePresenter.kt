@@ -38,7 +38,7 @@ class EditProfilePresenter(
 
             }.addOnFailureListener {
                 view.hideProgressBar()
-                view.handleResponse(context.getString(R.string.request_error))
+                view.handleResponse(it.localizedMessage?.toString().toString())
             }
     }
 
@@ -67,7 +67,7 @@ class EditProfilePresenter(
                         editDataUser(student)
                     }
                     ?.addOnFailureListener {
-                        view.handleResponse(context.getString(R.string.error_request))
+                        view.handleResponse(it.localizedMessage?.toString().toString())
                     }
             }
         }
@@ -84,7 +84,7 @@ class EditProfilePresenter(
                 view.onSuccessSaveData(context.getString(R.string.success_edit_profile))
             }.addOnFailureListener {
                 view.hideProgressBar()
-                view.handleResponse(context.getString(R.string.error_request))
+                view.handleResponse(it.localizedMessage?.toString().toString())
             }
     }
 }

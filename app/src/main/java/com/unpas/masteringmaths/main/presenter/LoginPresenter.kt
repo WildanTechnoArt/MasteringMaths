@@ -45,7 +45,7 @@ class LoginPresenter(private val context: Context,
                         view.onSuccess(result)
                     }.addOnFailureListener {
                         view.hideProgressBar()
-                        view.handleResponse(context.getString(R.string.request_error))
+                        view.handleResponse(it.localizedMessage?.toString().toString())
                     }
 
                 } else {

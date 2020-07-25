@@ -63,7 +63,7 @@ class ProfilePresenter(
 
             }.addOnFailureListener {
                 view.hideProgressBar()
-                view.handleResponse(context?.getString(R.string.failed_show_photo))
+                view.handleResponse(it.localizedMessage?.toString().toString())
             }
     }
 
@@ -125,7 +125,7 @@ class ProfilePresenter(
 
                 }.addOnFailureListener {
                     view.hideProgressBar()
-                    view.handleResponse(context?.getString(R.string.upload_failed))
+                    view.handleResponse(it.localizedMessage?.toString().toString())
                 }
 
             } else {

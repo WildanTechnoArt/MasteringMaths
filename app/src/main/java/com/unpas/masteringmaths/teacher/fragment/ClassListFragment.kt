@@ -3,12 +3,9 @@ package com.unpas.masteringmaths.teacher.fragment
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.FirebaseFirestore
 import com.unpas.masteringmaths.R
@@ -22,13 +19,12 @@ import com.unpas.masteringmaths.utils.UtilsConstant.Companion.CLASS_GRADE
 import com.unpas.masteringmaths.utils.UtilsConstant.Companion.CLASS_ID
 import com.unpas.masteringmaths.utils.UtilsConstant.Companion.CLASS_NAME
 import com.unpas.masteringmaths.utils.UtilsConstant.Companion.CLASS_TITLE
+import kotlinx.android.synthetic.main.fragment_class_list.*
+import kotlinx.android.synthetic.main.toolbar_layout.*
 
 class ClassListFragment : Fragment(), ClassListListener {
 
     private lateinit var mUserId: String
-    private lateinit var mToolbar: Toolbar
-    private lateinit var rvClassList: RecyclerView
-    private lateinit var tvNothingClass: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,10 +37,8 @@ class ClassListFragment : Fragment(), ClassListListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
-        mToolbar = view.findViewById(R.id.toolbar)
-        rvClassList = view.findViewById(R.id.rv_class_list)
-        tvNothingClass = view.findViewById(R.id.tv_nothing_class)
-        (context as AppCompatActivity).setSupportActionBar(mToolbar)
+        (context as AppCompatActivity).setSupportActionBar(toolbar)
+        (context as AppCompatActivity).title = "Daftar Ruang Kelas"
         prepare(view)
         setupDatabse()
         getDataCount()
@@ -62,7 +56,12 @@ class ClassListFragment : Fragment(), ClassListListener {
         return true
     }
 
-    override fun onClickListener(className: String, classTitle: String, classGrade: String, key: String) {
+    override fun onClickListener(
+        className: String,
+        classTitle: String,
+        classGrade: String,
+        key: String
+    ) {
         val intent = Intent(context, ClassRoomActivity::class.java)
         intent.putExtra(CLASS_TITLE, classTitle)
         intent.putExtra(CLASS_GRADE, classGrade)
@@ -84,7 +83,7 @@ class ClassListFragment : Fragment(), ClassListListener {
 
         val adapter = FirestoreClassAdapter(options, this)
         adapter.setDataClass(mUserId)
-        rvClassList.adapter = adapter
+        rv_class_list?.adapter = adapter
     }
 
     private fun getDataCount() {
@@ -95,18 +94,18 @@ class ClassListFragment : Fragment(), ClassListListener {
 
         db.addSnapshotListener { snapshot, _ ->
             if ((snapshot?.size() ?: 0) > 0) {
-                rvClassList.visibility = View.VISIBLE
-                tvNothingClass.visibility = View.GONE
+                rv_class_list?.visibility = View.VISIBLE
+                tv_nothing_class?.visibility = View.GONE
             } else {
-                rvClassList.visibility = View.GONE
-                tvNothingClass.visibility = View.VISIBLE
+                rv_class_list?.visibility = View.GONE
+                tv_nothing_class?.visibility = View.VISIBLE
             }
         }
     }
 
     private fun prepare(view: View) {
         mUserId = SharedPrefManager.getInstance(view.context).getUserId.toString()
-        rvClassList.layoutManager = LinearLayoutManager(view.context)
-        rvClassList.setHasFixedSize(true)
+        rv_class_list?.layoutManager = LinearLayoutManager(view.context)
+        rv_class_list?.setHasFixedSize(true)
     }
 }

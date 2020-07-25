@@ -11,17 +11,12 @@ import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
 import com.unpas.masteringmaths.R;
 
+import java.util.Objects;
+
 import static com.unpas.masteringmaths.student.activity.StudentExamActivity.*;
 import static com.unpas.masteringmaths.student.activity.SudentQuizeActivity.TIMER;
 
 public class StudentResultActivity extends AppCompatActivity {
-
-    private int myPoint;
-    private int myTrueAnswer;
-    private int myFalseAnswer;
-    private String myTime;
-    private TextView tvTrue, tvFalse, tvPoint, tvBad, tvGood,tvTime;
-    private Toolbar toolbar;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -29,25 +24,26 @@ public class StudentResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_result);
 
-        toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Hasil Kuis");
 
-        tvTrue = findViewById(R.id.tv_true);
-        tvFalse = findViewById(R.id.tv_false);
-        tvPoint = findViewById(R.id.tv_myscore);
-        tvTime = findViewById(R.id.myTime);
-        tvBad = findViewById(R.id.bad);
-        tvGood = findViewById(R.id.good);
+        TextView tvTrue = findViewById(R.id.tv_true);
+        TextView tvFalse = findViewById(R.id.tv_false);
+        TextView tvPoint = findViewById(R.id.tv_myscore);
+        TextView tvTime = findViewById(R.id.myTime);
+        TextView tvBad = findViewById(R.id.bad);
+        TextView tvGood = findViewById(R.id.good);
 
-        myPoint = getIntent().getIntExtra(MY_POINT, 0);
-        myTrueAnswer = getIntent().getIntExtra(TRUE_ANSWER, 0);
-        myFalseAnswer = getIntent().getIntExtra(FALSE_ANSWER, 0);
-        myTime = getIntent().getStringExtra(TIMER);
+        int myPoint = getIntent().getIntExtra(MY_POINT, 0);
+        int myTrueAnswer = getIntent().getIntExtra(TRUE_ANSWER, 0);
+        int myFalseAnswer = getIntent().getIntExtra(FALSE_ANSWER, 0);
+        String myTime = getIntent().getStringExtra(TIMER);
 
         if (myPoint >= 70) {
             tvGood.setBackgroundColor(Color.parseColor("#FF15D600"));
             tvGood.setTextColor(Color.parseColor("#FFFFFF"));
-        }else {
+        } else {
             tvBad.setBackgroundColor(Color.parseColor("#FFF60400"));
             tvBad.setTextColor(Color.parseColor("#FFFFFF"));
         }
@@ -60,16 +56,14 @@ public class StudentResultActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.result_activity,menu);
+        getMenuInflater().inflate(R.menu.result_activity, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.finish:
-                finish();
-                break;
+        if (item.getItemId() == R.id.finish) {
+            finish();
         }
         return true;
     }

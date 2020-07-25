@@ -13,6 +13,7 @@ import com.unpas.masteringmaths.database.SharedPrefManager
 import com.unpas.masteringmaths.teacher.presenter.EditProfilePresenter
 import com.unpas.masteringmaths.teacher.view.EditProfileView
 import kotlinx.android.synthetic.main.activity_edit_profile_teacher.*
+import kotlinx.android.synthetic.main.toolbar_layout.*
 
 class EditProfileActivity : AppCompatActivity(), EditProfileView.View {
 
@@ -67,7 +68,7 @@ class EditProfileActivity : AppCompatActivity(), EditProfileView.View {
     }
 
     override fun handleResponse(message: String) {
-        btn_save.hideProgress(R.string.btn_simpan)
+        btn_save.hideProgress(R.string.btn_save)
         Toast.makeText(
             this, message,
             Toast.LENGTH_SHORT
@@ -88,6 +89,7 @@ class EditProfileActivity : AppCompatActivity(), EditProfileView.View {
             setDisplayShowHomeEnabled(true)
             setHomeButtonEnabled(true)
             setDisplayHomeAsUpEnabled(true)
+            title = "Edit Profil"
         }
 
         swipe_refresh.isRefreshing = true

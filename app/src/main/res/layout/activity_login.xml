@@ -22,12 +22,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:shape_arc_height="40dp"
-            app:shape_arc_position="bottom">
+            app:shape_arc_position="bottom"
+            tools:targetApi="lollipop">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/bg_gradient">
+                android:background="@drawable/new_gradient_color">
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/img_app"
@@ -139,7 +140,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="@string/login"
-            app:cornerRadius="@dimen/btn_corner"
+            app:cornerRadius="@dimen/btn_radius_corner"
             app:layout_constraintEnd_toEndOf="@+id/layout_password"
             app:layout_constraintStart_toStartOf="@+id/layout_password"
             app:layout_constraintTop_toBottomOf="@+id/tv_forgot_password" />
@@ -174,7 +175,8 @@
             app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintStart_toStartOf="@+id/btn_login"
             app:layout_constraintTop_toBottomOf="@+id/btn_login"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="1.0"
+            android:layout_marginRight="2dp" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_register"
@@ -184,10 +186,10 @@
             android:text="@string/sign_up_now"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="13sp"
-            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/txt_register"
             app:layout_constraintEnd_toEndOf="@+id/btn_login"
-            app:layout_constraintStart_toEndOf="@+id/guideline" />
+            app:layout_constraintStart_toEndOf="@+id/guideline"
+            android:layout_marginLeft="2dp" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"

@@ -22,14 +22,13 @@
         <activity android:name=".student.activity.StudentChatActivity" />
         <activity android:name=".teacher.activity.TeacherChatActivity" />
         <activity android:name=".teacher.activity.CreateAssignmentActivity" />
-        <activity android:name=".teacher.activity.PostActivity" />
+        <activity android:name=".teacher.activity.CreatePostActivity" />
         <activity android:name=".teacher.activity.SettingClassActivity" />
         <activity android:name=".teacher.activity.ClassRoomActivity" />
         <activity android:name=".teacher.activity.CreateClassActivity" />
         <activity android:name=".teacher.activity.EditProfileActivity" />
         <activity android:name=".main.activity.ForgotPassActivity" />
         <activity android:name=".student.activity.StudentDashboardActivity" />
-        <activity android:name=".teacher.activity.MathClassActivity" />
         <activity android:name=".teacher.activity.TeacherDashboardActivity" />
         <activity android:name=".student.activity.PostesRelasi" />
         <activity android:name=".student.activity.ReferensiRelasi" />

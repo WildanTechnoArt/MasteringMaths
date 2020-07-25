@@ -2,23 +2,20 @@ package com.unpas.masteringmaths.teacher.fragment
 
 import android.os.Bundle
 import android.view.*
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.FirebaseFirestore
 import com.unpas.masteringmaths.R
 import com.unpas.masteringmaths.database.SharedPrefManager
 import com.unpas.masteringmaths.teacher.adapter.TecherChatListAdapter
 import com.unpas.masteringmaths.teacher.model.ListChat
+import kotlinx.android.synthetic.main.fragment_chat.*
+import kotlinx.android.synthetic.main.toolbar_layout.*
 
 class ChatFragment : Fragment() {
 
-    private lateinit var chatList: RecyclerView
-    private lateinit var txtInfo: TextView
     private lateinit var mUserId: String
 
     override fun onCreateView(
@@ -54,7 +51,7 @@ class ChatFragment : Fragment() {
             .build()
 
         val adapter = TecherChatListAdapter(options)
-        chatList.adapter = adapter
+        rv_chat_list?.adapter = adapter
     }
 
     private fun getDataCount() {
@@ -65,24 +62,22 @@ class ChatFragment : Fragment() {
 
         db.addSnapshotListener { snapshot, _ ->
             if ((snapshot?.size() ?: 0) > 0) {
-                chatList.visibility = View.VISIBLE
-                txtInfo.visibility = View.GONE
+                rv_chat_list?.visibility = View.VISIBLE
+                tv_nothing_chat?.visibility = View.GONE
             } else {
-                chatList.visibility = View.GONE
-                txtInfo.visibility = View.VISIBLE
+                rv_chat_list?.visibility = View.GONE
+                tv_nothing_chat?.visibility = View.VISIBLE
             }
         }
     }
 
     private fun prepare(view: View) {
-        val toolbar = view.findViewById(R.id.toolbar) as Toolbar
-        chatList = view.findViewById(R.id.rv_chat_list)
-        txtInfo = view.findViewById(R.id.tv_nothing_chat)
         (view.context as AppCompatActivity).setSupportActionBar(toolbar)
+        (view.context as AppCompatActivity).title = "Chat"
 
         mUserId = SharedPrefManager.getInstance(context).getUserId.toString()
 
-        chatList.layoutManager = LinearLayoutManager(context)
-        chatList.setHasFixedSize(true)
+        rv_chat_list?.layoutManager = LinearLayoutManager(context)
+        rv_chat_list?.setHasFixedSize(true)
     }
 }

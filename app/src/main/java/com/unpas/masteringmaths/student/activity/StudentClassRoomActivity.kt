@@ -1,11 +1,9 @@
 package com.unpas.masteringmaths.student.activity
 
-import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.firestore.FirebaseFirestore
 import com.unpas.masteringmaths.R
 import com.unpas.masteringmaths.database.SharedPrefManager
@@ -15,6 +13,12 @@ import com.unpas.masteringmaths.utils.UtilsConstant
 import kotlinx.android.synthetic.main.activity_student_class_room.*
 
 class StudentClassRoomActivity : AppCompatActivity() {
+
+    private val tabMenus = arrayListOf(
+        getString(R.string.posts),
+        getString(R.string.members),
+        getString(R.string.discussion)
+    )
 
     private lateinit var classId: String
     private lateinit var classTitle: String
@@ -37,42 +41,17 @@ class StudentClassRoomActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         supportActionBar?.title = classTitle
 
-        tabs_class.addTab(tabs_class.newTab().setText(resources.getString(R.string.posts)))
-        tabs_class.addTab(tabs_class.newTab().setText(resources.getString(R.string.members)))
-        tabs_class.addTab(tabs_class.newTab().setText(getString(R.string.discussion)))
-
-        val pageAdapter = StudentClassRoomAdapter(
-            supportFragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
-        )
+        val pageAdapter = StudentClassRoomAdapter(this)
 
         container.adapter = pageAdapter
-        container.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabs_class))
 
-        tabs_class.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-            override fun onTabSelected(tab: TabLayout.Tab) {
-                container.currentItem = tab.position
-
-                when (tab.position) {
-                    2 -> fab_add_post.visibility = View.GONE
-                    else -> {
-                        fab_add_post.visibility = View.VISIBLE
-                    }
-                }
+        TabLayoutMediator(
+            tabs_class,
+            container,
+            TabLayoutMediator.TabConfigurationStrategy { tab, position ->
+                tab.text = tabMenus[position]
             }
-
-            override fun onTabUnselected(tab: TabLayout.Tab) {}
-
-            override fun onTabReselected(tab: TabLayout.Tab) {}
-        })
-
-        fab_add_post.setOnClickListener {
-            val intent = Intent(this, StudentPostActivity::class.java)
-            intent.putExtra(UtilsConstant.CLASS_ID, classId)
-            intent.putExtra(UtilsConstant.CLASS_NAME, className)
-            intent.putExtra(UtilsConstant.TEACHER_ID, teacherId)
-            intent.putExtra(UtilsConstant.TOOLBAR_TITLE, "Buat Postingan")
-            startActivity(intent)
-        }
+        )
 
         checkMemberExists()
     }
@@ -110,9 +89,5 @@ class StudentClassRoomActivity : AppCompatActivity() {
                     createMember()
                 }
             }
-    }
-
-    companion object {
-        const val BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT = 1
     }
 }

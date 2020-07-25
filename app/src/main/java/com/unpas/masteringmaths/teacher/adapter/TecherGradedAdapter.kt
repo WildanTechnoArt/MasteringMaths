@@ -60,10 +60,10 @@ class TecherGradedAdapter(options: FirestoreRecyclerOptions<SubmissionData>) :
                 }
 
             if (isApproved == true) {
-                containerView.tv_status.text = "Approved"
+                containerView.tv_status.text = "Sudah Diperiksa"
                 containerView.tv_status.setTextColor(Color.parseColor("#FF48D700"))
             } else {
-                containerView.tv_status.text = "Unverified"
+                containerView.tv_status.text = "Belum Diperiksa"
                 containerView.tv_status.setTextColor(Color.parseColor("#FFFFB300"))
             }
 

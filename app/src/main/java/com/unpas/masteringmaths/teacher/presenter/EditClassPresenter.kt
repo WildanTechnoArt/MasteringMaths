@@ -30,7 +30,7 @@ class EditClassPresenter(
                 }
                 .addOnFailureListener {
                     view.hideProgressBar()
-                    view.handleResponse(context.getString(R.string.error_request))
+                    view.handleResponse(it.localizedMessage?.toString().toString())
                 }
         }
     }
@@ -52,7 +52,7 @@ class EditClassPresenter(
                 }
                 .addOnFailureListener {
                     view.hideProgressBar()
-                    view.handleResponse(context.getString(R.string.error_request))
+                    view.handleResponse(it.localizedMessage?.toString().toString())
                 }
         }
     }
@@ -74,7 +74,7 @@ class EditClassPresenter(
                 }
                 .addOnFailureListener {
                     view.hideProgressBar()
-                    view.handleResponse(context.getString(R.string.error_request))
+                    view.handleResponse(it.localizedMessage?.toString().toString())
                 }
         }
     }
@@ -96,7 +96,7 @@ class EditClassPresenter(
                 }
                 .addOnFailureListener {
                     view.hideProgressBar()
-                    view.handleResponse(context.getString(R.string.error_request))
+                    view.handleResponse(it.localizedMessage?.toString().toString())
                 }
         }
     }
@@ -125,7 +125,7 @@ class EditClassPresenter(
             }
             .addOnFailureListener {
                 view.hideProgressBar()
-                view.handleResponse(context.getString(R.string.error_request))
+                view.handleResponse(it.localizedMessage?.toString().toString())
             }
     }
 }

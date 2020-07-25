@@ -1,14 +1,14 @@
 package com.unpas.masteringmaths.teacher.activity
 
+import android.annotation.SuppressLint
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.view.View
-import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -16,6 +16,7 @@ import com.github.razir.progressbutton.attachTextChangeAnimator
 import com.github.razir.progressbutton.bindProgressButton
 import com.github.razir.progressbutton.hideProgress
 import com.github.razir.progressbutton.showProgress
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.unpas.masteringmaths.R
 import com.unpas.masteringmaths.database.SharedPrefManager
 import com.unpas.masteringmaths.teacher.presenter.EditClassPresenter
@@ -26,6 +27,7 @@ import com.unpas.masteringmaths.utils.UtilsConstant.Companion.CLOSE_ACTIVITY
 import com.unpas.masteringmaths.teacher.view.EditClassView
 import com.unpas.masteringmaths.utils.UtilsConstant
 import kotlinx.android.synthetic.main.activity_setting_class.*
+import kotlinx.android.synthetic.main.toolbar_layout.*
 
 class SettingClassActivity : AppCompatActivity(), EditClassView.View {
 
@@ -34,9 +36,10 @@ class SettingClassActivity : AppCompatActivity(), EditClassView.View {
     private lateinit var className: String
     private lateinit var newclassTitle: String
     private lateinit var classGrade: String
-    private lateinit var newClassGrade: String
     private lateinit var userId: String
     private var isEdited = false
+
+    private lateinit var gradeAdapter: ArrayAdapter<String>
 
     private lateinit var presenter: EditClassView.Presenter
 
@@ -48,12 +51,14 @@ class SettingClassActivity : AppCompatActivity(), EditClassView.View {
         btnClickListener()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun prepare() {
         setSupportActionBar(toolbar)
         supportActionBar?.apply {
             setDisplayShowHomeEnabled(true)
             setHomeButtonEnabled(true)
             setDisplayHomeAsUpEnabled(true)
+            title = "Pengaturan Kelas"
         }
 
         className = intent?.getStringExtra(UtilsConstant.CLASS_NAME).toString()
@@ -65,18 +70,6 @@ class SettingClassActivity : AppCompatActivity(), EditClassView.View {
 
         bindProgressButton(btn_delete_class)
         btn_delete_class.attachTextChangeAnimator()
-
-        sp_level_list.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onNothingSelected(p0: AdapterView<*>?) {}
-
-            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-                when (resources.getStringArray(R.array.grade_level_list)[position].toString()) {
-                    "SMP" -> {
-                        setClassLevel(applicationContext, resources.getStringArray(R.array.junior_high_school))
-                    }
-                }
-            }
-        }
     }
 
     override fun onSuccessEditData(message: String, className: String, classGrade: String) {
@@ -85,7 +78,7 @@ class SettingClassActivity : AppCompatActivity(), EditClassView.View {
         btn_edit_class.text = getString(R.string.edit_kelas)
         dissableView()
         input_class_name.setText(className)
-        class_grade.setText(classGrade)
+        add_grade.setText(classGrade)
         isEdited = false
         finish()
     }
@@ -101,17 +94,17 @@ class SettingClassActivity : AppCompatActivity(), EditClassView.View {
 
     override fun handleResponse(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-        btn_edit_class.hideProgress(getString(R.string.btn_simpan))
+        btn_edit_class.hideProgress(getString(R.string.btn_save))
         btn_delete_class.hideProgress(getString(R.string.hapus_kelas))
     }
 
     override fun hideProgressBar() {
-        btn_edit_class.hideProgress(getString(R.string.btn_simpan))
+        btn_edit_class.hideProgress(getString(R.string.btn_save))
         btn_delete_class.hideProgress(getString(R.string.hapus_kelas))
     }
 
     override fun showProgressBar() {
-        btn_edit_class.showProgress { progressColor = Color.BLUE }
+        btn_edit_class.showProgress { progressColor = Color.WHITE }
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -119,8 +112,8 @@ class SettingClassActivity : AppCompatActivity(), EditClassView.View {
         return true
     }
 
+    @SuppressLint("SetTextI18n")
     private fun btnClickListener() {
-
         btn_copy_id.setOnClickListener {
             copyToClipBoard(userId)
             Toast.makeText(this, "User ID berhasil disalin", Toast.LENGTH_SHORT).show()
@@ -134,11 +127,54 @@ class SettingClassActivity : AppCompatActivity(), EditClassView.View {
         btn_edit_class.setOnClickListener {
             if (isEdited) {
                 newclassTitle = input_class_name.text.toString()
-                presenter.requestEditClass(className, newclassTitle, newClassGrade, userId, classId)
+                presenter.requestEditClass(
+                    className,
+                    newclassTitle,
+                    add_grade.text.toString(),
+                    userId,
+                    classId
+                )
             } else {
                 isEdited = true
-                btn_edit_class.text = getString(R.string.btn_simpan)
+                btn_edit_class.text = getString(R.string.btn_save)
                 enableView()
+
+                setGradeList()
+
+                add_grade.setOnItemClickListener { _, _, position, _ ->
+                    when (position) {
+                        0 -> {
+                            val classList = arrayOf("Kelas VIII")
+                            val builder = MaterialAlertDialogBuilder(this)
+                                .setTitle("Pilih Kelas")
+                                .setItems(
+                                    classList
+                                ) { _, id ->
+                                    add_grade.setText("${gradeAdapter.getItem(id)} ${classList[id]}")
+                                    setGradeList()
+                                }
+
+                            val dialog = builder.create()
+                            dialog.setCancelable(false)
+                            dialog.show()
+                        }
+
+                        1 -> {
+                            val classList = arrayOf("Kelas X")
+                            val builder = MaterialAlertDialogBuilder(this)
+                                .setTitle("Pilih Kelas")
+                                .setItems(
+                                    classList
+                                ) { _, id ->
+                                    add_grade.setText("${gradeAdapter.getItem(id + 1)} ${classList[id]}")
+                                    setGradeList()
+                                }
+                            val dialog = builder.create()
+                            dialog.setCancelable(false)
+                            dialog.show()
+                        }
+                    }
+                }
             }
         }
 
@@ -169,9 +205,11 @@ class SettingClassActivity : AppCompatActivity(), EditClassView.View {
         input_class_name.isEnabled = true
         input_class_name.isFocusable = true
         input_class_name.isFocusableInTouchMode = true
-        class_grade_layout.visibility = View.GONE
-        tv_school_grade.visibility = View.VISIBLE
-        spinner_grade.visibility = View.VISIBLE
+
+        grade_layout.isCounterEnabled = true
+        add_grade.isEnabled = true
+        add_grade.isFocusable = true
+        add_grade.isFocusableInTouchMode = true
     }
 
     private fun dissableView() {
@@ -179,9 +217,11 @@ class SettingClassActivity : AppCompatActivity(), EditClassView.View {
         input_class_name.isEnabled = false
         input_class_name.isFocusable = false
         input_class_name.isFocusableInTouchMode = false
-        class_grade_layout.visibility = View.VISIBLE
-        tv_school_grade.visibility = View.GONE
-        spinner_grade.visibility = View.GONE
+
+        grade_layout.isCounterEnabled = false
+        add_grade.isEnabled = false
+        add_grade.isFocusable = false
+        add_grade.isFocusableInTouchMode = false
     }
 
     private fun getCodeClass() {
@@ -192,18 +232,15 @@ class SettingClassActivity : AppCompatActivity(), EditClassView.View {
         tv_user_id.text = userId
         tv_class_code.text = classId
         input_class_name.setText(classTitle)
-        class_grade.setText(classGrade)
+        add_grade.setText(classGrade)
     }
 
-    private fun setClassLevel(context: Context, item: Array<String>) {
-        val adapter = ArrayAdapter(context, android.R.layout.simple_spinner_dropdown_item, item)
-        sp_class_list.adapter = adapter
-        sp_class_list.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onNothingSelected(p0: AdapterView<*>?) {}
+    private fun setGradeList() {
+        gradeAdapter = ArrayAdapter(
+            this, R.layout.support_simple_spinner_dropdown_item,
+            resources.getStringArray(R.array.grade_level_list)
+        )
 
-            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                newClassGrade = sp_class_list.selectedItem.toString()
-            }
-        }
+        (add_grade as? AutoCompleteTextView)?.setAdapter(gradeAdapter)
     }
 }

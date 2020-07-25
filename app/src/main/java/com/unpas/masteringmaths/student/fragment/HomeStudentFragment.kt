@@ -42,11 +42,11 @@ class HomeStudentFragment : Fragment(), HomeFragmentView.View {
 
         presenter.requestDatabase()
         presenter.getPhotoFromStorage()
-        swipe_refresh.isEnabled = false
+        swipe_refresh?.isEnabled = false
 
         getClassCount(view)
 
-        sp_level_list.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        sp_level_list?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {}
 
             @SuppressLint("InflateParams")
@@ -173,11 +173,11 @@ class HomeStudentFragment : Fragment(), HomeFragmentView.View {
     }
 
     override fun hideProgressBar() {
-        swipe_refresh.isRefreshing = false
+        swipe_refresh?.isRefreshing = false
     }
 
     override fun showProgressBar() {
-        swipe_refresh.isRefreshing = true
+        swipe_refresh?.isRefreshing = true
     }
 
     override fun showPhotoProfile(photoUrl: String) {

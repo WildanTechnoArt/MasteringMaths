@@ -1,184 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".student.activity.EditProfileStudentActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".student.activity.EditProfileStudentActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/colorPrimary"
-                android:elevation="6dp"
-                app:title="@string/edit_profil"
-                tools:targetApi="lollipop" />
-
-    </com.google.android.material.appbar.AppBarLayout>
+    <include android:id="@+id/appbar"
+        layout="@layout/toolbar_layout"/>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/swipe_refresh"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/appbar">
+        android:id="@+id/swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appbar">
 
         <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_nisn"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_very_big_size"
-                    android:layout_marginEnd="@dimen/margin_very_big_size"
-                    android:orientation="vertical">
+                    android:layout_marginStart="@dimen/margin_big_size"
+                    android:layout_marginLeft="@dimen/margin_big_size"
+                    android:layout_marginEnd="@dimen/margin_big_size"
+                    android:layout_marginRight="@dimen/margin_big_size"
+                    android:layout_marginTop="@dimen/margin_big_size"
+                    android:hint="@string/nomor_nis"
+                    app:startIconDrawable="@drawable/ic_nip">
 
-                <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/nomor_nisn"
-                        android:textColor="@android:color/black"
-                        android:textStyle="bold" />
-
-                <EditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/input_nisn"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginBottom="@dimen/margin_small_size"
-                        android:autofillHints="@string/nomor_nip"
-                        android:background="@drawable/input_layout"
-                        android:hint="@string/nomor_nip"
-                        android:inputType="number"
-                        android:padding="12dp"
-                        android:textSize="16sp"
-                        tools:targetApi="o" />
+                        android:layout_height="match_parent"
+                        android:inputType="number" />
 
-                <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="@string/full_name"
-                        android:textColor="@android:color/black"
-                        android:textStyle="bold" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_name"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_big_size"
+                    android:layout_marginLeft="@dimen/margin_big_size"
+                    android:layout_marginEnd="@dimen/margin_big_size"
+                    android:layout_marginRight="@dimen/margin_big_size"
+                    android:layout_marginTop="@dimen/margin_big_size"
+                    android:hint="@string/full_name"
+                    app:startIconDrawable="@drawable/ic_person">
+
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/input_name"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginBottom="@dimen/margin_small_size"
-                        android:autofillHints="@string/full_name"
-                        android:background="@drawable/input_layout"
-                        android:hint="@string/full_name"
-                        android:inputType="text"
-                        android:padding="12dp"
-                        android:textSize="16sp"
-                        tools:targetApi="o" />
+                        android:layout_height="match_parent"
+                        android:inputType="textPersonName" />
 
-                <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="@string/alamat_email"
-                        android:textColor="@android:color/black"
-                        android:textStyle="bold" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_email"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_big_size"
+                    android:layout_marginLeft="@dimen/margin_big_size"
+                    android:layout_marginTop="@dimen/margin_big_size"
+                    android:layout_marginEnd="@dimen/margin_big_size"
+                    android:layout_marginRight="@dimen/margin_big_size"
+                    android:hint="@string/email_address"
+                    app:helperText="@string/txt_email_autentikasi"
+                    app:startIconDrawable="@drawable/ic_email">
+
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/input_email"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:autofillHints="@string/email_address"
-                        android:background="@drawable/input_layout"
-                        android:hint="@string/email_address"
-                        android:inputType="textEmailAddress"
-                        android:padding="12dp"
-                        android:textSize="16sp"
-                        tools:targetApi="o" />
+                        android:layout_height="match_parent"
+                        android:inputType="textEmailAddress" />
 
-                <TextView
-                        android:id="@+id/tv_email_autentikasi"
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_address"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_big_size"
+                    android:layout_marginLeft="@dimen/margin_big_size"
+                    android:layout_marginEnd="@dimen/margin_big_size"
+                    android:layout_marginRight="@dimen/margin_big_size"
+                    android:layout_marginTop="@dimen/margin_big_size"
+                    android:hint="@string/user_address"
+                    app:startIconDrawable="@drawable/ic_location">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input_address"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginBottom="@dimen/margin_small_size"
-                        android:text="@string/txt_email_autentikasi"
-                        android:textSize="12sp" />
+                        android:layout_height="match_parent"
+                        android:inputType="textMultiLine" />
 
-                <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="@string/nama_kota"
-                        android:textColor="@android:color/black"
-                        android:textStyle="bold" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
-                        android:id="@+id/input_city"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginBottom="@dimen/margin_small_size"
-                        android:autofillHints="@string/email_address"
-                        android:background="@drawable/input_layout"
-                        android:hint="@string/nama_kota"
-                        android:inputType="text"
-                        android:padding="12dp"
-                        android:textSize="16sp"
-                        tools:targetApi="o" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_phone"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_big_size"
+                    android:layout_marginLeft="@dimen/margin_big_size"
+                    android:layout_marginEnd="@dimen/margin_big_size"
+                    android:layout_marginRight="@dimen/margin_big_size"
+                    android:layout_marginTop="@dimen/margin_big_size"
+                    android:hint="@string/user_phone"
+                    app:startIconDrawable="@drawable/ic_phone">
 
-                <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="@string/user_phone"
-                        android:textColor="@android:color/black"
-                        android:textStyle="bold" />
-
-                <EditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/input_phone"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginBottom="@dimen/margin_small_size"
-                        android:autofillHints="@string/email_address"
-                        android:background="@drawable/input_layout"
-                        android:hint="@string/user_phone"
-                        android:inputType="text|phone"
-                        android:padding="12dp"
-                        android:textSize="16sp"
-                        tools:targetApi="o" />
+                        android:layout_height="match_parent"
+                        android:inputType="phone" />
 
-                <Button
-                        android:id="@+id/btn_save"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/margin_normal_size"
-                        android:layout_marginBottom="@dimen/margin_small_size"
-                        android:background="@drawable/button_hover_primary_dark"
-                        android:elevation="6dp"
-                        android:text="@string/btn_simpan"
-                        android:textAllCaps="true"
-                        android:textColor="@color/colorWhite"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        tools:targetApi="lollipop" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_save"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_big_size"
+                    android:text="@string/btn_save"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorWhite"
+                    app:cornerRadius="@dimen/btn_radius_corner" />
 
             </LinearLayout>
 

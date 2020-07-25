@@ -80,7 +80,7 @@ class TeacherRegisterActivity : AppCompatActivity(), RegisterView.View {
     }
 
     override fun hideProgressBar() {
-        btn_register.hideProgress(R.string.daftar)
+        btn_register.hideProgress(R.string.btn_register)
     }
 
     override fun showProgressBar() {

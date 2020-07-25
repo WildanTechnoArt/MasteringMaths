@@ -48,12 +48,12 @@ public class SudentQuizeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sudent_quize);
         addData();
         soal = findViewById(R.id.content_soal);
-        Button btnNext = findViewById(R.id.myanswer);
+        Button btnNext = findViewById(R.id.btn_answer);
         tvSoalNo = findViewById(R.id.no_soal);
-        tvAnswerA = findViewById(R.id.answerA);
-        tvAnswerB = findViewById(R.id.answerB);
-        tvAnswerC = findViewById(R.id.answerC);
-        tvAnswerD = findViewById(R.id.answerD);
+        tvAnswerA = findViewById(R.id.tv_answerA);
+        tvAnswerB = findViewById(R.id.tv_answerB);
+        tvAnswerC = findViewById(R.id.tv_answerC);
+        tvAnswerD = findViewById(R.id.tv_answerD);
         waktu = findViewById(R.id.waktu);
         ansImgA = findViewById(R.id.img_answer_A);
         ansImgB = findViewById(R.id.img_answer_B);

@@ -35,7 +35,7 @@ class ProfilePresenter(
             .collection("users")
             .document(mUserId)
 
-        db.addSnapshotListener { snapshot, exception ->
+        db.addSnapshotListener { snapshot, _ ->
             if (snapshot != null && snapshot.exists()) {
                 val nisn = snapshot.getString("nisn").toString()
                 val name = snapshot.getString("username").toString()
@@ -62,7 +62,7 @@ class ProfilePresenter(
 
             }.addOnFailureListener {
                 view.hideProgressBar()
-                view.handleResponse(context.getString(R.string.failed_show_photo))
+                view.handleResponse(it.localizedMessage?.toString().toString())
             }
     }
 
@@ -123,7 +123,7 @@ class ProfilePresenter(
 
                 }.addOnFailureListener {
                     view.hideProgressBar()
-                    view.handleResponse(context.getString(R.string.upload_failed))
+                    view.handleResponse(it.localizedMessage?.toString().toString())
                 }
 
             } else {

@@ -15,6 +15,7 @@ import com.unpas.masteringmaths.utils.UtilsConstant.Companion.STUDENT_ID
 import com.unpas.masteringmaths.utils.UtilsConstant.Companion.TEACHER_ID
 import com.unpas.masteringmaths.utils.UtilsConstant.Companion.USER_ID
 import kotlinx.android.synthetic.main.activity_profile_user.*
+import kotlinx.android.synthetic.main.toolbar_layout.*
 
 class ProfileUserActivity : AppCompatActivity() {
 

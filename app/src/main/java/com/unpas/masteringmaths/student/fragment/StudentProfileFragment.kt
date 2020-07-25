@@ -84,6 +84,7 @@ class StudentProfileFragment : Fragment(),ProfileFragmentView.View {
         mContext = view.context
 
         (mContext as AppCompatActivity).setSupportActionBar(mToolbar)
+        (mContext as AppCompatActivity).supportActionBar?.title = "Profil Siswa"
 
         presenter = ProfilePresenter(mContext, this)
 

@@ -46,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@+id/appbar" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView5"
+        android:id="@+id/card_board"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"

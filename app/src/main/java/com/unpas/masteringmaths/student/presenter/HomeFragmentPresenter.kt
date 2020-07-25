@@ -3,7 +3,6 @@ package com.unpas.masteringmaths.student.presenter
 import android.content.Context
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.unpas.masteringmaths.R
 import com.unpas.masteringmaths.database.SharedPrefManager
 import com.unpas.masteringmaths.student.view.HomeFragmentView
 
@@ -26,7 +25,7 @@ class HomeFragmentPresenter(private val context: Context,
 
             }.addOnFailureListener {
                 view.hideProgressBar()
-                view.handleResponse(context.getString(R.string.failed_show_photo))
+                view.handleResponse(it.localizedMessage?.toString().toString())
             }
     }
 
@@ -43,7 +42,7 @@ class HomeFragmentPresenter(private val context: Context,
                 view.onSuccess(it.getString("username").toString(), it.getString("nisn").toString())
             }.addOnFailureListener {
                 view.hideProgressBar()
-                view.handleResponse(context.getString(R.string.request_error))
+                view.handleResponse(it.localizedMessage?.toString().toString())
             }
     }
 }

@@ -1,210 +1,221 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/colorWhite"
-                android:elevation="6dp"
-                app:title="Profil Siswa"
-                tools:targetApi="lollipop" />
-
-    </com.google.android.material.appbar.AppBarLayout>
+    <include
+        android:id="@+id/appbar"
+        layout="@layout/toolbar_layout" />
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/swipe_refresh"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        android:id="@+id/swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fillViewport="true">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/img_profile"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:layout_marginTop="24dp"
-                        android:src="@drawable/profile_placeholder"
-                        app:civ_border_color="@color/colorAccent"
-                        app:civ_border_width="2dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                    android:id="@+id/img_profile"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:elevation="6dp"
+                    android:src="@drawable/profile_placeholder"
+                    app:civ_border_color="@color/colorWhite"
+                    app:civ_border_width="2dp"
+                    app:layout_constraintBottom_toTopOf="@+id/b_guideline_photo"
+                    app:layout_constraintEnd_toStartOf="@+id/r_guideline_photo"
+                    app:layout_constraintStart_toStartOf="@+id/l_guideline_photo"
+                    app:layout_constraintTop_toTopOf="@+id/t_guideline_photo" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/r_guideline_photo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.68" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/l_guideline_photo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.31" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/t_guideline_photo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.04" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/b_guideline_photo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.28" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
-                        android:id="@+id/fab_change_photo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:clickable="true"
-                        android:focusable="true"
-                        app:backgroundTint="@color/colorAccent"
-                        app:fabSize="mini"
-                        app:layout_constraintBottom_toBottomOf="@+id/img_profile"
-                        app:layout_constraintEnd_toEndOf="@+id/img_profile"
-                        app:layout_constraintHorizontal_bias="0.95"
-                        app:layout_constraintStart_toStartOf="@+id/img_profile"
-                        app:layout_constraintTop_toTopOf="@+id/img_profile"
-                        app:layout_constraintVertical_bias="1.0"
-                        app:srcCompat="@drawable/ic_photo_camera_24dp" />
+                    android:id="@+id/fab_change_photo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:backgroundTint="@color/colorAccent"
+                    app:fabSize="mini"
+                    app:layout_constraintBottom_toBottomOf="@+id/img_profile"
+                    app:layout_constraintEnd_toEndOf="@+id/img_profile"
+                    app:layout_constraintHorizontal_bias="0.95"
+                    app:layout_constraintStart_toStartOf="@+id/img_profile"
+                    app:layout_constraintTop_toTopOf="@+id/img_profile"
+                    app:layout_constraintVertical_bias="1.0"
+                    app:srcCompat="@drawable/ic_photo_camera_24dp"
+                    app:tint="@color/colorWhite" />
 
-                <androidx.cardview.widget.CardView
-                        android:id="@+id/card_profile"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/margin_big_size"
-                        android:layout_marginTop="@dimen/margin_big_size"
-                        android:layout_marginEnd="@dimen/margin_big_size"
-                        app:cardCornerRadius="6dp"
-                        app:cardElevation="3dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_nisn">
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_profile"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_big_size"
+                    android:layout_marginTop="@dimen/margin_big_size"
+                    android:layout_marginEnd="@dimen/margin_big_size"
+                    app:cardCornerRadius="@dimen/card_radius_corner"
+                    app:cardElevation="@dimen/card_elevation"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_nisn">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="@dimen/margin_big_size">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tv_student_email"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:gravity="center|start"
+                            android:text="@string/request_data"
+                            android:textSize="15sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/img_email"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/img_email"
+                            app:layout_constraintTop_toTopOf="@+id/img_email" />
+
+                        <View
+                            android:id="@+id/line_one"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:padding="@dimen/margin_big_size">
+                            android:layout_height="1dp"
+                            android:layout_marginTop="@dimen/margin_big_size"
+                            android:background="#FFB7B7B7"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_student_email" />
 
-                        <TextView
-                                android:id="@+id/tv_student_email"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:gravity="center|start"
-                                android:text="@string/request_data"
-                                android:textSize="15sp"
-                                app:layout_constraintBottom_toBottomOf="@+id/img_email"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toEndOf="@+id/img_email"
-                                app:layout_constraintTop_toTopOf="@+id/img_email" />
-
-                        <View
-                                android:id="@+id/line_one"
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:layout_marginTop="@dimen/margin_big_size"
-                                android:background="#FFB7B7B7"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/tv_student_email" />
-
-                        <TextView
-                                android:id="@+id/tv_address"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:gravity="center|start"
-                                android:text="@string/request_data"
-                                android:textSize="15sp"
-                                app:layout_constraintBottom_toBottomOf="@+id/img_place"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toEndOf="@+id/img_place"
-                                app:layout_constraintTop_toTopOf="@+id/img_place" />
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tv_address"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:gravity="center|start"
+                            android:text="@string/request_data"
+                            android:textSize="15sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/img_place"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/img_place"
+                            app:layout_constraintTop_toTopOf="@+id/img_place" />
 
                         <View
-                                android:id="@+id/line_two"
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:layout_marginTop="@dimen/margin_big_size"
-                                android:background="#FFB7B7B7"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/tv_address" />
+                            android:id="@+id/line_two"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="@dimen/margin_big_size"
+                            android:background="#FFB7B7B7"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_address" />
 
-                        <TextView
-                                android:id="@+id/tv_student_phone_number"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:gravity="center|start"
-                                android:text="@string/request_data"
-                                android:textSize="15sp"
-                                app:layout_constraintBottom_toBottomOf="@+id/img_phone"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toEndOf="@+id/img_phone"
-                                app:layout_constraintTop_toTopOf="@+id/img_phone" />
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tv_student_phone_number"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:gravity="center|start"
+                            android:text="@string/request_data"
+                            android:textSize="15sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/img_phone"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/img_phone"
+                            app:layout_constraintTop_toTopOf="@+id/img_phone" />
 
-                        <ImageView
-                                android:id="@+id/img_email"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:contentDescription="@string/icon"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/ic_email_28dp" />
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/img_email"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_email_28dp" />
 
-                        <ImageView
-                                android:id="@+id/img_place"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/margin_big_size"
-                                android:contentDescription="@string/icon"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/line_one"
-                                app:srcCompat="@drawable/ic_place_28dp" />
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/img_place"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_big_size"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/line_one"
+                            app:srcCompat="@drawable/ic_place_28dp" />
 
-                        <ImageView
-                                android:id="@+id/img_phone"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/margin_big_size"
-                                android:contentDescription="@string/icon"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/line_two"
-                                app:srcCompat="@drawable/ic_phone_28dp" />
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/img_phone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_big_size"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/line_two"
+                            app:srcCompat="@drawable/ic_phone_28dp" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
-                </androidx.cardview.widget.CardView>
+                </com.google.android.material.card.MaterialCardView>
 
-                <TextView
-                        android:id="@+id/tv_students_name"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/margin_very_big_size"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="@dimen/margin_very_big_size"
-                        android:text="@string/request_data"
-                        android:textAlignment="center"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/img_profile" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_students_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_very_big_size"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="@dimen/margin_very_big_size"
+                    android:text="@string/request_data"
+                    android:textAlignment="center"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/img_profile" />
 
-                <TextView
-                        android:id="@+id/tv_nisn"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/margin_very_big_size"
-                        android:layout_marginEnd="@dimen/margin_very_big_size"
-                        android:text="@string/request_data"
-                        android:textAlignment="center"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_students_name" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_nisn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_very_big_size"
+                    android:layout_marginEnd="@dimen/margin_very_big_size"
+                    android:text="@string/request_data"
+                    android:textAlignment="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_students_name" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

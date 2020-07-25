@@ -10,7 +10,7 @@
           android:title="Chat" />
 
     <item android:id="@+id/clas"
-          android:icon="@drawable/ic_class"
+          android:icon="@drawable/ic_baseline_class"
           android:title="Class" />
 
     <item android:id="@+id/profil"

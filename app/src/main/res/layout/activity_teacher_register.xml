@@ -194,10 +194,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_big_size"
-                android:text="@string/daftar"
+                android:text="@string/btn_register"
                 android:textAllCaps="true"
                 android:textColor="@color/colorWhite"
-                app:cornerRadius="@dimen/btn_corner" />
+                app:cornerRadius="@dimen/btn_radius_corner" />
 
         </LinearLayout>
 

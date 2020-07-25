@@ -45,7 +45,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
-            android:id="@+id/cardView5"
+            android:id="@+id/card_board"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="16dp"
@@ -75,8 +75,8 @@
     <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:id="@+id/wadah_answer" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/myanswer" app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/layout_answer" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_answer" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="16dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp" android:visibility="visible" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/center">
@@ -99,7 +99,7 @@
 
 
     <Button
-            android:id="@+id/myanswer"
+            android:id="@+id/btn_answer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"

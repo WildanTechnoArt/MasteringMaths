@@ -35,7 +35,7 @@ class RegisterPresenter(
                         addDataUser(it.user?.uid.toString(), nip, name, email, school, city, phone)
                     }.addOnFailureListener {
                         view.hideProgressBar()
-                        view.handleResponse(context.getString(R.string.register_failed))
+                        view.handleResponse(it.localizedMessage?.toString().toString())
                     }
             } else {
                 view.handleResponse(context.getString(R.string.password_not_valid))
@@ -66,7 +66,7 @@ class RegisterPresenter(
                 view.onSuccess(userId, context.getString(R.string.register_success))
             }.addOnFailureListener {
                 view.hideProgressBar()
-                view.handleResponse(context.getString(R.string.register_failed))
+                view.handleResponse(it.localizedMessage?.toString().toString())
             }
     }
 }

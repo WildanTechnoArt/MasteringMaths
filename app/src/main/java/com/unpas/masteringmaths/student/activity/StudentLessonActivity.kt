@@ -9,6 +9,7 @@ import com.unpas.masteringmaths.R
 import com.unpas.masteringmaths.main.GlideApp
 import com.unpas.masteringmaths.utils.UtilsConstant
 import kotlinx.android.synthetic.main.sub_menu.*
+import kotlinx.android.synthetic.main.toolbar_layout.*
 
 class StudentLessonActivity : AppCompatActivity() {
 
@@ -17,19 +18,38 @@ class StudentLessonActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_student_lesson)
+        setSupportActionBar(toolbar)
+        supportActionBar?.title = "Bahan Ajar"
         numberLesson = intent.getIntExtra(UtilsConstant.NUMBER_LESSON, 0)
+        setMarqueeTextView()
         initLesson()
         when (numberLesson) {
-            0 -> Relasi()
-            1 -> Pythagoras()
-            2 -> PolaBilangan()
-            3 -> PersamaanGaris()
-            4 -> KoordinatCartesius()
-            5 -> Spldv()
+            0 -> relasi()
+            1 -> pythagoras()
+            2 -> polaBilangan()
+            3 -> persamaanGaris()
+            4 -> koordinatCartesius()
+            5 -> spldv()
         }
     }
 
-    private fun initLesson () {
+    private fun setMarqueeTextView(){
+        tv_relasi.isSelected = true
+        tv_rumus_fungsi.isSelected = true
+        tv_fungsi.isSelected = true
+        tv_1.isSelected = true
+        tv_pembelajaran.isSelected = true
+        tv_indikator.isSelected = true
+        tv_sejarah.isSelected = true
+        tv_rangkuman.isSelected = true
+        tv_referensi.isSelected = true
+        tv_postes.isSelected = true
+        tv_soal.isSelected = true
+        tv_kuis.isSelected = true
+        tv_2.isSelected = true
+    }
+
+    private fun initLesson() {
         GlideApp.with(this).load(R.drawable.tutwuri).into(img_pembelajaran)
         GlideApp.with(this).load(R.drawable.indikator).into(img_indikator)
         GlideApp.with(this).load(R.drawable.materi).into(img_rangkuman)
@@ -43,23 +63,25 @@ class StudentLessonActivity : AppCompatActivity() {
             intent.putExtra(UtilsConstant.COMPETENT_NUMBER, numberLesson)
             startActivity(intent)
         }
+
         card_indikator.setOnClickListener {
             val intent = Intent(this@StudentLessonActivity, StudentKonsepActivity::class.java)
             intent.putExtra(UtilsConstant.COMPETENT_NUMBER, numberLesson)
             startActivity(intent)
         }
+
         card_sejarah.setOnClickListener {
             val intent = Intent(this@StudentLessonActivity, SejarahActivity::class.java)
             intent.putExtra(UtilsConstant.NUMBER_INDEX, numberLesson)
             startActivity(intent)
         }
 
-
         card_relasi.setOnClickListener {
             val intent = Intent(this@StudentLessonActivity, SubActivity::class.java)
             intent.putExtra(UtilsConstant.SUB_ACTIVITY, tv_relasi.text.toString())
             startActivity(intent)
         }
+
         card_rumus_fungsi.setOnClickListener {
             val intent = Intent(this@StudentLessonActivity, SubActivity::class.java)
             intent.putExtra(UtilsConstant.SUB_ACTIVITY, tv_rumus_fungsi.text.toString())
@@ -77,24 +99,28 @@ class StudentLessonActivity : AppCompatActivity() {
             intent.putExtra(UtilsConstant.SUB_ACTIVITY, tv_fungsi.text.toString())
             startActivity(intent)
         }
+
         card_rangkuman.setOnClickListener {
             val intent = Intent(this@StudentLessonActivity, RangkumanActivity::class.java)
             intent.putExtra(UtilsConstant.NUMBER_INDEX, numberLesson)
             startActivity(intent)
         }
+
         card_referensi.setOnClickListener {
             val intent = Intent(this@StudentLessonActivity, ReferensiRelasi::class.java)
-            intent.putExtra(UtilsConstant.NUMBER_INDEX,numberLesson)
+            intent.putExtra(UtilsConstant.NUMBER_INDEX, numberLesson)
             startActivity(intent)
         }
+
         card_postes.setOnClickListener {
 
             val intent = Intent(this@StudentLessonActivity, PostesRelasi::class.java)
-            intent.putExtra(UtilsConstant.NUMBER_INDEX,numberLesson)
+            intent.putExtra(UtilsConstant.NUMBER_INDEX, numberLesson)
             startActivity(intent)
         }
+
         card_soal.setOnClickListener {
-            when (numberLesson){
+            when (numberLesson) {
                 0 -> {
                     startActivity(
                         Intent(this@StudentLessonActivity, PaketRelasiActivity::class.java)
@@ -128,8 +154,9 @@ class StudentLessonActivity : AppCompatActivity() {
             }
 
         }
-        card_kuis.setOnClickListener { view: View? ->
-            when (numberLesson){
+
+        card_kuis.setOnClickListener {
+            when (numberLesson) {
                 0 -> {
                     startActivity(
                         Intent(this@StudentLessonActivity, SudentQuizeActivity::class.java)
@@ -164,7 +191,7 @@ class StudentLessonActivity : AppCompatActivity() {
         }
     }
 
-    private fun Relasi() {
+    private fun relasi() {
         GlideApp.with(this).load(R.drawable.biografisejarahrelasi).into(img_sejarah)
         GlideApp.with(this).load(R.drawable.relasi).into(img_relasi)
         GlideApp.with(this).load(R.drawable.fungsi).into(img_fungsi)
@@ -172,9 +199,8 @@ class StudentLessonActivity : AppCompatActivity() {
     }
 
     @SuppressLint("SetTextI18n")
-    private fun Pythagoras() {
-        laytambah.visibility = View.VISIBLE
-        card_2.visibility = View.INVISIBLE
+    private fun pythagoras() {
+        card_1.visibility = View.VISIBLE
         tv_relasi.text = "Teorema Pythagoras"
         tv_rumus_fungsi.text = "Segitiga Siku-Siku Khusus"
         tv_fungsi.text = "Tripel Pythagoras"
@@ -188,7 +214,7 @@ class StudentLessonActivity : AppCompatActivity() {
     }
 
     @SuppressLint("SetTextI18n")
-    private fun PolaBilangan() {
+    private fun polaBilangan() {
         tv_relasi.text = "Barisan Bilangan"
         tv_fungsi.text = "Barisan dan Deret Aritmatika"
         tv_rumus_fungsi.text = "Barisan dan Deret Geometri"
@@ -200,7 +226,7 @@ class StudentLessonActivity : AppCompatActivity() {
     }
 
     @SuppressLint("SetTextI18n")
-    private fun PersamaanGaris() {
+    private fun persamaanGaris() {
         tv_relasi.text = "Kemiringan"
         tv_fungsi.text = "Persamaan Garis"
         tv_rumus_fungsi.text = "Kedudukan Dua Garis"
@@ -212,7 +238,7 @@ class StudentLessonActivity : AppCompatActivity() {
     }
 
     @SuppressLint("SetTextI18n")
-    private fun KoordinatCartesius() {
+    private fun koordinatCartesius() {
         tv_relasi.text = "Koordinat Cartesius"
         tv_fungsi.text = "Posisi Titik"
         tv_rumus_fungsi.text = "Posisi Garis"
@@ -224,9 +250,8 @@ class StudentLessonActivity : AppCompatActivity() {
     }
 
     @SuppressLint("SetTextI18n")
-    private fun Spldv() {
-        laytambah.visibility = View.VISIBLE
-        card_2.visibility = View.INVISIBLE
+    private fun spldv() {
+        card_1.visibility = View.VISIBLE
         tv_relasi.text = "Bentuk SPLDV"
         tv_fungsi.text = "Metode Eleminasi"
         tv_rumus_fungsi.text = "Metode Grafik"

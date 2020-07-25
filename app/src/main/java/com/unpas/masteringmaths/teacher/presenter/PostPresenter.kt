@@ -1,7 +1,12 @@
 package com.unpas.masteringmaths.teacher.presenter
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.net.Uri
+import android.provider.OpenableColumns
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
+import com.theartofdev.edmodo.cropper.CropImage
 import com.unpas.masteringmaths.R
 import com.unpas.masteringmaths.teacher.model.PostData
 import com.unpas.masteringmaths.teacher.view.PostView
@@ -12,6 +17,42 @@ class PostPresenter(
 ) : PostView.Presenter {
 
     private lateinit var db: FirebaseFirestore
+    private lateinit var fileUrl: String
+    private var resultUri: Uri? = null
+    private val fileReference = FirebaseStorage.getInstance().reference
+
+    @SuppressLint("Recycle")
+    fun getFileName(uri: Uri?): String {
+        var result: String? = null
+        if (uri?.scheme.equals("content")) {
+            val cursor = uri?.let { context.contentResolver.query(it, null, null, null, null) }
+            try {
+                if (cursor != null && cursor.moveToFirst()) {
+                    result = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME))
+                }
+            } finally {
+                cursor!!.close()
+            }
+        }
+        if (result == null) {
+            result = uri?.path
+            val cut = result!!.lastIndexOf('/')
+            if (cut != -1) {
+                result = result.substring(cut + 1)
+            }
+        }
+        return result
+    }
+
+    override fun uploadFilePhoto(result: CropImage.ActivityResult) {
+        resultUri = result.uri
+        view.showFileName(getFileName(resultUri))
+    }
+
+    override fun uploadFileDocument(result: Uri) {
+        resultUri = result
+        view.showFileName(getFileName(resultUri))
+    }
 
     override fun requestProfile(userId: String) {
         view.showProgressBar()
@@ -34,79 +75,177 @@ class PostPresenter(
                 view.hideProgressBar()
             }
             .addOnFailureListener {
-                view.handleResponse(context.getString(R.string.error_request))
+                view.handleResponse(it.localizedMessage?.toString().toString())
                 view.hideProgressBar()
             }
     }
 
-    override fun postData(
-        urlPhoto: String, post: String?, nip: String,
-        username: String, userId: String, teacherId: String, codeClass: String, lesson: String
+    override fun addPost(
+        className: String, userId: String, urlPhoto: String,
+        postContent: String?, nomorInduk: String, codeClass: String, username: String
     ) {
         view.showProgressBar()
 
-        val data = PostData()
-        data.urlPhoto = urlPhoto
-        data.nip = nip
-        data.userId = userId
-        data.username = username
-        data.isTeacher = false
-        data.postContent = post
-        data.postType = 1
+        if (resultUri != null) {
 
-        db = FirebaseFirestore.getInstance()
-        db.collection("classRooms")
-            .document(lesson)
-            .collection(teacherId)
-            .document(codeClass)
-            .collection("posts")
-            .document()
-            .set(data)
-            .addOnSuccessListener {
-                view.onSuccessPost(context.getString(R.string.success_upload_post))
+            val fileURL = "file_tugas/$userId" + "_" + "${resultUri?.lastPathSegment}"
+            val filePath = fileReference.child(fileURL)
+
+            filePath.putFile(resultUri!!).addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    fileReference.child(fileURL).downloadUrl
+                        .addOnSuccessListener { imageUri: Uri? ->
+                            fileUrl = imageUri.toString()
+
+                            val data = PostData()
+                            data.urlPhoto = urlPhoto
+                            data.nip = nomorInduk
+                            data.userId = userId
+                            data.username = username
+                            data.postContent = postContent
+                            data.postType = 0
+                            data.fileUrl = fileUrl
+
+                            db = FirebaseFirestore.getInstance()
+                            db.collection("classRooms")
+                                .document(className)
+                                .collection(userId)
+                                .document(codeClass)
+                                .collection("posts")
+                                .document()
+                                .set(data)
+                                .addOnSuccessListener {
+                                    view.onSuccessPost(context.getString(R.string.success_upload_post))
+                                }
+                                .addOnFailureListener {
+                                    view.handleResponse(it.localizedMessage?.toString().toString())
+                                    view.hideProgressBar()
+                                }
+
+                        }.addOnFailureListener {
+                            view.hideProgressBar()
+                            view.handleResponse(it.localizedMessage?.toString().toString())
+                        }
+
+                } else {
+                    view.hideProgressBar()
+                    view.handleResponse(context.getString(R.string.upload_failed))
+                }
             }
-            .addOnFailureListener {
-                view.handleResponse(context.getString(R.string.error_request))
-                view.hideProgressBar()
-            }
+
+        } else {
+            val data = PostData()
+            data.urlPhoto = urlPhoto
+            data.nip = nomorInduk
+            data.userId = userId
+            data.username = username
+            data.userId = userId
+            data.postType = 1
+            data.postContent = postContent
+
+            db = FirebaseFirestore.getInstance()
+            db.collection("classRooms")
+                .document(className)
+                .collection(userId)
+                .document(codeClass)
+                .collection("posts")
+                .document()
+                .set(data)
+                .addOnSuccessListener {
+                    view.onSuccessPost(context.getString(R.string.success_upload_post))
+                }
+                .addOnFailureListener {
+                    it.localizedMessage?.toString()?.let { it1 -> view.handleResponse(it1) }
+                    view.hideProgressBar()
+                }
+        }
     }
 
-    override fun updateData(
+    override fun updatePost(
+        className: String,
+        userId: String,
         postKey: String,
         urlPhoto: String,
-        post: String?,
-        nip: String,
-        username: String,
-        userId: String,
-        teacherId: String,
+        postContent: String?,
+        nomorInduk: String,
         codeClass: String,
-        lesson: String
+        username: String
     ) {
         view.showProgressBar()
 
-        val data = PostData()
-        data.urlPhoto = urlPhoto
-        data.nip = nip
-        data.userId = userId
-        data.username = username
-        data.postContent = post
-        data.postType = 1
+        if (resultUri != null) {
 
-        db = FirebaseFirestore.getInstance()
-        db.collection("classRooms")
-            .document(lesson)
-            .collection(teacherId)
-            .document(codeClass)
-            .collection("posts")
-            .document(postKey)
-            .set(data)
-            .addOnSuccessListener {
-                view.onSuccessUpdate(context.getString(R.string.update_success))
+            val fileURL = "file_tugas/$userId" + "_" + "${resultUri?.lastPathSegment}"
+            val filePath = fileReference.child(fileURL)
+
+            filePath.putFile(resultUri!!).addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    fileReference.child(fileURL).downloadUrl
+                        .addOnSuccessListener { imageUri: Uri? ->
+                            fileUrl = imageUri.toString()
+
+                            val data = PostData()
+                            data.urlPhoto = urlPhoto
+                            data.nip = nomorInduk
+                            data.userId = userId
+                            data.username = username
+                            data.postContent = postContent
+                            data.postType = 0
+                            data.fileUrl = fileUrl
+
+                            db = FirebaseFirestore.getInstance()
+                            db.collection("classRooms")
+                                .document(className)
+                                .collection(userId)
+                                .document(codeClass)
+                                .collection("posts")
+                                .document(postKey)
+                                .set(data)
+                                .addOnSuccessListener {
+                                    view.onSuccessPost(context.getString(R.string.post_has_editted))
+                                }
+                                .addOnFailureListener {
+                                    view.handleResponse(it.localizedMessage?.toString().toString())
+                                    view.hideProgressBar()
+                                }
+
+                        }.addOnFailureListener {
+                            view.hideProgressBar()
+                            view.handleResponse(it.localizedMessage?.toString().toString())
+                        }
+
+                } else {
+                    view.hideProgressBar()
+                    view.handleResponse(context.getString(R.string.upload_failed))
+                }
             }
-            .addOnFailureListener {
-                view.handleResponse(context.getString(R.string.error_request))
-                view.hideProgressBar()
-            }
+
+        } else {
+            val data = PostData()
+            data.urlPhoto = urlPhoto
+            data.nip = nomorInduk
+            data.userId = userId
+            data.username = username
+            data.userId = userId
+            data.postType = 1
+            data.postContent = postContent
+
+            db = FirebaseFirestore.getInstance()
+            db.collection("classRooms")
+                .document(className)
+                .collection(userId)
+                .document(codeClass)
+                .collection("posts")
+                .document(postKey)
+                .set(data)
+                .addOnSuccessListener {
+                    view.onSuccessPost(context.getString(R.string.post_has_editted))
+                }
+                .addOnFailureListener {
+                    it.localizedMessage?.toString()?.let { it1 -> view.handleResponse(it1) }
+                    view.hideProgressBar()
+                }
+        }
     }
 
     override fun requestPhoto(userId: String) {
@@ -121,7 +260,7 @@ class PostPresenter(
                 view.hideProgressBar()
             }
             .addOnFailureListener {
-                view.handleResponse(context.getString(R.string.error_request))
+                view.handleResponse(it.localizedMessage?.toString().toString())
                 view.hideProgressBar()
             }
     }
