@@ -60,21 +60,21 @@ public class PostesRelasi extends AppCompatActivity {
 
         switch (position) {
             case 0:
-                tvMateriNo.setText("Slide Postes : 1/6");
+                tvMateriNo.setText("Page : 1/6");
                 for (int a = 1; a <= 6; a++) {
                     listSlide.add("file:///android_asset/postes_relasi_" + a + ".html");
                 }
                 btnNext.setOnClickListener(view -> {
-                    if(btnNext.getText() == "Selesai"){
+                    if(btnNext.getText() == "Finish"){
                         finish();
                     }else{
                         if (indext < listSlide.size() - 1) {
                             indext++;
                             nomor++;
                             Materi.loadUrl(listSlide.get(indext));
-                            tvMateriNo.setText("Slide Postes : " + nomor + "/6");
+                            tvMateriNo.setText("Page : " + nomor + "/6");
                             if (nomor == 6) {
-                                btnNext.setText("Selesai");
+                                btnNext.setText("Finish");
                             }
                             kondisi = false;
                         }
@@ -85,27 +85,27 @@ public class PostesRelasi extends AppCompatActivity {
                         indext--;
                         nomor--;
                         Materi.loadUrl(listSlide.get(indext));
-                        tvMateriNo.setText("Slide Postes : " + nomor + "/6");
+                        tvMateriNo.setText("Page : " + nomor + "/6");
                     }
                 });
                 break;
             case 1:
-                tvMateriNo.setText("Slide Postes : 1/6");
+                tvMateriNo.setText("Page : 1/6");
                 for (int a = 1; a <= 6; a++) {
                     listSlide.add("file:///android_asset/postes_pythagoras_" + a + ".html");
                 }
                 btnNext.setOnClickListener(view -> {
-                    if(btnNext.getText() == "Selesai"){
+                    if(btnNext.getText() == "Finish"){
                         finish();
                     }else{
                         if (indext < listSlide.size() - 1) {
                             indext++;
                             nomor++;
                             Materi.loadUrl(listSlide.get(indext));
-                            tvMateriNo.setText("Slide Postes : " + nomor + "/6");
+                            tvMateriNo.setText("Page : " + nomor + "/6");
 
                             if (nomor == 6) {
-                                btnNext.setText("Selesai");
+                                btnNext.setText("Finish");
                             }
                             kondisi = false;
                         }
@@ -117,26 +117,26 @@ public class PostesRelasi extends AppCompatActivity {
                         indext--;
                         nomor--;
                         Materi.loadUrl(listSlide.get(indext));
-                        tvMateriNo.setText("Slide Postes : " + nomor + "/6");
+                        tvMateriNo.setText("Page : " + nomor + "/6");
                     }
                 });
                 break;
             case 2:
-                tvMateriNo.setText("Slide Postes : 1/6");
+                tvMateriNo.setText("Page : 1/6");
                 for (int a = 1; a <= 6; a++) {
                     listSlide.add("file:///android_asset/postes_polabilangan_" + a + ".html");
                 }
                 btnNext.setOnClickListener(view -> {
-                    if(btnNext.getText() == "Selesai"){
+                    if(btnNext.getText() == "Finish"){
                         finish();
                     }else{
                         if (indext < listSlide.size() - 1) {
                             indext++;
                             nomor++;
                             Materi.loadUrl(listSlide.get(indext));
-                            tvMateriNo.setText("Slide Postes : " + nomor + "/6");
+                            tvMateriNo.setText("Page : " + nomor + "/6");
                             if (nomor == 6) {
-                                btnNext.setText("Selesai");
+                                btnNext.setText("Finish");
                             }
                             kondisi = false;
                         }
@@ -148,26 +148,26 @@ public class PostesRelasi extends AppCompatActivity {
                         indext--;
                         nomor--;
                         Materi.loadUrl(listSlide.get(indext));
-                        tvMateriNo.setText("Slide Postes : " + nomor + "/6");
+                        tvMateriNo.setText("Page : " + nomor + "/6");
                     }
                 });
                 break;
             case 3:
-                tvMateriNo.setText("Slide Postes : 1/6");
+                tvMateriNo.setText("Page : 1/6");
                 for (int a = 1; a <= 6; a++) {
                     listSlide.add("file:///android_asset/postes_garislurus_" + a + ".html");
                 }
                 btnNext.setOnClickListener(view -> {
-                    if(btnNext.getText() == "Selesai"){
+                    if(btnNext.getText() == "Finish"){
                         finish();
                     }else{
                         if (indext < listSlide.size() - 1) {
                             indext++;
                             nomor++;
                             Materi.loadUrl(listSlide.get(indext));
-                            tvMateriNo.setText("Slide Postes : " + nomor + "/6");
+                            tvMateriNo.setText("Page : " + nomor + "/6");
                             if (nomor == 6) {
-                                btnNext.setText("Selesai");
+                                btnNext.setText("Finish");
                             }
                             kondisi = false;
                         }
@@ -179,26 +179,26 @@ public class PostesRelasi extends AppCompatActivity {
                         indext--;
                         nomor--;
                         Materi.loadUrl(listSlide.get(indext));
-                        tvMateriNo.setText("Slide Postes : " + nomor + "/6");
+                        tvMateriNo.setText("Page : " + nomor + "/6");
                     }
                 });
                 break;
             case 4:
-                tvMateriNo.setText("Slide Postes : 1/6");
+                tvMateriNo.setText("Page : 1/6");
                 for (int a = 1; a <= 6; a++) {
                     listSlide.add("file:///android_asset/postes_kartesius_" + a + ".html");
                 }
                 btnNext.setOnClickListener(view -> {
-                    if(btnNext.getText() == "Selesai"){
+                    if(btnNext.getText() == "Finish"){
                         finish();
                     }else{
                         if (indext < listSlide.size() - 1) {
                             indext++;
                             nomor++;
                             Materi.loadUrl(listSlide.get(indext));
-                            tvMateriNo.setText("Slide Postes : " + nomor + "/6");
+                            tvMateriNo.setText("Page : " + nomor + "/6");
                             if (nomor == 6) {
-                                btnNext.setText("Selesai");
+                                btnNext.setText("Finish");
                             }
                             kondisi = false;
                         }
@@ -210,27 +210,27 @@ public class PostesRelasi extends AppCompatActivity {
                         indext--;
                         nomor--;
                         Materi.loadUrl(listSlide.get(indext));
-                        tvMateriNo.setText("Slide Postes : " + nomor + "/6");
+                        tvMateriNo.setText("Page : " + nomor + "/6");
                     }
                 });
                 break;
             case 5:
-                tvMateriNo.setText("Slide Postes : 1/6");
+                tvMateriNo.setText("Page : 1/6");
                 for (int a = 1; a <= 6; a++) {
                     listSlide.add("file:///android_asset/postes_spldv_" + a + ".html");
                 }
                 btnNext.setOnClickListener(view -> {
-                    if(btnNext.getText() == "Selesai"){
+                    if(btnNext.getText() == "Finish"){
                         finish();
                     }else{
                         if (indext < listSlide.size() - 1) {
                             indext++;
                             nomor++;
                             Materi.loadUrl(listSlide.get(indext));
-                            tvMateriNo.setText("Slide Postes : " + nomor + "/6");
+                            tvMateriNo.setText("Page : " + nomor + "/6");
 
                             if (nomor == 6) {
-                                btnNext.setText("Selesai");
+                                btnNext.setText("Finish");
                             }
                             kondisi = false;
                         }
@@ -242,7 +242,7 @@ public class PostesRelasi extends AppCompatActivity {
                         indext--;
                         nomor--;
                         Materi.loadUrl(listSlide.get(indext));
-                        tvMateriNo.setText("Slide Postes : " + nomor + "/6");
+                        tvMateriNo.setText("Page : " + nomor + "/6");
                     }
                 });
                 break;

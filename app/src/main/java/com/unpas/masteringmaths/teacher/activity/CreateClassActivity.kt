@@ -56,7 +56,7 @@ class CreateClassActivity : AppCompatActivity() {
             setDisplayShowHomeEnabled(true)
             setHomeButtonEnabled(true)
             setDisplayHomeAsUpEnabled(true)
-            title = "Buat Kelas"
+            title = "Create Class"
         }
 
         classId = intent?.getStringExtra(CLASS_ID).toString()
@@ -65,47 +65,12 @@ class CreateClassActivity : AppCompatActivity() {
         btn_create_class.attachTextChangeAnimator()
         userId = SharedPrefManager.getInstance(this).getUserId.toString()
 
-        // Menampilkan Daftar Jenjang Pelajaran
         val gradeAdapter = ArrayAdapter(
             this, R.layout.support_simple_spinner_dropdown_item,
             resources.getStringArray(R.array.grade_level_list)
         )
         (add_grade as? AutoCompleteTextView)?.setAdapter(gradeAdapter)
 
-        add_grade.setOnItemClickListener { _, _, position, _ ->
-            when (position) {
-                0 -> {
-                    val classList = arrayOf("Kelas VIII")
-                    val builder = MaterialAlertDialogBuilder(this)
-                        .setTitle("Pilih Kelas")
-                        .setItems(
-                            classList
-                        ) { _, id ->
-                            add_grade.setText("${gradeAdapter.getItem(id)} ${classList[id]}")
-                        }
-
-                    val dialog = builder.create()
-                    dialog.setCancelable(false)
-                    dialog.show()
-                }
-
-                1 -> {
-                    val classList = arrayOf("Kelas X")
-                    val builder = MaterialAlertDialogBuilder(this)
-                        .setTitle("Pilih Kelas")
-                        .setItems(
-                            classList
-                        ) { _, id ->
-                            add_grade.setText("${gradeAdapter.getItem(id)} ${classList[id]}")
-                        }
-                    val dialog = builder.create()
-                    dialog.setCancelable(false)
-                    dialog.show()
-                }
-            }
-        }
-
-        // Menampilkan Daftar Mata Pelajaran
         val lessonAdapter = ArrayAdapter(
             this, R.layout.support_simple_spinner_dropdown_item,
             resources.getStringArray(R.array.lesson_list)
@@ -124,29 +89,36 @@ class CreateClassActivity : AppCompatActivity() {
 
         val db = FirebaseFirestore.getInstance()
 
+        val createKey = db.collection("teacher")
+            .document("classList")
+            .collection(userId)
+            .document().id
+
         db.collection("teacher")
             .document("classList")
             .collection(userId)
-            .document()
+            .document(createKey)
             .set(dataClass)
-            .addOnSuccessListener {
-                createClassList()
-            }.addOnFailureListener {
-                btn_create_class.hideProgress(getString(R.string.buat_kelas))
-                Toast.makeText(
-                    this@CreateClassActivity, getString(R.string.error_request),
-                    Toast.LENGTH_SHORT
-                ).show()
+            .addOnCompleteListener {
+                if (it.isSuccessful) {
+                    createClassList(createKey)
+                }else{
+                    btn_create_class.hideProgress(getString(R.string.buat_kelas))
+                    Toast.makeText(
+                        this@CreateClassActivity, getString(R.string.error_request),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
     }
 
-    private fun createClassList() {
+    private fun createClassList(key: String) {
         val db = FirebaseFirestore.getInstance()
 
         db.collection("classList")
             .document(add_lesson.text.toString())
             .collection(userId)
-            .document()
+            .document(key)
             .set(dataClass)
             .addOnSuccessListener {
                 Toast.makeText(

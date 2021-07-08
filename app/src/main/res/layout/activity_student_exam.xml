@@ -84,7 +84,6 @@
 
     </RelativeLayout>
 
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_answer"
         android:layout_width="0dp"

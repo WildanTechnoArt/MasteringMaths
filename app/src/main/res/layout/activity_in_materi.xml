@@ -6,29 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".student.activity.InMateriActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <include
         android:id="@+id/appbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        layout="@layout/toolbar_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorPrimary"
-            android:elevation="4dp"
-            app:title="Materi"
-            tools:targetApi="lollipop" />
-
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/no_materi"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -37,7 +22,7 @@
         android:layout_marginEnd="16dp"
         android:background="@drawable/b2_selector"
         android:gravity="center"
-        android:text="-"
+        android:text="@string/none_data"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -73,42 +58,34 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/bt_next"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
-        android:background="@drawable/b2_selector"
-        android:elevation="6dp"
         android:text="@string/lanjut"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        android:textStyle="bold"
+        app:cornerRadius="@dimen/btn_radius_corner"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_prev"
-        tools:targetApi="lollipop" />
+        app:layout_constraintStart_toEndOf="@+id/btn_prev" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_prev"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@drawable/b2_selector"
-        android:elevation="6dp"
         android:text="@string/sebelumnya"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        android:textStyle="bold"
+        app:cornerRadius="@dimen/btn_radius_corner"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bt_next"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:targetApi="lollipop" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,27 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".student.activity.StudentInClassActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <include
         android:id="@+id/appbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorPrimary"
-            android:elevation="4dp"
-            app:title="Daftar Kelas"
-            tools:targetApi="lollipop" />
-
-
-    </com.google.android.material.appbar.AppBarLayout>
+        layout="@layout/toolbar_layout" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_inside_kelas"
@@ -37,6 +19,7 @@
         android:clickable="true"
         android:focusable="true"
         android:visibility="visible"
+        app:tint="@color/colorWhite"
         app:backgroundTint="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

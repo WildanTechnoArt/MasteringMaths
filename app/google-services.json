@@ -15,11 +15,19 @@
       },
       "oauth_client": [
         {
-          "client_id": "1007687315979-svkifad31vi07khljdqq94pbekh78dgb.apps.googleusercontent.com",
+          "client_id": "1007687315979-477pelrgf5rov321o89qhg96k6un2lrh.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.unpas.masteringmaths",
-            "certificate_hash": "8bd07f02ef3d551befa701ec8c9683e37c8038b0"
+            "certificate_hash": "4c508e4d4a008732b7f8de5f4c82d61a549e5aaf"
+          }
+        },
+        {
+          "client_id": "1007687315979-4ir0hh7f29d56aov96f56rco3se9smtp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.unpas.masteringmaths",
+            "certificate_hash": "fcfad698ec64b6285bf14b3ba309909060b2791e"
           }
         },
         {

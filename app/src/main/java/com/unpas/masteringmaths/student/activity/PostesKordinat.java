@@ -44,7 +44,7 @@ public class PostesKordinat extends AppCompatActivity {
                 indext++;
                 nomor++;
                 Materi.loadUrl(listSlide.get(indext));
-                tvMateriNo.setText("Slide Postes : " + nomor + "/6");
+                tvMateriNo.setText("Page : " + nomor + "/6");
             }
         });
 
@@ -53,7 +53,7 @@ public class PostesKordinat extends AppCompatActivity {
                 indext--;
                 nomor--;
                 Materi.loadUrl(listSlide.get(indext));
-                tvMateriNo.setText("Slide Postes : " + nomor + "/6");
+                tvMateriNo.setText("Page : " + nomor + "/6");
             }
         });
     }

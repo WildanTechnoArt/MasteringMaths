@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingLeft="16dp"
+        android:paddingEnd="16dp"
+        android:paddingRight="16dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_first_lesson"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            app:cardBackgroundColor="@color/card_view_color"
+            app:cardCornerRadius="@dimen/card_radius_corner"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintEnd_toStartOf="@+id/card_second_lesson"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|center_horizontal"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/img_first_lesson"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_first_lesson"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small_size"
+                    android:ellipsize="marquee"
+                    android:focusable="auto"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:text="@string/card_relasi"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_second_lesson"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            app:cardBackgroundColor="@color/card_view_color"
+            app:cardCornerRadius="@dimen/card_radius_corner"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/card_first_lesson"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|center_horizontal"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/img_second_lesson"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_second_lesson"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small_size"
+                    android:ellipsize="marquee"
+                    android:focusable="auto"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:text="@string/card_fungsi"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_third_lesson"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            app:cardBackgroundColor="@color/card_view_color"
+            app:cardCornerRadius="@dimen/card_radius_corner"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintEnd_toStartOf="@+id/card_video_lesson"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_first_lesson">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|center_horizontal"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/img_third_lesson"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_third_lesson"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small_size"
+                    android:ellipsize="marquee"
+                    android:focusable="auto"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:text="@string/card_rumus_fungsi"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_exercises"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:visibility="visible"
+            app:cardBackgroundColor="@color/card_view_color"
+            app:cardCornerRadius="@dimen/card_radius_corner"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/card_quiz_lesson"
+            app:layout_constraintTop_toBottomOf="@+id/card_video_lesson"
+            app:layout_constraintVertical_bias="0.0">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|center_horizontal"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/img_exercises"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_exercises"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small_size"
+                    android:ellipsize="marquee"
+                    android:focusable="auto"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:text="@string/card_latihan_soal"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_quiz_lesson"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/card_view_color"
+            app:cardCornerRadius="@dimen/card_radius_corner"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/card_exercises"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_video_lesson"
+            app:layout_constraintVertical_bias="0.0">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|center_horizontal"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/img_quiz_lesson"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_quiz_lesson"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small_size"
+                    android:ellipsize="marquee"
+                    android:focusable="auto"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:text="@string/card_kuis"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_video_lesson"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            app:cardBackgroundColor="@color/card_view_color"
+            app:cardCornerRadius="@dimen/card_radius_corner"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/card_third_lesson"
+            app:layout_constraintTop_toBottomOf="@+id/card_first_lesson">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|center_horizontal"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/img_video_lesson"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_video_lesson"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small_size"
+                    android:ellipsize="marquee"
+                    android:focusable="auto"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:text="@string/tv_video"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

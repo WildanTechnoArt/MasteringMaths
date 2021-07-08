@@ -50,7 +50,7 @@ class TeacherChatActivity : AppCompatActivity() {
         btn_send_message.setOnClickListener {
             val imm: InputMethodManager =
                 getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            imm.hideSoftInputFromWindow(swipe_refresh.windowToken, 0)
+            imm.hideSoftInputFromWindow(swipe_refresh?.windowToken, 0)
             sendChatMessage()
         }
     }
@@ -75,7 +75,7 @@ class TeacherChatActivity : AppCompatActivity() {
     }
 
     private fun prepare() {
-        swipe_refresh.isEnabled = false
+        swipe_refresh?.isEnabled = false
         rv_chat_list.layoutManager = LinearLayoutManager(this)
         rv_chat_list.setHasFixedSize(true)
 
@@ -112,7 +112,7 @@ class TeacherChatActivity : AppCompatActivity() {
     }
 
     private fun sendChatMessage() {
-        swipe_refresh.isRefreshing = true
+        swipe_refresh?.isRefreshing = true
 
         val data = ChatMessage()
         data.username = SharedPrefManager.getInstance(this).getUserName.toString()
@@ -131,14 +131,14 @@ class TeacherChatActivity : AppCompatActivity() {
                 sendChatToFriend()
             }
             .addOnFailureListener {
-                Toast.makeText(this, "Pesan gagal dikirim", Toast.LENGTH_SHORT).show()
-                swipe_refresh.isRefreshing = false
+                Toast.makeText(this, "Message failed to send", Toast.LENGTH_SHORT).show()
+                swipe_refresh?.isRefreshing = false
 
             }
     }
 
     private fun sendChatToFriend() {
-        swipe_refresh.isRefreshing = true
+        swipe_refresh?.isRefreshing = true
 
         val data = ChatMessage()
         data.username = SharedPrefManager.getInstance(this).getUserName.toString()
@@ -155,15 +155,15 @@ class TeacherChatActivity : AppCompatActivity() {
             .set(data)
             .addOnSuccessListener {
                 input_message.setText("")
-                swipe_refresh.isRefreshing = false
+                swipe_refresh?.isRefreshing = false
                 rv_chat_list.post {
                     adapter?.itemCount?.minus(1)
                         ?.let { it1 -> rv_chat_list.smoothScrollToPosition(it1) }
                 }
             }
             .addOnFailureListener {
-                Toast.makeText(this, "Pesan gagal dikirim", Toast.LENGTH_SHORT).show()
-                swipe_refresh.isRefreshing = false
+                Toast.makeText(this, "Message failed to send", Toast.LENGTH_SHORT).show()
+                swipe_refresh?.isRefreshing = false
 
             }
     }
@@ -187,13 +187,13 @@ class TeacherChatActivity : AppCompatActivity() {
             .document(studentId)
             .get()
             .addOnSuccessListener {
-                swipe_refresh.isRefreshing = false
+                swipe_refresh?.isRefreshing = false
                 val getUsername = it.getString("username").toString()
                 val getNisn = it.getString("nisn").toString()
                 addStudentToChatList(getUsername, getNisn)
             }
             .addOnFailureListener {
-                swipe_refresh.isRefreshing = false
+                swipe_refresh?.isRefreshing = false
                 val message = resources.getString(R.string.request_error)
                 Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
             }
@@ -205,13 +205,13 @@ class TeacherChatActivity : AppCompatActivity() {
             .document(userId)
             .get()
             .addOnSuccessListener {
-                swipe_refresh.isRefreshing = false
+                swipe_refresh?.isRefreshing = false
                 val getUsername = it.getString("username").toString()
                 val getNip = it.getString("nip").toString()
                 addTeacherToChatList(getUsername, getNip)
             }
             .addOnFailureListener {
-                swipe_refresh.isRefreshing = false
+                swipe_refresh?.isRefreshing = false
                 val message = resources.getString(R.string.request_error)
                 Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
             }

@@ -16,150 +16,87 @@ import java.util.*
 
 class ExamFungsiActivity : AppCompatActivity() {
 
-    private var listcontent_soal = ArrayList<String>()
+    private var listcontentSoal = ArrayList<String>()
     private var nomor = 1
     private var indext = 0
     private var answerA = ArrayList<String>()
     private var answerB = ArrayList<String>()
     private var answerC = ArrayList<String>()
     private var answerD = ArrayList<String>()
+    private var listAnswerChecked = ArrayList<String>()
+    private var listIsAnswer = ArrayList<Boolean>()
     private var kunciJawaban = ArrayList<String>()
     private var kondisi = false
     private var myAnswer: String? = null
     private var point = 0
     private var benar = 0
     private var salah = 0
+    private var totalAnswer = 0
+    private var isFinish = false
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_student_exam)
+        init()
         addData()
-
         addAnswerA()
         addAnswerB()
         addAnswerC()
         addAnswerD()
         addKunciJawaban()
+        btnAnswerListener()
 
-        getAnsImgA.setOnClickListener {
-            myAnswer = "A"
-            kondisi = true
-            setColorImg(
-                "#0F82F7", "#F1F1F1", "#F1F1F1", "#F1F1F1",
-                "#F1F1F1", "#FF757575", "#FF757575", "#FF757575"
-            )
-        }
-        getAnsImgB.setOnClickListener {
-            myAnswer = "B"
-            kondisi = true
-            setColorImg(
-                "#F1F1F1", "#0F82F7", "#F1F1F1", "#F1F1F1",
-                "#FF757575", "#F1F1F1", "#FF757575", "#FF757575"
-            )
-        }
-        getAnsImgC.setOnClickListener {
-            myAnswer = "C"
-            kondisi = true
-            setColorImg(
-                "#F1F1F1", "#F1F1F1", "#0F82F7", "#F1F1F1",
-                "#FF757575", "#FF757575", "#F1F1F1", "#FF757575"
-            )
-        }
-        getAnsImgD.setOnClickListener {
-            myAnswer = "D"
-            kondisi = true
-            setColorImg(
-                "#F1F1F1", "#F1F1F1", "#F1F1F1", "#0F82F7",
-                "#FF757575", "#FF757575", "#FF757575", "#F1F1F1"
-            )
-        }
-        getAnsTextA.setOnClickListener {
-            myAnswer = "A"
-            kondisi = true
-            setColorText(
-                "#0F82F7", "#F1F1F1", "#F1F1F1", "#F1F1F1",
-                "#F1F1F1", "#FF757575", "#FF757575", "#FF757575"
-            )
-        }
-        getAnsTextB.setOnClickListener {
-            myAnswer = "B"
-            kondisi = true
-            setColorText(
-                "#F1F1F1", "#0F82F7", "#F1F1F1", "#F1F1F1",
-                "#FF757575", "#F1F1F1", "#FF757575", "#FF757575"
-            )
-        }
-        getAnsTextC.setOnClickListener {
-            myAnswer = "C"
-            kondisi = true
-            setColorText(
-                "#F1F1F1", "#F1F1F1", "#0F82F7", "#F1F1F1",
-                "#FF757575", "#FF757575", "#F1F1F1", "#FF757575"
-            )
-        }
-        getAnsTextD.setOnClickListener {
-            myAnswer = "D"
-            kondisi = true
-            setColorText(
-                "#F1F1F1", "#F1F1F1", "#F1F1F1", "#0F82F7",
-                "#FF757575", "#FF757575", "#FF757575", "#F1F1F1"
-            )
-        }
+        btn_answer.setOnClickListener {
+            if (listIsAnswer[indext]) {
+                btn_answer.isEnabled = false
+            }
 
-        btn_answer.setOnClickListener { view: View? ->
             if (kondisi) {
-                defaultColorImg()
-                defaultColorText()
                 if (myAnswer == kunciJawaban[indext]) {
                     Toast.makeText(applicationContext, "Benar", Toast.LENGTH_SHORT).show()
+                    listAnswerChecked[indext] = myAnswer.toString()
                     point += 10
                     benar += 1
+                    totalAnswer += 1
                 } else {
+                    listAnswerChecked[indext] = myAnswer.toString()
                     salah += 1
+                    totalAnswer += 1
                     Toast.makeText(applicationContext, "Salah", Toast.LENGTH_SHORT).show()
                 }
-                if (indext < listcontent_soal.size - 1) {
-                    indext++
-                    nomor++
-                    if (nomor == 2 || nomor == 3 || nomor == 4) {
-                        main_answer_img.visibility = View.VISIBLE
-                        main_answer_text.visibility = View.GONE
-                        GlideApp.with(applicationContext)
-                            .load(answerA[indext])
-                            .into(img_answer_A)
-                        GlideApp.with(applicationContext)
-                            .load(answerB[indext])
-                            .into(img_answer_B)
-                        GlideApp.with(applicationContext)
-                            .load(answerC[indext])
-                            .into(img_answer_C)
-                        GlideApp.with(applicationContext)
-                            .load(answerD[indext])
-                            .into(img_answer_D)
-                    } else {
-                        main_answer_img.visibility = View.GONE
-                        main_answer_text.visibility = View.VISIBLE
-                        tv_answerA.text = answerA[indext]
-                        tv_answerB.text = answerB[indext]
-                        tv_answerC.text = answerC[indext]
-                        tv_answerD.text = answerD[indext]
-                    }
-                    content_soal.loadUrl(listcontent_soal[indext])
-                    no_soal.text = "No content_soal : $nomor/10"
-                    if (nomor == 10) {
-                        btn_answer.text = "Selesai"
-                    }
-                    kondisi = false
-                } else {
+
+                if (totalAnswer == 10) {
+                    btn_answer.text = getString(R.string.btn_finish)
+                    isFinish = true
+                }
+
+                if (isFinish) {
                     val intent =
-                        Intent(this@ExamFungsiActivity, StudentResultExamActivity::class.java)
-                    intent.putExtra(MY_POINT, point)
-                    intent.putExtra(TRUE_ANSWER, benar)
-                    intent.putExtra(FALSE_ANSWER, salah)
+                        Intent(
+                            this,
+                            StudentResultExamActivity::class.java
+                        )
+                    intent.putExtra(StudentExamActivity.MY_POINT, point)
+                    intent.putExtra(StudentExamActivity.TRUE_ANSWER, benar)
+                    intent.putExtra(StudentExamActivity.FALSE_ANSWER, salah)
                     startActivity(intent)
                     finish()
+                } else {
+                    listIsAnswer[indext] = true
+
+                    if (nomor == 10) {
+                        btn_answer.isEnabled = !listIsAnswer[indext]
+                    } else {
+                        indext++
+                        nomor++
+                        btnMoveListener()
+                    }
+                    kondisi = false
                 }
+
+                btn_prev.isEnabled = nomor != 1
+                btn_next.isEnabled = nomor != 10
             } else {
                 Toast.makeText(
                     applicationContext,
@@ -168,10 +105,210 @@ class ExamFungsiActivity : AppCompatActivity() {
                 ).show()
             }
         }
+
+        btn_prev.setOnClickListener {
+            indext--
+            nomor--
+            btnMoveListener()
+            btn_prev.isEnabled = nomor != 1
+            btn_next.isEnabled = nomor != 10
+        }
+
+        btn_next.setOnClickListener {
+            indext++
+            nomor++
+            btnMoveListener()
+            btn_next.isEnabled = nomor != 10
+            btn_prev.isEnabled = nomor != 1
+        }
+
         tv_answerA.text = answerA[0]
         tv_answerB.text = answerB[0]
         tv_answerC.text = answerC[0]
         tv_answerD.text = answerD[0]
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun btnMoveListener() {
+        btn_answer.isEnabled = !listIsAnswer[indext]
+
+        if (nomor == 2 || nomor == 3 || nomor == 4) {
+            main_answer_img.visibility = View.VISIBLE
+            main_answer_text.visibility = View.GONE
+            GlideApp.with(applicationContext)
+                .load(answerA[indext])
+                .into(img_answer_A)
+            GlideApp.with(applicationContext)
+                .load(answerB[indext])
+                .into(img_answer_B)
+            GlideApp.with(applicationContext)
+                .load(answerC[indext])
+                .into(img_answer_C)
+            GlideApp.with(applicationContext)
+                .load(answerD[indext])
+                .into(img_answer_D)
+            btnAnsImgChecked()
+        } else {
+            main_answer_img.visibility = View.GONE
+            main_answer_text.visibility = View.VISIBLE
+            tv_answerA.text = answerA[indext]
+            tv_answerB.text = answerB[indext]
+            tv_answerC.text = answerC[indext]
+            tv_answerD.text = answerD[indext]
+            btnAnsTxtChecked()
+        }
+        content_soal.loadUrl(listcontentSoal[indext])
+        no_soal.text = "No Soal : $nomor/10"
+    }
+
+    private fun init() {
+        btn_prev.isEnabled = false
+
+        for (isAnswer in 1..10) {
+            listIsAnswer.add(false)
+        }
+
+        for (checkedAnswer in 1..10) {
+            listAnswerChecked.add("null")
+        }
+    }
+
+    private fun btnAnsImgChecked() {
+        when {
+            listAnswerChecked[indext] == "A" -> {
+                setColorImg(
+                    "#0F82F7", "#F1F1F1", "#F1F1F1", "#F1F1F1",
+                    "#F1F1F1", "#FF757575", "#FF757575", "#FF757575"
+                )
+            }
+            listAnswerChecked[indext] == "B" -> {
+                setColorImg(
+                    "#F1F1F1", "#0F82F7", "#F1F1F1", "#F1F1F1",
+                    "#FF757575", "#F1F1F1", "#FF757575", "#FF757575"
+                )
+            }
+            listAnswerChecked[indext] == "C" -> {
+                setColorImg(
+                    "#F1F1F1", "#F1F1F1", "#0F82F7", "#F1F1F1",
+                    "#FF757575", "#FF757575", "#F1F1F1", "#FF757575"
+                )
+            }
+            listAnswerChecked[indext] == "D" -> {
+                setColorImg(
+                    "#F1F1F1", "#F1F1F1", "#F1F1F1", "#0F82F7",
+                    "#FF757575", "#FF757575", "#FF757575", "#F1F1F1"
+                )
+            }
+            else -> {
+                defaultColorImg()
+            }
+        }
+    }
+
+    private fun btnAnsTxtChecked() {
+        when {
+            listAnswerChecked[indext] == "A" -> {
+                setColorText(
+                    "#0F82F7", "#F1F1F1", "#F1F1F1", "#F1F1F1",
+                    "#F1F1F1", "#FF757575", "#FF757575", "#FF757575"
+                )
+            }
+            listAnswerChecked[indext] == "B" -> {
+                setColorText(
+                    "#F1F1F1", "#0F82F7", "#F1F1F1", "#F1F1F1",
+                    "#FF757575", "#F1F1F1", "#FF757575", "#FF757575"
+                )
+            }
+            listAnswerChecked[indext] == "C" -> {
+                setColorText(
+                    "#F1F1F1", "#F1F1F1", "#0F82F7", "#F1F1F1",
+                    "#FF757575", "#FF757575", "#F1F1F1", "#FF757575"
+                )
+            }
+            listAnswerChecked[indext] == "D" -> {
+                setColorText(
+                    "#F1F1F1", "#F1F1F1", "#F1F1F1", "#0F82F7",
+                    "#FF757575", "#FF757575", "#FF757575", "#F1F1F1"
+                )
+            }
+            else -> {
+                defaultColorText()
+            }
+        }
+    }
+
+    private fun btnAnswerListener() {
+        getAnsImgA.setOnClickListener {
+            myAnswer = "A"
+            kondisi = true
+            setColorImg(
+                "#0F82F7", "#F1F1F1", "#F1F1F1", "#F1F1F1",
+                "#F1F1F1", "#FF757575", "#FF757575", "#FF757575"
+            )
+        }
+
+        getAnsImgB.setOnClickListener {
+            myAnswer = "B"
+            kondisi = true
+            setColorImg(
+                "#F1F1F1", "#0F82F7", "#F1F1F1", "#F1F1F1",
+                "#FF757575", "#F1F1F1", "#FF757575", "#FF757575"
+            )
+        }
+
+        getAnsImgC.setOnClickListener {
+            myAnswer = "C"
+            kondisi = true
+            setColorImg(
+                "#F1F1F1", "#F1F1F1", "#0F82F7", "#F1F1F1",
+                "#FF757575", "#FF757575", "#F1F1F1", "#FF757575"
+            )
+        }
+
+        getAnsImgD.setOnClickListener {
+            myAnswer = "D"
+            kondisi = true
+            setColorImg(
+                "#F1F1F1", "#F1F1F1", "#F1F1F1", "#0F82F7",
+                "#FF757575", "#FF757575", "#FF757575", "#F1F1F1"
+            )
+        }
+
+        getAnsTextA.setOnClickListener {
+            myAnswer = "A"
+            kondisi = true
+            setColorText(
+                "#0F82F7", "#F1F1F1", "#F1F1F1", "#F1F1F1",
+                "#F1F1F1", "#FF757575", "#FF757575", "#FF757575"
+            )
+        }
+
+        getAnsTextB.setOnClickListener {
+            myAnswer = "B"
+            kondisi = true
+            setColorText(
+                "#F1F1F1", "#0F82F7", "#F1F1F1", "#F1F1F1",
+                "#FF757575", "#F1F1F1", "#FF757575", "#FF757575"
+            )
+        }
+
+        getAnsTextC.setOnClickListener {
+            myAnswer = "C"
+            kondisi = true
+            setColorText(
+                "#F1F1F1", "#F1F1F1", "#0F82F7", "#F1F1F1",
+                "#FF757575", "#FF757575", "#F1F1F1", "#FF757575"
+            )
+        }
+
+        getAnsTextD.setOnClickListener {
+            myAnswer = "D"
+            kondisi = true
+            setColorText(
+                "#F1F1F1", "#F1F1F1", "#F1F1F1", "#0F82F7",
+                "#FF757575", "#FF757575", "#FF757575", "#F1F1F1"
+            )
+        }
     }
 
     private fun defaultColorText() {
@@ -238,13 +375,13 @@ class ExamFungsiActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        content_soal.loadUrl(listcontent_soal[indext])
+        content_soal.loadUrl(listcontentSoal[indext])
     }
 
     private fun addData() {
-        listcontent_soal = ArrayList()
+        listcontentSoal = ArrayList()
         for (a in 1..10) {
-            listcontent_soal.add("file:///android_asset/content_soal_fungsi_$a.html")
+            listcontentSoal.add("file:///android_asset/soal_fungsi_$a.html")
         }
     }
 

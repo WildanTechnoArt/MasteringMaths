@@ -19,12 +19,16 @@ public class PaketPythagoras extends AppCompatActivity {
         RelativeLayout lay3 = findViewById(R.id.layM3);
         RelativeLayout lay4 = findViewById(R.id.layM4);
 
-        lay1.setOnClickListener(view -> startActivity(new Intent(PaketPythagoras.this,ExamTeorema.class)));
+        lay1.setOnClickListener(view ->
+                startActivity(new Intent(PaketPythagoras.this,ExamTeorema.class)));
 
-        lay2.setOnClickListener(view -> startActivity(new Intent(PaketPythagoras.this,ExamTripelPythagoras.class)));
+        lay2.setOnClickListener(view ->
+                startActivity(new Intent(PaketPythagoras.this,ExamTripelPythagoras.class)));
 
-        lay3.setOnClickListener(view -> startActivity(new Intent(PaketPythagoras.this,ExamSegitigaPythagoras.class)));
+        lay3.setOnClickListener(view ->
+                startActivity(new Intent(PaketPythagoras.this,ExamSegitigaPythagoras.class)));
 
-        lay4.setOnClickListener(view -> startActivity(new Intent(PaketPythagoras.this,ExamPenerapanPythagoras.class)));
+        lay4.setOnClickListener(view ->
+                startActivity(new Intent(PaketPythagoras.this,ExamPenerapanPythagoras.class)));
     }
 }

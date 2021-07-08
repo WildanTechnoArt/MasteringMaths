@@ -52,7 +52,7 @@ class TeacherRegisterActivity : AppCompatActivity(), RegisterView.View {
             setDisplayShowHomeEnabled(true)
             setHomeButtonEnabled(true)
             setDisplayHomeAsUpEnabled(true)
-            title = "Daftar Sebagai Guru"
+            title = "Register as a Teacher"
         }
 
         presenter = RegisterPresenter(this, this)

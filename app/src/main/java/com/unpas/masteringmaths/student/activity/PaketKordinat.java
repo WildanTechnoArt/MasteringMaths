@@ -20,10 +20,13 @@ public class PaketKordinat extends AppCompatActivity {
         lay2 = findViewById(R.id.layM2);
         lay3 = findViewById(R.id.layM3);
 
-        lay1.setOnClickListener(view -> startActivity(new Intent(PaketKordinat.this,ExamKartesius.class)));
+        lay1.setOnClickListener(view ->
+                startActivity(new Intent(PaketKordinat.this,ExamKartesius.class)));
 
-        lay2.setOnClickListener(view -> startActivity(new Intent(PaketKordinat.this,ExamPosisiTitik.class)));
+        lay2.setOnClickListener(view ->
+                startActivity(new Intent(PaketKordinat.this,ExamPosisiTitik.class)));
 
-        lay3.setOnClickListener(view -> startActivity(new Intent(PaketKordinat.this,ExamPosisiGaris.class)));
+        lay3.setOnClickListener(view ->
+                startActivity(new Intent(PaketKordinat.this,ExamPosisiGaris.class)));
     }
 }

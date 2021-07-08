@@ -47,7 +47,7 @@ class ViewAssignmentActivity : AppCompatActivity() {
             setDisplayShowHomeEnabled(true)
             setHomeButtonEnabled(true)
             setDisplayHomeAsUpEnabled(true)
-            title = "Detail Tugas"
+            title = "Task Details"
         }
 
         mTeacherId = intent?.getStringExtra(UtilsConstant.TEACHER_ID).toString()
@@ -108,8 +108,8 @@ class ViewAssignmentActivity : AppCompatActivity() {
 
         btn_download.setOnClickListener {
             try {
-                val pdfUrl = Uri.parse(mLinkUrl)
-                val intent = Intent(Intent.ACTION_VIEW, pdfUrl)
+                val fileUrl = Uri.parse(mLinkUrl)
+                val intent = Intent(Intent.ACTION_VIEW, fileUrl)
                 startActivity(intent)
             } catch (ex: ActivityNotFoundException) {
                 Toast.makeText(

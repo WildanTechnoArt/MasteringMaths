@@ -13,10 +13,11 @@
             android:id="@+id/card_relasi_fungsi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_small_size"
-            android:layout_marginTop="@dimen/margin_small_size"
-            android:layout_marginEnd="@dimen/margin_small_size"
-            android:layout_marginBottom="@dimen/margin_small_size"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:cardBackgroundColor="@color/card_view_color"
             app:cardCornerRadius="@dimen/card_radius_corner"
             app:cardElevation="@dimen/card_elevation">
 
@@ -43,13 +44,14 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card_phytagoras"
+            android:id="@+id/card_teorema_pythagoras"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_small_size"
-            android:layout_marginTop="@dimen/margin_small_size"
-            android:layout_marginEnd="@dimen/margin_small_size"
-            android:layout_marginBottom="@dimen/margin_small_size"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:cardBackgroundColor="@color/card_view_color"
             app:cardCornerRadius="@dimen/card_radius_corner"
             app:cardElevation="@dimen/card_elevation">
 
@@ -62,11 +64,12 @@
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/card_teorema_phythagoras"
+                    android:text="@string/teorema_pythagoras"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_class2_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/zero_class" />
@@ -78,10 +81,11 @@
             android:id="@+id/card_pola_bilangan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_small_size"
-            android:layout_marginTop="@dimen/margin_small_size"
-            android:layout_marginEnd="@dimen/margin_small_size"
-            android:layout_marginBottom="@dimen/margin_small_size"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:cardBackgroundColor="@color/card_view_color"
             app:cardCornerRadius="@dimen/card_radius_corner"
             app:cardElevation="@dimen/card_elevation">
 
@@ -94,11 +98,12 @@
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/card_pola_bilangan"
+                    android:text="@string/pola_bilangan"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_class3_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/zero_class" />
@@ -107,13 +112,14 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card_persamaan"
+            android:id="@+id/card_persamaan_garis_lurus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_small_size"
-            android:layout_marginTop="@dimen/margin_small_size"
-            android:layout_marginEnd="@dimen/margin_small_size"
-            android:layout_marginBottom="@dimen/margin_small_size"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:cardBackgroundColor="@color/card_view_color"
             app:cardCornerRadius="@dimen/card_radius_corner"
             app:cardElevation="@dimen/card_elevation">
 
@@ -126,11 +132,12 @@
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/card_persamaan_garis_lurus"
+                    android:text="@string/persamaan_garis_lurus"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_class4_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/zero_class" />
@@ -139,13 +146,14 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card_koordinat"
+            android:id="@+id/card_koordinat_cartesius"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_small_size"
-            android:layout_marginTop="@dimen/margin_small_size"
-            android:layout_marginEnd="@dimen/margin_small_size"
-            android:layout_marginBottom="@dimen/margin_small_size"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:cardBackgroundColor="@color/card_view_color"
             app:cardCornerRadius="@dimen/card_radius_corner"
             app:cardElevation="@dimen/card_elevation">
 
@@ -158,11 +166,12 @@
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/card_koordinat_cartesius"
+                    android:text="@string/koordinat_cartesius"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_class5_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/zero_class" />
@@ -174,10 +183,11 @@
             android:id="@+id/card_spldv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_small_size"
-            android:layout_marginTop="@dimen/margin_small_size"
-            android:layout_marginEnd="@dimen/margin_small_size"
-            android:layout_marginBottom="@dimen/margin_small_size"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:cardBackgroundColor="@color/card_view_color"
             app:cardCornerRadius="@dimen/card_radius_corner"
             app:cardElevation="@dimen/card_elevation">
 
@@ -190,11 +200,12 @@
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/card_spldv"
+                    android:text="@string/spldv"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_class6_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/zero_class" />

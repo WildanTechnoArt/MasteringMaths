@@ -46,7 +46,7 @@ class StudentRegisterActivity : AppCompatActivity() {
             setDisplayShowHomeEnabled(true)
             setHomeButtonEnabled(true)
             setDisplayHomeAsUpEnabled(true)
-            title = "Daftar Sebagai Siswa"
+            title = "Register as Student"
         }
 
         bindProgressButton(btn_register)

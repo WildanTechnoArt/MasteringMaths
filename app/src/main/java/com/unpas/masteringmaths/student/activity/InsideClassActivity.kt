@@ -1,10 +1,15 @@
 package com.unpas.masteringmaths.student.activity
 
+import android.graphics.Color
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.github.razir.progressbutton.attachTextChangeAnimator
+import com.github.razir.progressbutton.bindProgressButton
+import com.github.razir.progressbutton.hideProgress
+import com.github.razir.progressbutton.showProgress
 import com.google.firebase.firestore.FirebaseFirestore
 import com.unpas.masteringmaths.R
 import com.unpas.masteringmaths.database.SharedPrefManager
@@ -34,6 +39,9 @@ class InsideClassActivity : AppCompatActivity() {
             title = "Masuk kelas"
         }
 
+        bindProgressButton(btn_submit)
+        btn_submit.attachTextChangeAnimator()
+
         userId = SharedPrefManager.getInstance(this).getUserId.toString()
 
         // Menampilkan Daftar Mata Pelajaran
@@ -43,7 +51,7 @@ class InsideClassActivity : AppCompatActivity() {
         )
         (add_lesson as? AutoCompleteTextView)?.setAdapter(lessonAdapter)
 
-        swipe_refresh.isEnabled = false
+        swipe_refresh?.isEnabled = false
 
         btn_submit.setOnClickListener {
             getIdTeacher = input_teacher_id.text.toString()
@@ -70,19 +78,19 @@ class InsideClassActivity : AppCompatActivity() {
                 if (!it.exists()) {
                     getDataClass()
                 } else {
+                    btn_submit.hideProgress(getString(R.string.btn_class_inside))
                     Toast.makeText(this, "Kelas sudah pernah ditambahkan", Toast.LENGTH_SHORT)
                         .show()
                 }
             }
             .addOnFailureListener {
-                swipe_refresh.isRefreshing = false
+                swipe_refresh?.isRefreshing = false
+                btn_submit.hideProgress(getString(R.string.btn_class_inside))
                 Toast.makeText(this, getString(R.string.error_request), Toast.LENGTH_SHORT).show()
             }
     }
 
     private fun saveMyClass() {
-        swipe_refresh.isRefreshing = true
-
         val data = DataClass()
         data.classTitle = getClassTitle
         data.className = add_lesson.text.toString()
@@ -99,30 +107,31 @@ class InsideClassActivity : AppCompatActivity() {
             .document(getCodeClass.toString())
             .set(data)
             .addOnSuccessListener {
-                swipe_refresh.isRefreshing = false
+                btn_submit.hideProgress(getString(R.string.login))
                 Toast.makeText(this, "Kelas berhasil ditambahkan", Toast.LENGTH_SHORT).show()
                 finish()
             }
             .addOnFailureListener {
-                swipe_refresh.isRefreshing = false
+                swipe_refresh?.isRefreshing = false
+                btn_submit.hideProgress(getString(R.string.btn_class_inside))
                 Toast.makeText(this, getString(R.string.error_request), Toast.LENGTH_SHORT).show()
             }
     }
 
     private fun getDataClass() {
-        swipe_refresh.isRefreshing = true
+        swipe_refresh?.isRefreshing = true
+
+        btn_submit.showProgress { progressColor = Color.WHITE }
 
         val db = FirebaseFirestore.getInstance()
-        db.collection("teacher")
-            .document("classList")
+        db.collection("classList")
+            .document(add_lesson.text.toString())
             .collection(getIdTeacher.toString())
             .document(getCodeClass.toString())
             .get()
             .addOnSuccessListener {
                 val mClassName = it.getString("className")
                 if (it.exists() && (mClassName == add_lesson.text.toString())) {
-                    btn_submit.isEnabled = true
-                    swipe_refresh.isRefreshing = false
 
                     getClassTitle = it.getString("classTitle")
                     getClassGrade = it.getString("classGrade")
@@ -131,12 +140,14 @@ class InsideClassActivity : AppCompatActivity() {
 
                     saveMyClass()
                 } else {
-                    swipe_refresh.isRefreshing = false
-                    Toast.makeText(this, "Kelas Tidak Ditemukan", Toast.LENGTH_SHORT).show()
+                    swipe_refresh?.isRefreshing = false
+                    btn_submit.hideProgress(getString(R.string.btn_class_inside))
+                    Toast.makeText(this, "Class Not Found", Toast.LENGTH_SHORT).show()
                 }
             }
             .addOnFailureListener {
-                swipe_refresh.isRefreshing = false
+                swipe_refresh?.isRefreshing = false
+                btn_submit.hideProgress(getString(R.string.btn_class_inside))
                 Toast.makeText(this, getString(R.string.error_request), Toast.LENGTH_SHORT).show()
             }
     }

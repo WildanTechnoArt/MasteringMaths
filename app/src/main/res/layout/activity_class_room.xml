@@ -51,7 +51,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_post_24dp"
-        app:tint="#FFFFFF"
-        android:layout_marginRight="@dimen/margin_big_size" />
+        app:tint="#FFFFFF" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

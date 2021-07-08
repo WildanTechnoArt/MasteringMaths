@@ -29,7 +29,7 @@ class ProfileUserActivity : AppCompatActivity() {
         init()
         getProfileData()
         getPhotoProfile()
-        swipe_refresh.setOnRefreshListener {
+        swipe_refresh?.setOnRefreshListener {
             getProfileData()
         }
         btn_chat.setOnClickListener {
@@ -62,7 +62,7 @@ class ProfileUserActivity : AppCompatActivity() {
     }
 
     private fun getProfileData() {
-        swipe_refresh.isRefreshing = true
+        swipe_refresh?.isRefreshing = true
 
         val db = FirebaseFirestore.getInstance()
         db.collection("users")
@@ -70,7 +70,7 @@ class ProfileUserActivity : AppCompatActivity() {
             .get()
             .addOnSuccessListener {
                 btn_chat.isEnabled = true
-                swipe_refresh.isRefreshing = false
+                swipe_refresh?.isRefreshing = false
 
                 isTeacher = it.getBoolean("teacher") ?: false
                 val getUsername = it.getString("username").toString()
@@ -83,9 +83,9 @@ class ProfileUserActivity : AppCompatActivity() {
 
                 if (isTeacher) {
                     if (myUserId == memberUserId) {
-                        supportActionBar?.title = "Profil Saya"
+                        supportActionBar?.title = "My Profile"
                     } else {
-                        supportActionBar?.title = "Profil Guru"
+                        supportActionBar?.title = "Teacher Profile"
                     }
 
                     tv_school.visibility = View.VISIBLE
@@ -101,9 +101,9 @@ class ProfileUserActivity : AppCompatActivity() {
                     tv_id.text = getNip
                 } else {
                     if (myUserId == memberUserId) {
-                        supportActionBar?.title = "Profil Saya"
+                        supportActionBar?.title = "My Profile"
                     } else {
-                        supportActionBar?.title = "Profil Siswa"
+                        supportActionBar?.title = "Teacher Profile"
                     }
 
                     val getNisn = it.getString("nisn").toString()
@@ -114,7 +114,7 @@ class ProfileUserActivity : AppCompatActivity() {
                 }
             }
             .addOnFailureListener {
-                swipe_refresh.isRefreshing = false
+                swipe_refresh?.isRefreshing = false
                 val message = resources.getString(R.string.request_error)
                 Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
             }
@@ -126,7 +126,7 @@ class ProfileUserActivity : AppCompatActivity() {
             .document(memberUserId)
             .get()
             .addOnSuccessListener {
-                swipe_refresh.isRefreshing = false
+                swipe_refresh?.isRefreshing = false
 
                 val photoUrl = it.getString("photoUrl").toString()
                 GlideApp.with(this)
@@ -135,7 +135,7 @@ class ProfileUserActivity : AppCompatActivity() {
                     .into(img_profile)
             }
             .addOnFailureListener {
-                swipe_refresh.isRefreshing = false
+                swipe_refresh?.isRefreshing = false
                 val message = resources.getString(R.string.request_error)
                 Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
             }

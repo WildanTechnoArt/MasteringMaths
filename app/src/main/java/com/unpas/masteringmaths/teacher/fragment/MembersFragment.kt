@@ -42,6 +42,7 @@ class MembersFragment : Fragment() {
             .collection(userId)
             .document(codeClass)
             .collection("members")
+            .orderBy("status")
 
         val options = FirestoreRecyclerOptions.Builder<MemberData>()
             .setQuery(query, MemberData::class.java)

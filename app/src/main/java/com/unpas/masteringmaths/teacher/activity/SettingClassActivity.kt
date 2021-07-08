@@ -26,7 +26,11 @@ import com.unpas.masteringmaths.utils.UtilsConstant.Companion.CLASS_TITLE
 import com.unpas.masteringmaths.utils.UtilsConstant.Companion.CLOSE_ACTIVITY
 import com.unpas.masteringmaths.teacher.view.EditClassView
 import com.unpas.masteringmaths.utils.UtilsConstant
+import kotlinx.android.synthetic.main.activity_create_class.*
 import kotlinx.android.synthetic.main.activity_setting_class.*
+import kotlinx.android.synthetic.main.activity_setting_class.add_grade
+import kotlinx.android.synthetic.main.activity_setting_class.grade_layout
+import kotlinx.android.synthetic.main.activity_setting_class.input_class_name
 import kotlinx.android.synthetic.main.toolbar_layout.*
 
 class SettingClassActivity : AppCompatActivity(), EditClassView.View {
@@ -58,7 +62,7 @@ class SettingClassActivity : AppCompatActivity(), EditClassView.View {
             setDisplayShowHomeEnabled(true)
             setHomeButtonEnabled(true)
             setDisplayHomeAsUpEnabled(true)
-            title = "Pengaturan Kelas"
+            title = "Settings Class"
         }
 
         className = intent?.getStringExtra(UtilsConstant.CLASS_NAME).toString()
@@ -140,41 +144,6 @@ class SettingClassActivity : AppCompatActivity(), EditClassView.View {
                 enableView()
 
                 setGradeList()
-
-                add_grade.setOnItemClickListener { _, _, position, _ ->
-                    when (position) {
-                        0 -> {
-                            val classList = arrayOf("Kelas VIII")
-                            val builder = MaterialAlertDialogBuilder(this)
-                                .setTitle("Pilih Kelas")
-                                .setItems(
-                                    classList
-                                ) { _, id ->
-                                    add_grade.setText("${gradeAdapter.getItem(id)} ${classList[id]}")
-                                    setGradeList()
-                                }
-
-                            val dialog = builder.create()
-                            dialog.setCancelable(false)
-                            dialog.show()
-                        }
-
-                        1 -> {
-                            val classList = arrayOf("Kelas X")
-                            val builder = MaterialAlertDialogBuilder(this)
-                                .setTitle("Pilih Kelas")
-                                .setItems(
-                                    classList
-                                ) { _, id ->
-                                    add_grade.setText("${gradeAdapter.getItem(id + 1)} ${classList[id]}")
-                                    setGradeList()
-                                }
-                            val dialog = builder.create()
-                            dialog.setCancelable(false)
-                            dialog.show()
-                        }
-                    }
-                }
             }
         }
 
@@ -236,11 +205,16 @@ class SettingClassActivity : AppCompatActivity(), EditClassView.View {
     }
 
     private fun setGradeList() {
-        gradeAdapter = ArrayAdapter(
+        val gradeAdapter = ArrayAdapter(
             this, R.layout.support_simple_spinner_dropdown_item,
             resources.getStringArray(R.array.grade_level_list)
         )
-
         (add_grade as? AutoCompleteTextView)?.setAdapter(gradeAdapter)
+
+        val lessonAdapter = ArrayAdapter(
+            this, R.layout.support_simple_spinner_dropdown_item,
+            resources.getStringArray(R.array.lesson_list)
+        )
+        (add_lesson as? AutoCompleteTextView)?.setAdapter(lessonAdapter)
     }
 }

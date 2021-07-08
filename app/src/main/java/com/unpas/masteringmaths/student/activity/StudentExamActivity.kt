@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.unpas.masteringmaths.R
 import com.unpas.masteringmaths.main.GlideApp
 import kotlinx.android.synthetic.main.activity_student_exam.*
@@ -25,15 +24,15 @@ class StudentExamActivity : AppCompatActivity() {
     private var kunciJawaban = ArrayList<String>()
     private var listAnswerChecked = ArrayList<String>()
     private var listIsAnswer = ArrayList<Boolean>()
-    private var kondisi = false
+    private var totalAnswer = 0
     private var isFinish = false
+    private var kondisi = false
     private var myAnswer: String? = null
     private var nomor = 1
     private var indext = 0
     private var point = 0
     private var benar = 0
     private var salah = 0
-    private var totalAnswer = 0
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -73,60 +72,26 @@ class StudentExamActivity : AppCompatActivity() {
                 }
 
                 if (isFinish) {
-                    val alert = MaterialAlertDialogBuilder(this)
-                        .setTitle(getString(R.string.exam_confirmation))
-                        .setMessage(getString(R.string.exam_finish_information))
-                        .setPositiveButton("YA") { _, _ ->
-                            val intent =
-                                Intent(
-                                    this@StudentExamActivity,
-                                    StudentResultExamActivity::class.java
-                                )
-                            intent.putExtra(MY_POINT, point)
-                            intent.putExtra(TRUE_ANSWER, benar)
-                            intent.putExtra(FALSE_ANSWER, salah)
-                            startActivity(intent)
-                            finish()
-                        }
-                        .setNegativeButton("TIDAK") { dialog, _ ->
-                            dialog.dismiss()
-                        }
-                    alert.setCancelable(false)
-                    alert.create()
-                    alert.show()
+                    val intent =
+                        Intent(
+                            this@StudentExamActivity,
+                            StudentResultExamActivity::class.java
+                        )
+                    intent.putExtra(MY_POINT, point)
+                    intent.putExtra(TRUE_ANSWER, benar)
+                    intent.putExtra(FALSE_ANSWER, salah)
+                    startActivity(intent)
+                    finish()
                 } else {
                     listIsAnswer[indext] = true
-                    indext++
-                    nomor++
 
-                    btnAnsChecked()
-
-                    if (nomor == 3 || nomor == 6 || nomor == 9) {
-                        main_answer_img.visibility = View.VISIBLE
-                        main_answer_text.visibility = View.GONE
-                        GlideApp.with(applicationContext)
-                            .load(answerA[indext])
-                            .into(img_answer_A)
-                        GlideApp.with(applicationContext)
-                            .load(answerB[indext])
-                            .into(img_answer_B)
-                        GlideApp.with(applicationContext)
-                            .load(answerC[indext])
-                            .into(img_answer_C)
-                        GlideApp.with(applicationContext)
-                            .load(answerD[indext])
-                            .into(img_answer_D)
+                    if (nomor == 10) {
+                        btn_answer.isEnabled = !listIsAnswer[indext]
                     } else {
-                        main_answer_img.visibility = View.GONE
-                        main_answer_text.visibility = View.VISIBLE
-                        tv_answerA.text = answerA[indext]
-                        tv_answerB.text = answerB[indext]
-                        tv_answerC.text = answerC[indext]
-                        tv_answerD.text = answerD[indext]
+                        indext++
+                        nomor++
+                        btnMoveListener()
                     }
-                    content_soal.loadUrl(listSoal[indext])
-                    no_soal.text = "No Soal : $nomor/10"
-
                     kondisi = false
                 }
 
@@ -144,81 +109,56 @@ class StudentExamActivity : AppCompatActivity() {
         btn_prev.setOnClickListener {
             indext--
             nomor--
-
-            btn_answer.isEnabled = !listIsAnswer[indext]
-
-            if (nomor == 3 || nomor == 6 || nomor == 9) {
-                main_answer_img.visibility = View.VISIBLE
-                main_answer_text.visibility = View.GONE
-                GlideApp.with(applicationContext)
-                    .load(answerA[indext])
-                    .into(img_answer_A)
-                GlideApp.with(applicationContext)
-                    .load(answerB[indext])
-                    .into(img_answer_B)
-                GlideApp.with(applicationContext)
-                    .load(answerC[indext])
-                    .into(img_answer_C)
-                GlideApp.with(applicationContext)
-                    .load(answerD[indext])
-                    .into(img_answer_D)
-            } else {
-                main_answer_img.visibility = View.GONE
-                main_answer_text.visibility = View.VISIBLE
-                tv_answerA.text = answerA[indext]
-                tv_answerB.text = answerB[indext]
-                tv_answerC.text = answerC[indext]
-                tv_answerD.text = answerD[indext]
-            }
-            content_soal.loadUrl(listSoal[indext])
-            no_soal.text = "No Soal : $nomor/10"
+            btnMoveListener()
             btn_prev.isEnabled = nomor != 1
             btn_next.isEnabled = nomor != 10
-
-            btnAnsChecked()
         }
 
         btn_next.setOnClickListener {
             indext++
             nomor++
-
-            btn_answer.isEnabled = !listIsAnswer[indext]
-
-            if (nomor == 3 || nomor == 6 || nomor == 9) {
-                main_answer_img.visibility = View.VISIBLE
-                main_answer_text.visibility = View.GONE
-                GlideApp.with(applicationContext)
-                    .load(answerA[indext])
-                    .into(img_answer_A)
-                GlideApp.with(applicationContext)
-                    .load(answerB[indext])
-                    .into(img_answer_B)
-                GlideApp.with(applicationContext)
-                    .load(answerC[indext])
-                    .into(img_answer_C)
-                GlideApp.with(applicationContext)
-                    .load(answerD[indext])
-                    .into(img_answer_D)
-            } else {
-                main_answer_img.visibility = View.GONE
-                main_answer_text.visibility = View.VISIBLE
-                tv_answerA.text = answerA[indext]
-                tv_answerB.text = answerB[indext]
-                tv_answerC.text = answerC[indext]
-                tv_answerD.text = answerD[indext]
-            }
-            content_soal.loadUrl(listSoal[indext])
-            no_soal.text = "No Soal : $nomor/10"
+            btnMoveListener()
             btn_next.isEnabled = nomor != 10
             btn_prev.isEnabled = nomor != 1
-
-            btnAnsChecked()
         }
 
         tv_answerA.text = answerA[0]
         tv_answerB.text = answerB[0]
         tv_answerC.text = answerC[0]
         tv_answerD.text = answerD[0]
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun btnMoveListener() {
+        btn_answer.isEnabled = !listIsAnswer[indext]
+
+        if (nomor == 3 || nomor == 6 || nomor == 9) {
+            main_answer_img.visibility = View.VISIBLE
+            main_answer_text.visibility = View.GONE
+            GlideApp.with(applicationContext)
+                .load(answerA[indext])
+                .into(img_answer_A)
+            GlideApp.with(applicationContext)
+                .load(answerB[indext])
+                .into(img_answer_B)
+            GlideApp.with(applicationContext)
+                .load(answerC[indext])
+                .into(img_answer_C)
+            GlideApp.with(applicationContext)
+                .load(answerD[indext])
+                .into(img_answer_D)
+            btnAnsImgChecked()
+        } else {
+            main_answer_img.visibility = View.GONE
+            main_answer_text.visibility = View.VISIBLE
+            tv_answerA.text = answerA[indext]
+            tv_answerB.text = answerB[indext]
+            tv_answerC.text = answerC[indext]
+            tv_answerD.text = answerD[indext]
+            btnAnsTxtChecked()
+        }
+        content_soal.loadUrl(listSoal[indext])
+        no_soal.text = "No Soal : $nomor/10"
     }
 
     private fun init() {
@@ -233,7 +173,7 @@ class StudentExamActivity : AppCompatActivity() {
         }
     }
 
-    private fun btnAnsChecked() {
+    private fun btnAnsImgChecked() {
         when {
             listAnswerChecked[indext] == "A" -> {
                 setColorImg(
@@ -261,6 +201,37 @@ class StudentExamActivity : AppCompatActivity() {
             }
             else -> {
                 defaultColorImg()
+            }
+        }
+    }
+
+    private fun btnAnsTxtChecked() {
+        when {
+            listAnswerChecked[indext] == "A" -> {
+                setColorText(
+                    "#0F82F7", "#F1F1F1", "#F1F1F1", "#F1F1F1",
+                    "#F1F1F1", "#FF757575", "#FF757575", "#FF757575"
+                )
+            }
+            listAnswerChecked[indext] == "B" -> {
+                setColorText(
+                    "#F1F1F1", "#0F82F7", "#F1F1F1", "#F1F1F1",
+                    "#FF757575", "#F1F1F1", "#FF757575", "#FF757575"
+                )
+            }
+            listAnswerChecked[indext] == "C" -> {
+                setColorText(
+                    "#F1F1F1", "#F1F1F1", "#0F82F7", "#F1F1F1",
+                    "#FF757575", "#FF757575", "#F1F1F1", "#FF757575"
+                )
+            }
+            listAnswerChecked[indext] == "D" -> {
+                setColorText(
+                    "#F1F1F1", "#F1F1F1", "#F1F1F1", "#0F82F7",
+                    "#FF757575", "#FF757575", "#FF757575", "#F1F1F1"
+                )
+            }
+            else -> {
                 defaultColorText()
             }
         }

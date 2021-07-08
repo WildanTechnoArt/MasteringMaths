@@ -20,6 +20,7 @@ import com.unpas.masteringmaths.utils.UtilsConstant.Companion.CLASS_NAME
 import com.unpas.masteringmaths.utils.UtilsConstant.Companion.CLASS_TITLE
 import com.unpas.masteringmaths.utils.UtilsConstant.Companion.TEACHER_ID
 import kotlinx.android.synthetic.main.fragment_student_kelas.*
+import kotlinx.android.synthetic.main.toolbar_layout.*
 
 class ClassFragment : Fragment(), StudentClassListener {
 
@@ -36,6 +37,7 @@ class ClassFragment : Fragment(), StudentClassListener {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
         (context as AppCompatActivity).setSupportActionBar(toolbar)
+        (context as AppCompatActivity).title = "Class List"
 
         rv_class_list?.layoutManager = LinearLayoutManager(view.context)
         rv_class_list?.setHasFixedSize(true)

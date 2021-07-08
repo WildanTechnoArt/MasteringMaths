@@ -46,12 +46,12 @@ class LoginActivity : AppCompatActivity(), LoginView.View {
 
         tv_register.setOnClickListener {
             val builder = MaterialAlertDialogBuilder(this)
-                .setTitle("Pilih Jenis Pengguna")
-                .setMessage("Ingin Mendaftar Sebagai?")
-                .setPositiveButton("Guru") { _, _ ->
+                .setTitle("Select User Type")
+                .setMessage("Want to Register As?")
+                .setPositiveButton("Teacher") { _, _ ->
                     startActivity(Intent(this, TeacherRegisterActivity::class.java))
                 }
-                .setNegativeButton("Siswa"){ _, _ ->
+                .setNegativeButton("Student"){ _, _ ->
                     startActivity(Intent(this, StudentRegisterActivity::class.java))
                 }
             val dialog = builder.create()
@@ -103,6 +103,7 @@ class LoginActivity : AppCompatActivity(), LoginView.View {
 
     private fun prepare() {
         presenter = LoginPresenter(this, this)
+
         GlideApp.with(this)
             .load(R.drawable.logo_not_background)
             .into(img_app)

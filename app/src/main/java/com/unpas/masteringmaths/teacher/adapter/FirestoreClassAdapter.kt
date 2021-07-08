@@ -56,7 +56,7 @@ class FirestoreClassAdapter(options: FirestoreRecyclerOptions<DataClass>, privat
 
             containerView.class_item.setOnClickListener {
                 listener.onClickListener(className, classTitle,
-                    item.classGrade.toString(), snapshots.getSnapshot(position).id)
+                    item.classGrade.toString(), getClassKey)
             }
         }
     }

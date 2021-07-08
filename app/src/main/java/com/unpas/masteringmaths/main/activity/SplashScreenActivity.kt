@@ -23,10 +23,14 @@ class SplashScreenActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash_screen)
-        checkPlayServices()
-        prepare()
-        screenProgress()
+        try{
+            setContentView(R.layout.activity_splash_screen)
+            checkPlayServices()
+            prepare()
+            screenProgress()
+        }catch (ex: Exception){
+            ex.printStackTrace()
+        }
     }
 
     private fun prepare() {

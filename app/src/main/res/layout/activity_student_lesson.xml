@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".student.activity.StudentLessonActivity">
+    tools:context=".main.activity.JuniorLessonActivity">
 
     <include
         android:id="@+id/appbar"
@@ -14,6 +14,16 @@
     <include
         android:id="@+id/main_sub_menu"
         layout="@layout/sub_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <include
+        android:id="@+id/new_main_sub_menu"
+        layout="@layout/new_sub_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

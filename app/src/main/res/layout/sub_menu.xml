@@ -7,17 +7,18 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingLeft="16dp"
+        android:paddingEnd="16dp"
+        android:paddingRight="16dp">
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card_pembelajaran"
+            android:id="@+id/card_kompetensi"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_big_size"
-            android:layout_marginLeft="@dimen/margin_big_size"
             android:layout_marginTop="@dimen/margin_big_size"
             android:layout_marginEnd="@dimen/margin_small_size"
-            android:layout_marginRight="@dimen/margin_small_size"
             app:cardBackgroundColor="@color/card_view_color"
             app:cardCornerRadius="@dimen/card_radius_corner"
             app:cardElevation="@dimen/card_elevation"
@@ -26,7 +27,6 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
-                android:id="@+id/menu_pembelajaran"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center|center_horizontal"
@@ -34,25 +34,25 @@
                 android:padding="12dp">
 
                 <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/img_pembelajaran"
+                    android:id="@+id/img_kompetensi"
                     android:layout_width="match_parent"
                     android:layout_height="70dp" />
 
                 <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tv_pembelajaran"
+                    android:id="@+id/tv_kompetensi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_small_size"
-                    android:gravity="center"
                     android:ellipsize="marquee"
                     android:focusable="auto"
                     android:focusableInTouchMode="true"
+                    android:gravity="center"
                     android:marqueeRepeatLimit="marquee_forever"
                     android:scrollHorizontally="true"
                     android:singleLine="true"
                     android:text="@string/card_kompetensi_dasar"
                     android:textColor="@android:color/black"
-                    android:textSize="16sp" />
+                    android:textSize="15sp" />
 
             </LinearLayout>
 
@@ -63,18 +63,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_small_size"
-            android:layout_marginLeft="@dimen/margin_small_size"
-            android:layout_marginEnd="@dimen/margin_big_size"
-            android:layout_marginRight="@dimen/margin_big_size"
             app:cardBackgroundColor="@color/card_view_color"
             app:cardCornerRadius="@dimen/card_radius_corner"
             app:cardElevation="@dimen/card_elevation"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/card_pembelajaran"
-            app:layout_constraintTop_toTopOf="@+id/card_pembelajaran">
+            app:layout_constraintStart_toEndOf="@+id/card_kompetensi"
+            app:layout_constraintTop_toTopOf="@+id/card_kompetensi">
 
             <LinearLayout
-                android:id="@+id/menu_indikator"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center|center_horizontal"
@@ -91,16 +87,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_small_size"
-                    android:gravity="center"
-                    android:text="@string/card_peta_konsep"
                     android:ellipsize="marquee"
                     android:focusable="auto"
                     android:focusableInTouchMode="true"
+                    android:gravity="center"
                     android:marqueeRepeatLimit="marquee_forever"
                     android:scrollHorizontally="true"
                     android:singleLine="true"
+                    android:text="@string/card_peta_konsep"
                     android:textColor="@android:color/black"
-                    android:textSize="16sp" />
+                    android:textSize="15sp" />
 
             </LinearLayout>
 
@@ -112,16 +108,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_big_size"
             android:layout_marginEnd="@dimen/margin_small_size"
-            android:layout_marginRight="@dimen/margin_small_size"
             app:cardBackgroundColor="@color/card_view_color"
             app:cardCornerRadius="@dimen/card_radius_corner"
             app:cardElevation="@dimen/card_elevation"
-            app:layout_constraintEnd_toStartOf="@+id/card_relasi"
-            app:layout_constraintStart_toStartOf="@+id/card_pembelajaran"
-            app:layout_constraintTop_toBottomOf="@+id/card_pembelajaran">
+            app:layout_constraintEnd_toStartOf="@+id/card_materi_satu"
+            app:layout_constraintStart_toStartOf="@+id/card_kompetensi"
+            app:layout_constraintTop_toBottomOf="@+id/card_kompetensi">
 
             <LinearLayout
-                android:id="@+id/menu_sejarah"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center|center_horizontal"
@@ -138,27 +132,26 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_small_size"
-                    android:gravity="center"
-                    android:text="@string/card_sejarah"
                     android:ellipsize="marquee"
                     android:focusable="auto"
                     android:focusableInTouchMode="true"
+                    android:gravity="center"
                     android:marqueeRepeatLimit="marquee_forever"
                     android:scrollHorizontally="true"
                     android:singleLine="true"
+                    android:text="@string/card_sejarah"
                     android:textColor="@android:color/black"
-                    android:textSize="16sp" />
+                    android:textSize="15sp" />
 
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card_relasi"
+            android:id="@+id/card_materi_satu"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_small_size"
-            android:layout_marginLeft="@dimen/margin_small_size"
             app:cardBackgroundColor="@color/card_view_color"
             app:cardCornerRadius="@dimen/card_radius_corner"
             app:cardElevation="@dimen/card_elevation"
@@ -167,7 +160,6 @@
             app:layout_constraintTop_toTopOf="@+id/card_sejarah">
 
             <LinearLayout
-                android:id="@+id/menu_relasi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center|center_horizontal"
@@ -175,19 +167,19 @@
                 android:padding="12dp">
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/img_relasi"
+                    android:id="@+id/img_materi_satu"
                     android:layout_width="match_parent"
                     android:layout_height="70dp" />
 
                 <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tv_relasi"
+                    android:id="@+id/tv_materi_satu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_small_size"
-                    android:gravity="center"
                     android:ellipsize="marquee"
                     android:focusable="auto"
                     android:focusableInTouchMode="true"
+                    android:gravity="center"
                     android:marqueeRepeatLimit="marquee_forever"
                     android:scrollHorizontally="true"
                     android:singleLine="true"
@@ -200,21 +192,19 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card_fungsi"
+            android:id="@+id/card_materi_dua"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_big_size"
             android:layout_marginEnd="@dimen/margin_small_size"
-            android:layout_marginRight="@dimen/margin_small_size"
             app:cardBackgroundColor="@color/card_view_color"
             app:cardCornerRadius="@dimen/card_radius_corner"
             app:cardElevation="@dimen/card_elevation"
-            app:layout_constraintEnd_toStartOf="@+id/card_rumus_fungsi"
+            app:layout_constraintEnd_toStartOf="@+id/card_materi_tiga"
             app:layout_constraintStart_toStartOf="@+id/card_sejarah"
             app:layout_constraintTop_toBottomOf="@+id/card_sejarah">
 
             <LinearLayout
-                android:id="@+id/menu_fungsi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center|center_horizontal"
@@ -222,45 +212,43 @@
                 android:padding="12dp">
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/img_fungsi"
+                    android:id="@+id/img_materi_dua"
                     android:layout_width="match_parent"
                     android:layout_height="70dp" />
 
                 <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tv_fungsi"
+                    android:id="@+id/tv_materi_dua"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_small_size"
-                    android:gravity="center"
-                    android:text="@string/card_fungsi"
                     android:ellipsize="marquee"
                     android:focusable="auto"
                     android:focusableInTouchMode="true"
+                    android:gravity="center"
                     android:marqueeRepeatLimit="marquee_forever"
                     android:scrollHorizontally="true"
                     android:singleLine="true"
+                    android:text="@string/card_fungsi"
                     android:textColor="@android:color/black"
-                    android:textSize="16sp" />
+                    android:textSize="15sp" />
 
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card_rumus_fungsi"
+            android:id="@+id/card_materi_tiga"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_small_size"
-            android:layout_marginLeft="@dimen/margin_small_size"
             app:cardBackgroundColor="@color/card_view_color"
             app:cardCornerRadius="@dimen/card_radius_corner"
             app:cardElevation="@dimen/card_elevation"
-            app:layout_constraintEnd_toEndOf="@+id/card_relasi"
-            app:layout_constraintStart_toEndOf="@+id/card_fungsi"
-            app:layout_constraintTop_toTopOf="@+id/card_fungsi">
+            app:layout_constraintEnd_toEndOf="@+id/card_materi_satu"
+            app:layout_constraintStart_toEndOf="@+id/card_materi_dua"
+            app:layout_constraintTop_toTopOf="@+id/card_materi_dua">
 
             <LinearLayout
-                android:id="@+id/menu_rumus_fungsi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center|center_horizontal"
@@ -268,25 +256,25 @@
                 android:padding="12dp">
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/img_rumus_fungsi"
+                    android:id="@+id/img_materi_tiga"
                     android:layout_width="match_parent"
                     android:layout_height="70dp" />
 
                 <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tv_rumus_fungsi"
+                    android:id="@+id/tv_materi_tiga"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_small_size"
-                    android:gravity="center"
-                    android:text="@string/card_rumus_fungsi"
                     android:ellipsize="marquee"
                     android:focusable="auto"
                     android:focusableInTouchMode="true"
+                    android:gravity="center"
                     android:marqueeRepeatLimit="marquee_forever"
                     android:scrollHorizontally="true"
                     android:singleLine="true"
+                    android:text="@string/card_rumus_fungsi"
                     android:textColor="@android:color/black"
-                    android:textSize="16sp" />
+                    android:textSize="15sp" />
 
             </LinearLayout>
 
@@ -298,14 +286,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_big_size"
             android:layout_marginEnd="@dimen/margin_small_size"
-            android:layout_marginRight="@dimen/margin_small_size"
             android:visibility="gone"
             app:cardBackgroundColor="@color/card_view_color"
             app:cardCornerRadius="@dimen/card_radius_corner"
             app:cardElevation="@dimen/card_elevation"
             app:layout_constraintEnd_toStartOf="@+id/card_2"
             app:layout_constraintStart_toStartOf="@+id/card_sejarah"
-            app:layout_constraintTop_toBottomOf="@+id/card_fungsi">
+            app:layout_constraintTop_toBottomOf="@+id/card_materi_dua">
 
             <LinearLayout
                 android:id="@+id/menu_1"
@@ -325,14 +312,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_small_size"
-                    android:gravity="center"
-                    android:text="@string/request_data"
                     android:ellipsize="marquee"
                     android:focusable="auto"
                     android:focusableInTouchMode="true"
+                    android:gravity="center"
                     android:marqueeRepeatLimit="marquee_forever"
                     android:scrollHorizontally="true"
                     android:singleLine="true"
+                    android:text="@string/request_data"
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />
 
@@ -345,12 +332,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_small_size"
-            android:layout_marginLeft="@dimen/margin_small_size"
             android:visibility="gone"
             app:cardBackgroundColor="@color/card_view_color"
             app:cardCornerRadius="@dimen/card_radius_corner"
             app:cardElevation="@dimen/card_elevation"
-            app:layout_constraintEnd_toEndOf="@+id/card_rumus_fungsi"
+            app:layout_constraintEnd_toEndOf="@+id/card_materi_tiga"
             app:layout_constraintStart_toEndOf="@+id/card_1"
             app:layout_constraintTop_toTopOf="@+id/card_1">
 
@@ -372,14 +358,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_small_size"
-                    android:gravity="center"
-                    android:text="@string/request_data"
                     android:ellipsize="marquee"
                     android:focusable="auto"
                     android:focusableInTouchMode="true"
+                    android:gravity="center"
                     android:marqueeRepeatLimit="marquee_forever"
                     android:scrollHorizontally="true"
                     android:singleLine="true"
+                    android:text="@string/request_data"
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />
 
@@ -393,16 +379,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_big_size"
             android:layout_marginEnd="@dimen/margin_small_size"
-            android:layout_marginRight="@dimen/margin_small_size"
             app:cardBackgroundColor="@color/card_view_color"
             app:cardCornerRadius="@dimen/card_radius_corner"
             app:cardElevation="@dimen/card_elevation"
             app:layout_constraintEnd_toStartOf="@+id/card_referensi"
-            app:layout_constraintStart_toStartOf="@+id/card_fungsi"
+            app:layout_constraintStart_toStartOf="@+id/card_materi_dua"
             app:layout_constraintTop_toBottomOf="@+id/card_1">
 
             <LinearLayout
-                android:id="@+id/menu_rangkuman"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center|center_horizontal"
@@ -419,16 +403,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_small_size"
-                    android:gravity="center"
-                    android:text="@string/card_rangkuman"
                     android:ellipsize="marquee"
                     android:focusable="auto"
                     android:focusableInTouchMode="true"
+                    android:gravity="center"
                     android:marqueeRepeatLimit="marquee_forever"
                     android:scrollHorizontally="true"
                     android:singleLine="true"
+                    android:text="@string/card_rangkuman"
                     android:textColor="@android:color/black"
-                    android:textSize="16sp" />
+                    android:textSize="15sp" />
 
             </LinearLayout>
 
@@ -439,16 +423,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_small_size"
-            android:layout_marginLeft="@dimen/margin_small_size"
             app:cardBackgroundColor="@color/card_view_color"
             app:cardCornerRadius="@dimen/card_radius_corner"
             app:cardElevation="@dimen/card_elevation"
-            app:layout_constraintEnd_toEndOf="@+id/card_rumus_fungsi"
+            app:layout_constraintEnd_toEndOf="@+id/card_materi_tiga"
             app:layout_constraintStart_toEndOf="@+id/card_rangkuman"
             app:layout_constraintTop_toTopOf="@+id/card_rangkuman">
 
             <LinearLayout
-                android:id="@+id/menu_referensi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center|center_horizontal"
@@ -465,16 +447,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_small_size"
-                    android:gravity="center"
-                    android:text="@string/card_referensi"
                     android:ellipsize="marquee"
                     android:focusable="auto"
                     android:focusableInTouchMode="true"
+                    android:gravity="center"
                     android:marqueeRepeatLimit="marquee_forever"
                     android:scrollHorizontally="true"
                     android:singleLine="true"
+                    android:text="@string/card_referensi"
                     android:textColor="@android:color/black"
-                    android:textSize="16sp" />
+                    android:textSize="15sp" />
 
             </LinearLayout>
 
@@ -486,16 +468,16 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_big_size"
             android:layout_marginEnd="@dimen/margin_small_size"
-            android:layout_marginRight="@dimen/margin_small_size"
+            android:layout_marginBottom="8dp"
             app:cardBackgroundColor="@color/card_view_color"
             app:cardCornerRadius="@dimen/card_radius_corner"
             app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintBottom_toTopOf="@+id/card_kuis"
             app:layout_constraintEnd_toStartOf="@+id/card_soal"
             app:layout_constraintStart_toStartOf="@+id/card_rangkuman"
             app:layout_constraintTop_toBottomOf="@+id/card_rangkuman">
 
             <LinearLayout
-                android:id="@+id/menu_postes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center|center_horizontal"
@@ -512,16 +494,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_small_size"
-                    android:gravity="center"
-                    android:text="@string/card_postes"
                     android:ellipsize="marquee"
                     android:focusable="auto"
                     android:focusableInTouchMode="true"
+                    android:gravity="center"
                     android:marqueeRepeatLimit="marquee_forever"
                     android:scrollHorizontally="true"
                     android:singleLine="true"
+                    android:text="@string/card_postes"
                     android:textColor="@android:color/black"
-                    android:textSize="16sp" />
+                    android:textSize="15sp" />
 
             </LinearLayout>
 
@@ -532,16 +514,16 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_small_size"
-            android:layout_marginLeft="@dimen/margin_small_size"
+            android:visibility="visible"
             app:cardBackgroundColor="@color/card_view_color"
             app:cardCornerRadius="@dimen/card_radius_corner"
             app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintBottom_toBottomOf="@+id/card_postes"
             app:layout_constraintEnd_toEndOf="@+id/card_referensi"
             app:layout_constraintStart_toEndOf="@+id/card_postes"
             app:layout_constraintTop_toTopOf="@+id/card_postes">
 
             <LinearLayout
-                android:id="@+id/menu_soal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center|center_horizontal"
@@ -558,16 +540,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_small_size"
-                    android:gravity="center"
-                    android:text="@string/card_latihan_soal"
                     android:ellipsize="marquee"
                     android:focusable="auto"
                     android:focusableInTouchMode="true"
+                    android:gravity="center"
                     android:marqueeRepeatLimit="marquee_forever"
                     android:scrollHorizontally="true"
                     android:singleLine="true"
+                    android:text="@string/card_latihan_soal"
                     android:textColor="@android:color/black"
-                    android:textSize="16sp" />
+                    android:textSize="15sp" />
 
             </LinearLayout>
 
@@ -577,18 +559,17 @@
             android:id="@+id/card_kuis"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_big_size"
+            android:layout_marginTop="8dp"
             android:layout_marginBottom="@dimen/margin_big_size"
             app:cardBackgroundColor="@color/card_view_color"
             app:cardCornerRadius="@dimen/card_radius_corner"
             app:cardElevation="@dimen/card_elevation"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/card_soal"
-            app:layout_constraintStart_toStartOf="@+id/card_postes"
+            app:layout_constraintEnd_toEndOf="@+id/card_postes"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/card_postes">
 
             <LinearLayout
-                android:id="@+id/menu_kuis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center|center_horizontal"
@@ -605,16 +586,62 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_small_size"
-                    android:gravity="center"
-                    android:text="@string/card_kuis"
                     android:ellipsize="marquee"
                     android:focusable="auto"
                     android:focusableInTouchMode="true"
+                    android:gravity="center"
                     android:marqueeRepeatLimit="marquee_forever"
                     android:scrollHorizontally="true"
                     android:singleLine="true"
+                    android:text="@string/card_kuis"
                     android:textColor="@android:color/black"
-                    android:textSize="16sp" />
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_video"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="@dimen/margin_big_size"
+            app:cardBackgroundColor="@color/card_view_color"
+            app:cardCornerRadius="@dimen/card_radius_corner"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/card_soal"
+            app:layout_constraintTop_toBottomOf="@+id/card_postes">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|center_horizontal"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/img_video"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_video"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small_size"
+                    android:ellipsize="marquee"
+                    android:focusable="auto"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:text="@string/tv_video"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp" />
 
             </LinearLayout>
 

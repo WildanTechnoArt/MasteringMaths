@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.FirebaseFirestore
 import com.unpas.masteringmaths.R
-import com.unpas.masteringmaths.database.SharedPrefManager
 import com.unpas.masteringmaths.main.adapter.FirestorePostAdapter
 import com.unpas.masteringmaths.teacher.PostItemListener
 import com.unpas.masteringmaths.teacher.activity.CreatePostActivity
@@ -20,14 +19,16 @@ import com.unpas.masteringmaths.teacher.model.PostData
 import com.unpas.masteringmaths.utils.UtilsConstant.Companion.CLASS_ID
 import com.unpas.masteringmaths.utils.UtilsConstant.Companion.CLASS_NAME
 import com.unpas.masteringmaths.utils.UtilsConstant.Companion.GET_POST
+import com.unpas.masteringmaths.utils.UtilsConstant.Companion.IS_ASSIGNMENT
 import com.unpas.masteringmaths.utils.UtilsConstant.Companion.IS_EDITED
 import com.unpas.masteringmaths.utils.UtilsConstant.Companion.POST_ID
+import com.unpas.masteringmaths.utils.UtilsConstant.Companion.TEACHER_ID
 import com.unpas.masteringmaths.utils.UtilsConstant.Companion.TOOLBAR_TITLE
 import kotlinx.android.synthetic.main.fragment_posts.*
 
 class PostsFragment : Fragment(), PostItemListener {
 
-    private lateinit var userId: String
+    private lateinit var teacherId: String
     private lateinit var codeClass: String
     private lateinit var className: String
 
@@ -41,11 +42,12 @@ class PostsFragment : Fragment(), PostItemListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        swipe_refresh.isEnabled = false
+        swipe_refresh?.isEnabled = false
 
-        userId = SharedPrefManager.getInstance(view.context).getUserId.toString()
+        teacherId = (context as AppCompatActivity).intent?.getStringExtra(TEACHER_ID).toString()
         codeClass = (context as AppCompatActivity).intent?.getStringExtra(CLASS_ID).toString()
         className = (context as AppCompatActivity).intent?.getStringExtra(CLASS_NAME).toString()
+
         setupDatabse()
         getDataCount()
     }
@@ -55,7 +57,8 @@ class PostsFragment : Fragment(), PostItemListener {
         toolbarName: String,
         isEdited: Boolean,
         post: String,
-        postId: String
+        postId: String,
+        isAssignment: Boolean
     ) {
         val intent = Intent(context, CreatePostActivity::class.java)
 
@@ -65,15 +68,16 @@ class PostsFragment : Fragment(), PostItemListener {
         intent.putExtra(POST_ID, postId)
         intent.putExtra(CLASS_ID, codeClass)
         intent.putExtra(CLASS_NAME, className)
+        intent.putExtra(IS_ASSIGNMENT, isAssignment)
         startActivity(intent)
     }
 
     override fun onDeletePost(postId: String) {
-        swipe_refresh.isRefreshing = true
+        swipe_refresh?.isRefreshing = true
         val db = FirebaseFirestore.getInstance()
         db.collection("classRooms")
             .document(className)
-            .collection(userId)
+            .collection(teacherId)
             .document(codeClass)
             .collection("posts")
             .document(postId)
@@ -92,7 +96,7 @@ class PostsFragment : Fragment(), PostItemListener {
         val query = FirebaseFirestore.getInstance()
             .collection("classRooms")
             .document(className)
-            .collection(userId)
+            .collection(teacherId)
             .document(codeClass)
             .collection("posts")
 
@@ -105,7 +109,6 @@ class PostsFragment : Fragment(), PostItemListener {
         rv_post_list?.setHasFixedSize(true)
 
         val adapter = FirestorePostAdapter(options, this)
-        adapter.setUserId(userId)
         rv_post_list?.adapter = adapter
     }
 
@@ -113,7 +116,7 @@ class PostsFragment : Fragment(), PostItemListener {
         val db = FirebaseFirestore.getInstance()
             .collection("classRooms")
             .document(className)
-            .collection(userId)
+            .collection(teacherId)
             .document(codeClass)
             .collection("posts")
 

@@ -17,6 +17,7 @@ import com.unpas.masteringmaths.utils.UtilsConstant.Companion.CLASS_ID
 import com.unpas.masteringmaths.utils.UtilsConstant.Companion.CLASS_NAME
 import com.unpas.masteringmaths.utils.UtilsConstant.Companion.CLASS_TITLE
 import com.unpas.masteringmaths.utils.UtilsConstant.Companion.CLOSE_ACTIVITY
+import com.unpas.masteringmaths.utils.UtilsConstant.Companion.IS_TEACHER
 import com.unpas.masteringmaths.utils.UtilsConstant.Companion.TOOLBAR_TITLE
 import kotlinx.android.synthetic.main.activity_class_room.*
 
@@ -36,7 +37,8 @@ class ClassRoomActivity : AppCompatActivity() {
             val intent = Intent(this, CreatePostActivity::class.java)
             intent.putExtra(CLASS_ID, classId)
             intent.putExtra(CLASS_NAME, className)
-            intent.putExtra(TOOLBAR_TITLE, "Buat Postingan")
+            intent.putExtra(IS_TEACHER, true)
+            intent.putExtra(TOOLBAR_TITLE, "Create Post")
             startActivity(intent)
         }
         checkMemberExists()
@@ -92,11 +94,10 @@ class ClassRoomActivity : AppCompatActivity() {
 
         TabLayoutMediator(
             tab_layout,
-            view_pager,
-            TabLayoutMediator.TabConfigurationStrategy { tab, position ->
-                tab.text = tabMenus[position]
-            }
-        ).attach()
+            view_pager
+        ) { tab, position ->
+            tab.text = tabMenus[position]
+        }.attach()
 
         tab_layout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabReselected(tab: TabLayout.Tab?) {}

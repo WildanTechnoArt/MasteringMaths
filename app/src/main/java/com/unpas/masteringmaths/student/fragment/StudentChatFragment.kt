@@ -3,7 +3,6 @@ package com.unpas.masteringmaths.student.fragment
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
@@ -13,6 +12,7 @@ import com.unpas.masteringmaths.database.SharedPrefManager
 import com.unpas.masteringmaths.student.adapter.StudentChatListAdapter
 import com.unpas.masteringmaths.teacher.model.ListChat
 import kotlinx.android.synthetic.main.fragment_chat.*
+import kotlinx.android.synthetic.main.toolbar_layout.*
 
 class StudentChatFragment : Fragment() {
 
@@ -29,11 +29,6 @@ class StudentChatFragment : Fragment() {
         prepare(view)
         setupDatabse()
         getDataCount()
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.fragment_chat, menu)
     }
 
     private fun setupDatabse() {
@@ -69,8 +64,8 @@ class StudentChatFragment : Fragment() {
     }
 
     private fun prepare(view: View) {
-        val toolbar = view.findViewById(R.id.toolbar) as Toolbar
         (view.context as AppCompatActivity).setSupportActionBar(toolbar)
+        (view.context as AppCompatActivity).title = "Chat"
 
         mUserId = SharedPrefManager.getInstance(context).getUserId.toString()
 

@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.unpas.masteringmaths.R
 import com.unpas.masteringmaths.database.SharedPrefManager
@@ -30,6 +31,7 @@ class StudentDiscussionFragment : Fragment() {
     private lateinit var userId: String
     private lateinit var codeClass: String
     private lateinit var className: String
+    private lateinit var photoUrl: String
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_discussion, container, false)
@@ -54,9 +56,19 @@ class StudentDiscussionFragment : Fragment() {
 
         btn_send_message?.setOnClickListener {
             val imm: InputMethodManager = view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            imm.hideSoftInputFromWindow(swipe_refresh.windowToken, 0)
+            imm.hideSoftInputFromWindow(swipe_refresh?.windowToken, 0)
             sendChatMessage()
         }
+
+        val mAuth = FirebaseAuth.getInstance().currentUser
+        val database = FirebaseFirestore.getInstance()
+        database.collection("photos").document(mAuth?.uid.toString())
+            .get()
+            .addOnSuccessListener {
+                photoUrl = it.getString("photoUrl").toString()
+
+            }.addOnFailureListener {
+            }
     }
 
     private fun getChatMessage(){
@@ -97,7 +109,7 @@ class StudentDiscussionFragment : Fragment() {
 
         val data = ForumMessage()
         data.username = SharedPrefManager.getInstance(context).getUserName.toString()
-        data.photoUrl = SharedPrefManager.getInstance(context).getUserPhoto.toString()
+        data.photoUrl = photoUrl
         data.text = input_message.text.toString()
         data.status = SharedPrefManager.getInstance(context).getUserStatus.toString()
         data.userId = userId
@@ -118,7 +130,7 @@ class StudentDiscussionFragment : Fragment() {
                         it1 -> rv_chat_list?.smoothScrollToPosition(it1) } }
             }
             .addOnFailureListener {
-                Toast.makeText(context, "Pesan gagal dikirim", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Message failed to send", Toast.LENGTH_SHORT).show()
                 swipe_refresh?.isRefreshing = false
             }
     }

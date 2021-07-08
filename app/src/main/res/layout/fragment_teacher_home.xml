@@ -15,13 +15,12 @@
             android:id="@+id/arcView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
             android:elevation="6dp"
-            app:layout_constraintBottom_toTopOf="@+id/guideline_arcview"
+            app:layout_constraintBottom_toTopOf="@+id/grade_layout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:shape_diagonal_angle="10"
-            app:shape_diagonal_position="bottom"
             tools:targetApi="lollipop">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -49,7 +48,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_big_size"
                     android:layout_marginEnd="@dimen/margin_very_big_size"
-                    android:layout_marginRight="@dimen/margin_very_big_size"
                     android:gravity="start"
                     android:text="@string/request_data"
                     android:textAlignment="viewStart"
@@ -99,13 +97,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:hint="@string/input_education_stage"
             app:layout_constraintBottom_toBottomOf="@+id/img_profile"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/img_profile"
             app:layout_constraintTop_toTopOf="@+id/img_profile"
+            app:layout_constraintVertical_bias="1.0"
             app:startIconDrawable="@drawable/ic_school_grade">
 
             <com.google.android.material.textfield.MaterialAutoCompleteTextView
@@ -117,18 +115,32 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <include
-            android:id="@+id/main_menu"
-            layout="@layout/dashboard_main_menu"
+            android:id="@+id/junior_lesson"
+            layout="@layout/junior_lesson_layout"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/grade_layout" />
+            app:layout_constraintTop_toBottomOf="@+id/img_profile" />
+
+        <include
+            android:id="@+id/senior_lesson"
+            layout="@layout/senior_lesson_layout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_profile" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_arcview"
@@ -156,7 +168,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.39" />
+            app:layout_constraintGuide_begin="285dp" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_top_img_profile"

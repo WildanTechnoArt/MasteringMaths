@@ -175,8 +175,7 @@
             app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintStart_toStartOf="@+id/btn_login"
             app:layout_constraintTop_toBottomOf="@+id/btn_login"
-            app:layout_constraintVertical_bias="1.0"
-            android:layout_marginRight="2dp" />
+            app:layout_constraintVertical_bias="1.0" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_register"
@@ -188,15 +187,14 @@
             android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="@+id/txt_register"
             app:layout_constraintEnd_toEndOf="@+id/btn_login"
-            app:layout_constraintStart_toEndOf="@+id/guideline"
-            android:layout_marginLeft="2dp" />
+            app:layout_constraintStart_toEndOf="@+id/guideline" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.5" />
+            app:layout_constraintGuide_percent="0.55" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_toolbar"

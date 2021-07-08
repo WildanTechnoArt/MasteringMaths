@@ -28,14 +28,14 @@ public class RumusFungsiActivity extends AppCompatActivity {
         Button btnNext = findViewById(R.id.bt_next);
         Button btnprev = findViewById(R.id.btn_prev);
         tvMateriNo = findViewById(R.id.no_materi);
-        tvMateriNo.setText("Slide Materi : 1/9");
+        tvMateriNo.setText("Page : 1/9");
         addData();
         btnNext.setOnClickListener(view -> {
             if (indext < listSlide.size()-1){
                 indext++;
                 nomor++;
                 Materi.loadUrl(listSlide.get(indext));
-                tvMateriNo.setText("Slide Materi : " + nomor + "/9");
+                tvMateriNo.setText("Page : " + nomor + "/9");
             }
         });
 
@@ -44,7 +44,7 @@ public class RumusFungsiActivity extends AppCompatActivity {
                 indext--;
                 nomor--;
                 Materi.loadUrl(listSlide.get(indext));
-                tvMateriNo.setText("Slide Materi : " + nomor + "/9");
+                tvMateriNo.setText("Page : " + nomor + "/9");
             }
         });
     }

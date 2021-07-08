@@ -22,25 +22,29 @@ class TeacherDashboardActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_teacher_dashboard)
-        init(savedInstanceState)
-        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-        bottom_navigation.addBubbleListener(object : OnBubbleClickListener {
-            override fun onBubbleClick(id: Int) {
-                when (id) {
-                    R.id.menu_home -> pageContent = TeacherHomeFragment()
-                    R.id.menu_chat -> pageContent = ChatFragment()
-                    R.id.menu_class -> pageContent = ClassListFragment()
-                    R.id.menu_profile -> pageContent = TeacherProfileFragment()
-                }
+        try {
+            setContentView(R.layout.activity_teacher_dashboard)
+            init(savedInstanceState)
+            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+            bottom_navigation.addBubbleListener(object : OnBubbleClickListener {
+                override fun onBubbleClick(id: Int) {
+                    when (id) {
+                        R.id.menu_home -> pageContent = TeacherHomeFragment()
+                        R.id.menu_chat -> pageContent = ChatFragment()
+                        R.id.menu_class -> pageContent = ClassListFragment()
+                        R.id.menu_profile -> pageContent = TeacherProfileFragment()
+                    }
 
-                pageContent?.let {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.container, it)
-                        .commit()
+                    pageContent?.let {
+                        supportFragmentManager.beginTransaction()
+                            .replace(R.id.container, it)
+                            .commit()
+                    }
                 }
-            }
-        })
+            })
+        }catch (ex: Exception){
+            ex.printStackTrace()
+        }
     }
 
     override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {

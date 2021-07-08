@@ -38,11 +38,9 @@ public class RangkumanActivity extends AppCompatActivity {
         switch (index) {
             case 0:
                 rangkuman.loadUrl("file:///android_asset/rangkuman_relasi_1.html");
-
                 break;
             case 1:
                 rangkuman.loadUrl("file:///android_asset/rangkuman_pythagoras_1.html");
-
                 break;
             case 2:
                 rangkuman.loadUrl("file:///android_asset/rangkuman_polabilangan_1.html");

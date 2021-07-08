@@ -18,6 +18,7 @@ import com.unpas.masteringmaths.utils.UtilsConstant.Companion.CLASS_NAME
 import com.unpas.masteringmaths.utils.UtilsConstant.Companion.CLASS_TITLE
 import com.unpas.masteringmaths.utils.UtilsConstant.Companion.TEACHER_ID
 import kotlinx.android.synthetic.main.activity_student_in_class.*
+import kotlinx.android.synthetic.main.toolbar_layout.*
 
 class StudentInClassActivity : AppCompatActivity(), StudentClassListener {
 
@@ -95,6 +96,7 @@ class StudentInClassActivity : AppCompatActivity(), StudentClassListener {
             setDisplayShowHomeEnabled(true)
             setHomeButtonEnabled(true)
             setDisplayHomeAsUpEnabled(true)
+            title = "Daftar Kelas"
         }
 
         mUserId = SharedPrefManager.getInstance(this).getUserId.toString()

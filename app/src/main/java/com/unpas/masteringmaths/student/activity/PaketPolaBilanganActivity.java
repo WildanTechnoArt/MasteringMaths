@@ -19,10 +19,13 @@ public class PaketPolaBilanganActivity extends AppCompatActivity {
         lay2 = findViewById(R.id.layM2);
         lay3 = findViewById(R.id.layM3);
 
-        lay1.setOnClickListener(view -> startActivity(new Intent(PaketPolaBilanganActivity.this,ExamBarisBilangan.class)));
+        lay1.setOnClickListener(view ->
+                startActivity(new Intent(PaketPolaBilanganActivity.this,ExamBarisBilangan.class)));
 
-        lay2.setOnClickListener(view -> startActivity(new Intent(PaketPolaBilanganActivity.this,ExamAritmetika.class)));
+        lay2.setOnClickListener(view ->
+                startActivity(new Intent(PaketPolaBilanganActivity.this,ExamAritmetika.class)));
 
-        lay3.setOnClickListener(view -> startActivity(new Intent(PaketPolaBilanganActivity.this,ExamGeometri.class)));
+        lay3.setOnClickListener(view ->
+                startActivity(new Intent(PaketPolaBilanganActivity.this,ExamGeometri.class)));
     }
 }

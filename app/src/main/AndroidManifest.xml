@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:dist="http://schemas.android.com/apk/distribution"
-        xmlns:tools="http://schemas.android.com/tools"
-        package="com.unpas.masteringmaths">
+    xmlns:dist="http://schemas.android.com/apk/distribution"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.unpas.masteringmaths">
+
+    <uses-sdk tools:overrideLibrary="com.fxn.bubbletabbar" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -11,17 +13,26 @@
     <dist:module dist:instant="true" />
 
     <application
-            android:allowBackup="true"
-            android:icon="@mipmap/ic_maths_new_launcher"
-            android:label="@string/app_name"
-            android:roundIcon="@mipmap/ic_maths_new_launcher_round"
-            android:supportsRtl="true"
-            android:theme="@style/AppTheme"
-            tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_maths_new_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_maths_new_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+        <activity
+            android:name=".main.activity.VideoPlayerActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" />
+        <activity android:name=".main.activity.SeniorTujuanPembelajaran" />
+        <activity android:name=".main.activity.SeniorMasKonActivity" />
+        <activity android:name=".main.activity.SeniorMateriActivity" />
         <activity android:name=".main.activity.ProfileUserActivity" />
+        <activity android:name=".main.activity.SeniorSubActivity" />
+        <activity android:name=".main.activity.SeniorLessonActivity" />
+        <activity android:name=".main.activity.SeniorKompetensiActivity" />
+        <activity android:name=".main.activity.SeniorSejarahActivity" />
         <activity android:name=".student.activity.StudentChatActivity" />
         <activity android:name=".teacher.activity.TeacherChatActivity" />
-        <activity android:name=".teacher.activity.CreateAssignmentActivity" />
         <activity android:name=".teacher.activity.CreatePostActivity" />
         <activity android:name=".teacher.activity.SettingClassActivity" />
         <activity android:name=".teacher.activity.ClassRoomActivity" />
@@ -39,7 +50,6 @@
         <activity android:name=".student.activity.ExamTeorema" />
         <activity android:name=".student.activity.MasKonActivity" />
         <activity android:name=".student.activity.TujuanPembelajaran" />
-        <activity android:name=".student.activity.StudentPostActivity" />
         <activity android:name=".student.activity.InMateriActivity" />
         <activity android:name=".student.activity.ExamRumusFungsi" />
         <activity android:name=".student.activity.InsideClassActivity" />
@@ -67,7 +77,7 @@
         <activity android:name=".student.activity.PeluangActivity" />
         <activity android:name=".student.activity.QuizePythagorasActivity" />
         <activity android:name=".student.activity.KompetensiActivity" />
-        <activity android:name=".student.activity.StudentLessonActivity" />
+        <activity android:name=".main.activity.JuniorLessonActivity" />
         <activity android:name=".student.activity.QuizePolaBilangan" />
         <activity android:name=".student.activity.QuizePersamaanGaris" />
         <activity android:name=".student.activity.QuizeKordinat" />
@@ -103,6 +113,11 @@
         <activity android:name=".student.activity.ExamTripelPythagoras" />
         <activity android:name=".student.activity.ExamGrafik" />
         <activity android:name=".student.activity.ExamPenerapanPythagoras" />
+        <activity android:name=".main.activity.SeniorPostesActivity" />
+        <activity android:name=".main.activity.SeniorReferensiActivity" />
+        <activity android:name=".main.activity.SeniorRangkumanActivity" />
+        <activity android:name=".main.activity.SeniorPetaKonsepiActivity" />
+        <activity android:name=".main.activity.TheoryViewActivity" />
         <activity android:name=".main.activity.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -110,11 +125,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".main.activity.ChooseRegisterActivity" />
         <activity android:name=".main.activity.LoginActivity" />
         <activity
-                android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
-                android:theme="@style/Base.Theme.AppCompat" />
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
+
+        <meta-data
+            android:name="firebase_performance_logcat_enabled"
+            android:value="true" />
     </application>
 
+    <queries>
+        <intent>
+            <action android:name="com.google.android.youtube.api.service.START" />
+        </intent>
+    </queries>
 </manifest>

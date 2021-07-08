@@ -32,7 +32,7 @@ class EditProfileStudentActivity : AppCompatActivity(), EditProfileView.View {
 
         presenter.requestDataUser()
 
-        swipe_refresh.setOnRefreshListener {
+        swipe_refresh?.setOnRefreshListener {
             presenter.requestDataUser()
         }
 
@@ -71,7 +71,7 @@ class EditProfileStudentActivity : AppCompatActivity(), EditProfileView.View {
     }
 
     override fun hideProgressBar() {
-        swipe_refresh.isRefreshing = false
+        swipe_refresh?.isRefreshing = false
     }
 
     override fun showProgressBar() {
@@ -87,7 +87,7 @@ class EditProfileStudentActivity : AppCompatActivity(), EditProfileView.View {
             title = "Edit Profil"
         }
 
-        swipe_refresh.isRefreshing = true
+        swipe_refresh?.isRefreshing = true
         presenter = EditProfilePresenter(this, this)
 
         bindProgressButton(btn_save)

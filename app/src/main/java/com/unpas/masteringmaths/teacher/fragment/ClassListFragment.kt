@@ -19,6 +19,7 @@ import com.unpas.masteringmaths.utils.UtilsConstant.Companion.CLASS_GRADE
 import com.unpas.masteringmaths.utils.UtilsConstant.Companion.CLASS_ID
 import com.unpas.masteringmaths.utils.UtilsConstant.Companion.CLASS_NAME
 import com.unpas.masteringmaths.utils.UtilsConstant.Companion.CLASS_TITLE
+import com.unpas.masteringmaths.utils.UtilsConstant.Companion.TEACHER_ID
 import kotlinx.android.synthetic.main.fragment_class_list.*
 import kotlinx.android.synthetic.main.toolbar_layout.*
 
@@ -38,7 +39,7 @@ class ClassListFragment : Fragment(), ClassListListener {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
         (context as AppCompatActivity).setSupportActionBar(toolbar)
-        (context as AppCompatActivity).title = "Daftar Ruang Kelas"
+        (context as AppCompatActivity).title = "Class List"
         prepare(view)
         setupDatabse()
         getDataCount()
@@ -67,6 +68,7 @@ class ClassListFragment : Fragment(), ClassListListener {
         intent.putExtra(CLASS_GRADE, classGrade)
         intent.putExtra(CLASS_ID, key)
         intent.putExtra(CLASS_NAME, className)
+        intent.putExtra(TEACHER_ID, mUserId)
         startActivity(intent)
     }
 

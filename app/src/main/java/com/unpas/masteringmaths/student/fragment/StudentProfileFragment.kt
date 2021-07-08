@@ -30,7 +30,7 @@ import de.hdodenhof.circleimageview.CircleImageView
 /**
  * A simple [Fragment] subclass.
  */
-class StudentProfileFragment : Fragment(),ProfileFragmentView.View {
+class StudentProfileFragment : Fragment(), ProfileFragmentView.View {
 
     private lateinit var tvNisn: TextView
     private lateinit var tvUsername: TextView
@@ -45,8 +45,10 @@ class StudentProfileFragment : Fragment(),ProfileFragmentView.View {
     private lateinit var presenter: ProfileFragmentView.Presenter
     private lateinit var mContext: Context
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_student_profil, container, false)
     }
@@ -70,7 +72,7 @@ class StudentProfileFragment : Fragment(),ProfileFragmentView.View {
 
     }
 
-    private fun prepare (view: View){
+    private fun prepare(view: View) {
         tvNisn = view.findViewById(R.id.tv_nisn)
         tvUsername = view.findViewById(R.id.tv_students_name)
         tvEmail = view.findViewById(R.id.tv_student_email)
@@ -84,7 +86,7 @@ class StudentProfileFragment : Fragment(),ProfileFragmentView.View {
         mContext = view.context
 
         (mContext as AppCompatActivity).setSupportActionBar(mToolbar)
-        (mContext as AppCompatActivity).supportActionBar?.title = "Profil Siswa"
+        (mContext as AppCompatActivity).supportActionBar?.title = "Student Profile"
 
         presenter = ProfilePresenter(mContext, this)
 
@@ -124,7 +126,13 @@ class StudentProfileFragment : Fragment(),ProfileFragmentView.View {
         (mContext as AppCompatActivity).finish()
     }
 
-    override fun showProfileUser(nisn: String, name: String, email: String, city: String, phone: String) {
+    override fun showProfileUser(
+        nisn: String,
+        name: String,
+        email: String,
+        city: String,
+        phone: String
+    ) {
         tvNisn.text = nisn
         tvUsername.text = name
         tvEmail.text = email
@@ -177,11 +185,15 @@ class StudentProfileFragment : Fragment(),ProfileFragmentView.View {
     }
 
     override fun onSuccessUpload(message: String) {
-        presenter.getPhotoFromStorage()
-        Toast.makeText(
-            context, message,
-            Toast.LENGTH_SHORT
-        ).show()
+        try {
+            presenter.getPhotoFromStorage()
+            Toast.makeText(
+                context, message,
+                Toast.LENGTH_SHORT
+            ).show()
+        }catch (ex: NullPointerException){
+            ex.printStackTrace()
+        }
     }
 
     override fun showPhotoProfile(photoUrl: String) {
@@ -215,7 +227,8 @@ class StudentProfileFragment : Fragment(),ProfileFragmentView.View {
             val galleryIntent = Intent()
             galleryIntent.type = "image/*"
             galleryIntent.action = Intent.ACTION_GET_CONTENT
-            startActivityForResult(Intent.createChooser(galleryIntent, "SELECT IMAGE"),
+            startActivityForResult(
+                Intent.createChooser(galleryIntent, "SELECT IMAGE"),
                 GALLERY_PICK
             )
         }

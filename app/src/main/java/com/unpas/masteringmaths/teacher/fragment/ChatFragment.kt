@@ -34,11 +34,6 @@ class ChatFragment : Fragment() {
         getDataCount()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.fragment_chat, menu)
-    }
-
     private fun setupDatabse() {
         val query = FirebaseFirestore.getInstance()
             .collection("users")

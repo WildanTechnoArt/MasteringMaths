@@ -37,14 +37,14 @@ public class PostesSpldv extends AppCompatActivity {
         Button btnprev = findViewById(R.id.btn_prev);
         tvMateriNo = findViewById(R.id.no_materi);
         Materi.getSettings().setBuiltInZoomControls(true);
-        tvMateriNo.setText("Slide Postes : 1/6");
+        tvMateriNo.setText("Page : 1/6");
         addData();
         btnNext.setOnClickListener(view -> {
             if (indext < listSlide.size()-1){
                 indext++;
                 nomor++;
                 Materi.loadUrl(listSlide.get(indext));
-                tvMateriNo.setText("Slide Postes : " + nomor + "/6");
+                tvMateriNo.setText("Page : " + nomor + "/6");
             }
         });
 

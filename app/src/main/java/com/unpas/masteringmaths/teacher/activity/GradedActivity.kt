@@ -62,7 +62,7 @@ class GradedActivity : AppCompatActivity() {
             setDisplayHomeAsUpEnabled(true)
             title = getStudentName
         }
-        swipe_refresh.isEnabled = false
+        swipe_refresh?.isEnabled = false
     }
 
     private fun getSubmission() {
@@ -102,14 +102,14 @@ class GradedActivity : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n")
     private fun checkSubmission() {
-        swipe_refresh.isRefreshing = true
+        swipe_refresh?.isRefreshing = true
         val db = FirebaseFirestore.getInstance()
         db.collection("submissions")
             .document(getTeacherId)
             .collection(getAssignmentId)
             .document(getStudentId)
             .addSnapshotListener { snapshot, _ ->
-                swipe_refresh.isRefreshing = false
+                swipe_refresh?.isRefreshing = false
 
                 val getTextAnswer = snapshot?.getString("textAnswer")
                 val isApproved = snapshot?.getBoolean("approved")
@@ -125,6 +125,7 @@ class GradedActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
+            R.id.menu_home -> onBackPressed()
             R.id.grade -> {
                 if (optionMenu?.getItem(0)?.title == "GRADE") {
                     sendGrade()
@@ -139,7 +140,7 @@ class GradedActivity : AppCompatActivity() {
     }
 
     private fun sendGrade() {
-        swipe_refresh.isRefreshing = true
+        swipe_refresh?.isRefreshing = true
 
         val db = FirebaseFirestore.getInstance()
         val data = SubmissionData()
@@ -157,7 +158,7 @@ class GradedActivity : AppCompatActivity() {
             .document(getStudentId)
             .set(data)
             .addOnSuccessListener {
-                swipe_refresh.isRefreshing = false
+                swipe_refresh?.isRefreshing = false
                 Toast.makeText(
                     this,
                     "Penilaian Berhasil",
@@ -170,12 +171,7 @@ class GradedActivity : AppCompatActivity() {
                     getString(R.string.error_request),
                     Toast.LENGTH_SHORT
                 ).show()
-                swipe_refresh.isRefreshing = false
+                swipe_refresh?.isRefreshing = false
             }
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return true
     }
 }

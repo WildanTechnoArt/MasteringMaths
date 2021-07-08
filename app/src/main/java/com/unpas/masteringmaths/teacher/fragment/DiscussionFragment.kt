@@ -116,7 +116,7 @@ class DiscussionFragment : Fragment() {
                         it1 -> rv_chat_list?.smoothScrollToPosition(it1) } }
             }
             .addOnFailureListener {
-                Toast.makeText(context, "Pesan gagal dikirim", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Message failed to send", Toast.LENGTH_SHORT).show()
                 swipe_refresh?.isRefreshing = false
 
             }

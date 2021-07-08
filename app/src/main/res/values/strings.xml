@@ -1,36 +1,28 @@
 <resources>
     <string name="app_name">Mastering Maths</string>
-    <string name="register_as_teacher">Daftar Sebagai Guru</string>
-    <string name="register_as_student">Daftar Sebagai Siswa</string>
-    <string name="I_already_have_an_account">Saya Sudah Punya Akun</string>
-    <string name="create_new_account">Daftar</string>
-    <string name="login">Masuk</string>
+    <string name="register_as_teacher">Register as a teacher</string>
+    <string name="register_as_student">Register as a Student</string>
+    <string name="I_already_have_an_account">I already have an account</string>
+    <string name="create_new_account">Register</string>
+    <string name="login">Login</string>
     <string name="password">Password</string>
-    <string name="app_intro">Selamat Datang di Mastering Maths</string>
-    <string name="input_email">Masukan Email</string>
-    <string name="nomor_nip">Nomor NIP</string>
-    <string name="full_name">Nama Lengkap</string>
+    <string name="app_intro">Welcome to Mastering Maths</string>
+    <string name="input_email">Enter Email</string>
+    <string name="nomor_nip">NIP number</string>
+    <string name="full_name">Full name</string>
     <string name="email_address">Email</string>
     <string name="re_type_password">Re-type Password</string>
-    <string name="btn_register">Daftar</string>
-    <string name="nomor_nis">Nomor NISN</string>
-    <string name="forgot_password">Lupa Password?</string>
+    <string name="daftar">Register</string>
+    <string name="nomor_nis">NISN number</string>
+    <string name="forgot_password">forget Password?</string>
     <string name="home">Home</string>
-    <string name="chat">Pesan</string>
+    <string name="chat">Chat</string>
     <string name="forum">Forum</string>
-    <string name="profil">Profil</string>
+    <string name="profil">Profile</string>
 
     <string-array name="grade_level_list">
-        <item>SMP</item>
-        <item>SMA</item>
-    </string-array>
-
-    <string-array name="junior_high_school">
-        <item>Kelas VIII</item>
-    </string-array>
-
-    <string-array name="senior_high_school">
-        <item>Kelas X</item>
+        <item>SMP Kelas VIII</item>
+        <item>SMA Kelas XI</item>
     </string-array>
 
     <string-array name="lesson_list">
@@ -40,6 +32,15 @@
         <item>Persamaan Garis Lurus</item>
         <item>Koordinat Cartesius</item>
         <item>SPLDV</item>
+        <item>Kaidah Pencacahan</item>
+        <item>Matriks</item>
+        <item>Peluang</item>
+        <item>Baris dan Deret</item>
+        <item>Limit Fungsi</item>
+        <item>Turunan Fungsi</item>
+        <item>Tiga Dimensi</item>
+        <item>Trigonometri</item>
+        <item>Transformasi</item>
     </string-array>
 
     <string name="pythagoras">Pythagoras</string>
@@ -48,95 +49,96 @@
     <string name="bangun_ruang">Bangun Ruang</string>
     <string name="statistics">Statistics</string>
     <string name="uji_kompetensi">Uji Kompetensi</string>
-    <string name="search">Cari</string>
-    <string name="list_chat_name">Nama:</string>
+    <string name="search">Search</string>
+    <string name="list_chat_name">Name:</string>
     <string name="list_chat_nis">NIS:</string>
-    <string name="no_discussion">Belum ada diskusi</string>
-    <string name="warning_input_data">Data tidak boleh ada yang kosong</string>
-    <string name="email_not_valid">Email yang dimasukan tidak valid</string>
-    <string name="register_failed">Registrasi gagal, silakan coba lagi</string>
-    <string name="password_not_valid">Password yang dimasukan tidak sama</string>
-    <string name="register_success">Registrasi berhasil</string>
-    <string name="error_user_not_found">Email atau Password salah</string>
-    <string name="error_wrong_password">Password yang anda masukan salah</string>
-    <string name="error_request">Terjadi kesalahan, silakan coba lagi</string>
-    <string name="email_password_null">Masukan Email dan Password</string>
-    <string name="btn_reset_password">Reset Password</string>
+    <string name="no_discussion">No discussions yet</string>
+    <string name="warning_input_data">Data cannot be empty</string>
+    <string name="email_not_valid">The email entered is invalid</string>
+    <string name="register_failed">Registration failed, please try again</string>
+    <string name="password_not_valid">The passwords entered are not the same</string>
+    <string name="register_success">Registration is successful</string>
+    <string name="error_user_not_found">Incorrect email or password</string>
+    <string name="no_internet">No Internet Connection</string>
+    <string name="error_wrong_password">The password you entered is wrong</string>
+    <string name="error_request">An error occurred, please try again</string>
+    <string name="email_password_null">Enter your Email and Password</string>
+    <string name="lupa_password">Reset Password</string>
     <string name="logo_app">logo_app</string>
-    <string name="send_reset_password">Silakan cek Inbox pada Email anda</string>
+    <string name="send_reset_password">Please check your Inbox in your Email</string>
     <string name="request_data">...........</string>
-    <string name="request_error">Data gagal dimuat, silakan coba lagi</string>
+    <string name="request_error">Data failed to load, please try again</string>
     <string name="icon">icon</string>
-    <string name="user_address">Alamat Lengkap</string>
-    <string name="user_phone">Nomor Telepon</string>
-    <string name="edit_profil">Edit Profil</string>
+    <string name="user_address">Complete address</string>
+    <string name="user_phone">Phone number</string>
+    <string name="edit_profil">Edit Profile</string>
     <string name="logout">Logout</string>
-    <string name="btn_save">Simpan</string>
-    <string name="success_edit_profile">Profil berhasil di ubah</string>
-    <string name="txt_email_autentikasi">*Email ini digunakan untuk proses autentikasi</string>
-    <string name="nama_sekolah">Nama Sekolah</string>
-    <string name="nama_kota">Nama Kota</string>
-    <string name="upload_failed">Upload Gagal</string>
-    <string name="failed_show_photo">Gagal Menampilkan Foto</string>
-    <string name="upload_success">Foto berhasil diunggah</string>
-    <string name="data_not_found">Tidak ada data yang dimuat</string>
+    <string name="btn_simpan">Save</string>
+    <string name="success_edit_profile">Profile changed successfully</string>
+    <string name="txt_email_autentikasi">* This email is used for the authentication process</string>
+    <string name="nama_sekolah">School name</string>
+    <string name="nama_kota">City name</string>
+    <string name="upload_failed">Upload Failed</string>
+    <string name="failed_show_photo">Failed to Display Photos</string>
+    <string name="upload_success">Photo uploaded successfully</string>
+    <string name="data_not_found">No data loaded</string>
     <string name="none_data">-</string>
-    <string name="no_student">0 Anggota</string>
-    <string name="alamat_email">Alamat Email</string>
-    <string name="input_class_name">Nama Kelas</string>
-    <string name="input_education_stage">Jenjang Pendidikan</string>
-    <string name="buat_kelas">Buat Kelas</string>
-    <string name="empty_class">Nama kelas tidak boleh kosong</string>
-    <string name="success_create_class">Kelas berhasil dibuat</string>
+    <string name="no_student">0 Member</string>
+    <string name="alamat_email">Email address</string>
+    <string name="nama_kelas">Class name</string>
+    <string name="jenjang_pendidikan">Educational stage</string>
+    <string name="buat_kelas">Create</string>
+    <string name="empty_class">The class name cannot be empty</string>
+    <string name="success_create_class">Class was successfully created</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="posts">Beranda</string>
-    <string name="members">Anggota</string>
-    <string name="no_active_class">Tidak ada kelas yang aktif</string>
+    <string name="posts">Posts</string>
+    <string name="members">Member</string>
+    <string name="no_active_class">There are no active classes</string>
     <string name="class_relasi_fungsi">Relasi dan Fungsi</string>
-    <string name="gambar">gambar</string>
-    <string name="judul_tugas">Judul Tugas</string>
+    <string name="gambar">picture</string>
+    <string name="judul_tugas">Task Title</string>
     <string name="relasi_dan_fungsi">Relasi dan Fungsi</string>
-    <string name="pengaturan">Pengaturan</string>
-    <string name="text_access_id">User ID dan Kode Kelas digunakan untuk mengundang murid masuk kedalam kelas</string>
-    <string name="salin">Salin</string>
-    <string name="input_code_class">Kode Kelas</string>
+    <string name="pengaturan">Settings</string>
+    <string name="text_access_id">User ID and Class Code are used to invite students to enter the classroom</string>
+    <string name="salin">Copy</string>
+    <string name="kode_kelas">Class Code</string>
     <string name="akses">AKSES</string>
-    <string name="use_id">Use ID</string>
-    <string name="edit_kelas">Edit Kelas</string>
-    <string name="profil_kelas">PROFIL</string>
-    <string name="hapus_kelas">Hapus Kelas</string>
-    <string name="success_edit_class">Data berhasil diubah</string>
-    <string name="success_delete_class">Kelas berhasil dihapus</string>
-    <string name="post">Post</string>
-    <string name="input_post">Posting sesuatu....</string>
-    <string name="success_upload_post">Postingan berhasil di upload</string>
-    <string name="no_post_active">Tidak ada postingan</string>
-    <string name="nothing_member">Tidak ada member yang aktif</string>
+    <string name="use_id">User ID</string>
+    <string name="edit_kelas">Edit Class</string>
+    <string name="profil_kelas">PROFILE</string>
+    <string name="hapus_kelas">Delete Class</string>
+    <string name="success_edit_class">Data changed successfully</string>
+    <string name="success_delete_class">Class deleted successfully</string>
+    <string name="post">Posts</string>
+    <string name="posting_sesuatu">Post something ....</string>
+    <string name="success_upload_post">Post uploaded successfully</string>
+    <string name="no_post_active">No posts</string>
+    <string name="nothing_member">There are no active members</string>
     <string name="item_menu">item_menu</string>
-    <string name="update_success">Postingan berhasil diubah</string>
-    <string name="post_has_editted">Postingan berhasil diedit</string>
-    <string name="post_has_deleted">Postingan berhasil dihapus</string>
-    <string name="input_message">Ketik pesan</string>
-    <string name="discussion">Diskusi</string>
-    <string name="pesan">Pesan</string>
-    <string name="zero_class">0 Kelas</string>
-    <string name="nothing_notification">Tidak ada notifikasi</string>
-    <string name="no_chat_data">Tidak ada obrolan</string>
-    <string name="view_assignment">Lihat Tugas</string>
-    <string name="assignment_title">Judul</string>
-    <string name="assignment_description">Instruksi / Deskripsi</string>
-    <string name="upload_file">Upload Tugas</string>
-    <string name="nomor_nisn">Nomor Nisn</string>
-    <string name="lanjut">Lanjut</string>
-    <string name="sebelumnya">Sebelumnya</string>
-    <string name="input_teacher_id">Id Guru</string>
-    <string name="masukan_id_guru">Masukan Id Guru</string>
-    <string name="masukan_kode_kelas">Masukan Kode Kelas</string>
+    <string name="update_success">Post successfully modified</string>
+    <string name="post_has_editted">Post has been deleted</string>
+    <string name="input_message">Type a message</string>
+    <string name="discussion">Discussion</string>
+    <string name="pesan">Message</string>
+    <string name="zero_class">0 Class</string>
+    <string name="nothing_notification">No notification</string>
+    <string name="no_chat_data">No chat</string>
+    <string name="view_assignment">View Assignment</string>
+    <string name="assignment_title">Title</string>
+    <string name="assignment_description">Instructions / Description</string>
+    <string name="upload_file">Upload File</string>
+    <string name="nomor_nisn">NISN Number</string>
+    <string name="lanjut">Continue</string>
+    <string name="sebelumnya">Previous</string>
+    <string name="id_guru">Id Teacher</string>
+    <string name="masukan_id_guru">Enter Teacher Id</string>
+    <string name="masukan_kode_kelas">Enter the Class Code</string>
     <string name="submit">Submit</string>
     <string name="s">S</string>
-    <string name="sejarah">Sejarah</string>
-    <string name="sejarah_relasi_dan_fungsi">Sejarah Relasi dan Fungsi</string>
+    <string name="sejarah">History</string>
+    <string name="sejarah_relasi_dan_fungsi">History Relasi dan Fungsi</string>
     <string name="r">R</string>
     <string name="relasi">Relasi</string>
     <string name="materi_relasi_smp_kelas_viii">Materi Relasi SMP Kelas VIII</string>
@@ -168,46 +170,65 @@
     <string name="create_a_post">Create a post</string>
     <string name="rf">RF</string>
     <string name="finish">Finish</string>
-    <string name="selesai">Selesai</string>
-    <string name="notification">Notifikasi</string>
-    <string name="loading_progress">Sedang Memuat.....</string>
+    <string name="selesai">Done</string>
+    <string name="notification">Notification</string>
+    <string name="loading_progress">Currently Loading.....</string>
     <string name="teorema_pythagoras">Teorema Pythagoras</string>
     <string name="pola_bilangan">Pola Bilangan</string>
     <string name="persamaan_garis_lurus">Persamaan Garis Lurus</string>
     <string name="koordinat_cartesius">Koordinat Cartesius</string>
     <string name="spldv">SPLDV</string>
-    <string name="btn_download_assignment">Unduh Tugas</string>
-    <string name="tulis_sesuatu">Tulis sesuatu…</string>
-    <string name="btn_attach">Melampirkan</string>
+    <string name="download_assignment">Download Assignment</string>
+    <string name="tulis_sesuatu">Write something…</string>
+    <string name="attach">Attach</string>
     <string name="grade">Grade: 0/100</string>
-    <string name="pengumpulan_tugas">PENGUMPULAN TUGAS</string>
-    <string name="txt_no_graded">Belum ada yang mengumpulkan tugas</string>
-    <string name="kirim">KIRIM</string>
+    <string name="pengumpulan_tugas">COLLECTION OF TASK</string>
+    <string name="txt_no_graded">No one has yet submitted the assignment</string>
+    <string name="kirim">SEND</string>
     <string name="assignment_status">Status:</string>
-    <string name="btn_download_file">Unduh Berkas</string>
-    <string name="tv_submission">File Yang Diajukan</string>
-    <string name="input_grade">Beri Nilai 0 – 100</string>
+    <string name="unduh_berkas">Download File</string>
+    <string name="submission">Submission</string>
+    <string name="beri_nilai_0_100">Rate it 0 – 100</string>
     <string name="grade_menu">GRADE</string>
     <string name="class_teorema_pyithagoras">Teorema Pythagoras</string>
     <string name="class_pola_bilangan">Pola Bilangan</string>
     <string name="class_persamaan_garis">Persamaan Garis</string>
     <string name="class_koordinat_cartesius">Koordinat Cartesius</string>
     <string name="class_spldv">SPLDV</string>
-    <string name="kirm_pesan">Kirm Pesan</string>
+    <string name="kirm_pesan">Send Message</string>
     <string name="join_class">Join Class</string>
-    <string name="tv_select_lesson">Pilih Mata Pelajaran</string>
+    <string name="pilih_mata_pelajaran">Select Subject</string>
     <string name="matrik_pencacahan">Matrik Pencacahan</string>
-    <string name="txt_register">Belum punya akun?</string>
-    <string name="sign_up_now">Daftar Sekarang</string>
-    <string name="class_list">Kelas</string>
-    <string name="menu_class">Kelas</string>
+    <string name="txt_register">Dont Have an Account?</string>
+    <string name="sign_up_now">Sign up now</string>
+    <string name="class_list">Class</string>
+    <string name="tv_no_lesson">There are no subjects yet</string>
+
+    <string name="btn_register">Register</string>
+
+    <string name="btn_reset_password">Reset Password</string>
+    <string name="btn_save">Save</string>
+    <string name="input_class_name">Class Name</string>
+    <string name="input_education_stage">Educational Stage</string>
+    <string name="input_code_class">Class Code</string>
+    <string name="input_post">Post Something....</string>
+    <string name="post_has_deleted">Post deleted successfully</string>
+    <string name="input_teacher_id">Teacher ID</string>
+    <string name="btn_download_assignment">Download Assignment</string>
+    <string name="btn_attach">Attach</string>
+    <string name="btn_download_file">Download File</string>
+    <string name="tv_submission">File Submitted</string>
+    <string name="input_grade">Give Score 0 – 100</string>
+    <string name="tv_select_lesson">Select Subject</string>
+    <string name="kaidah_pencacahan">Kaidah Pencacahan</string>
+    <string name="menu_class">Class</string>
     <string name="card_a">A</string>
     <string name="card_b">B</string>
     <string name="card_c">C</string>
     <string name="card_d">D</string>
     <string name="card_kompetensi_dasar">Kompetensi Dasar</string>
     <string name="card_peta_konsep">Peta Konsep</string>
-    <string name="card_sejarah">Sejarah</string>
+    <string name="card_sejarah">History</string>
     <string name="card_fungsi">Fungsi</string>
     <string name="card_rangkuman">Rangkuman</string>
     <string name="card_referensi">Referensi</string>
@@ -221,21 +242,99 @@
     <string name="card_spldv">SPLDV</string>
     <string name="card_relasi">Relasi</string>
     <string name="card_rumus_fungsi">Rumus Fungsi</string>
-    <string name="input_post_text">Tulis Sesuatu…</string>
-    <string name="btn_download_document">Unduh Berkas</string>
-    <string name="no_soal_1_10">No Soal : 1/10</string>
+    <string name="input_post_text">Write something…</string>
+    <string name="btn_download_document">Download File</string>
+    <string name="no_soal_1_10">Number Question : 1/10</string>
     <string name="btn_prev"><![CDATA[<]]></string>
-    <string name="btn_answer">Jawab</string>
+    <string name="btn_answer">Answer</string>
     <string name="btn_next"><![CDATA[>]]></string>
-    <string name="tv_nilai_akhir">Nilai Akhir</string>
-    <string name="tv_jumlah_soal">Jumlah Soal</string>
-    <string name="tv_tidak_lulus">Tidak Lulus</string>
-    <string name="tv_lulus">Lulus</string>
+    <string name="tv_nilai_akhir">Final Score</string>
+    <string name="tv_jumlah_soal">Number of Questions</string>
+    <string name="tv_tidak_lulus">Not pass</string>
+    <string name="tv_lulus">Graduated</string>
+    <string name="tv_sisa_waktu">Remaining time</string>
+    <string name="tv_benar">Correct Answer</string>
+    <string name="tv_salah">Wrong Answer</string>
+    <string name="btn_finish">Done</string>
+    <string name="exam_confirmation">Confirmation?</string>
+    <string name="exam_finish_information">All questions have been answered, do you want to solve them?</string>
+    <string name="tv_score">Final Score</string>
+    <string name="tv_total_exam">Number of Questions</string>
     <string name="tv_detail">Detail</string>
-    <string name="tv_sisa_waktu">Sisa Waktu</string>
-    <string name="tv_benar">Benar</string>
-    <string name="tv_salah">Salah</string>
-    <string name="btn_finish">Selesai</string>
-    <string name="exam_confirmation">Konfirmasi?</string>
-    <string name="exam_finish_information">Semua soal sudah dijawab, apa kamu ingin menyelesaikainnya?</string>
+    <string name="tv_true">Correct Answer</string>
+    <string name="tv_false">Wrong Answer</string>
+    <string name="tv_congratulation">Congratulations you graduated</string>
+    <string name="tv_exam_failed">Sorry You Didn\'t Pass</string>
+    <string name="tv_time">Time</string>
+    <string name="menu_chat">Chat</string>
+    <string name="download_menu">Download Theory</string>
+    <string name="matriks">Matriks</string>
+    <string name="btn_class_inside">Going to Class</string>
+    <string name="kaidah_pencacahan_full_materi"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Kaidah%20Pencacahan%2FKaidah%20Pencacahan.zip?alt=media&token=a6765960-bff5-4d1c-aa66-f025f9c9c752]]></string>
+    <string name="icon_tutwuri"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Icon%2Ftutwuri.png?alt=media&token=461b98c5-4aa7-4ac3-9ea8-cedb196de979]]></string>
+    <string name="icon_postest"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Icon%2Fadmin_jurnalpase.png?alt=media&token=9bb6afa3-c3d3-4073-8231-b3fd6dfcc658]]></string>
+    <string name="icon_peta_konsep"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Icon%2Findikator.png?alt=media&token=5910aa06-2801-4948-a323-914d90545cf3]]></string>
+    <string name="icon_latihan"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Icon%2Flatihan.png?alt=media&token=0258f568-3711-4c17-8918-810ddf6d5bc3]]></string>
+    <string name="icon_materi"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Icon%2Fmateri.png?alt=media&token=0ca7b217-42cc-4d84-82e0-b2585b761fe6]]></string>
+    <string name="icon_quize"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Icon%2Fquize.png?alt=media&token=059b344d-ae93-47b0-8b6e-2334100aef60]]></string>
+    <string name="icon_referensi"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Icon%2Freferensi.jpg?alt=media&token=930053b0-6344-4968-b246-217fff53f063]]></string>
+    <string name="icon_math_url"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Icon%2Fmath_book.png?alt=media&token=e56c8d05-f96a-47f3-9b9d-00a51c24d345]]></string>
+    <string name="img_sejarah_pencacahan"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Kaidah%20Pencacahan%2Fsejarah.jpg?alt=media&token=f5859953-dcd9-4580-b958-ed0196d82f81]]></string>
+    <string name="baris_dan_deret">Baris dan Deret</string>
+    <string name="limit_fungsi">Limit Fungsi</string>
+    <string name="turunan_fungsi">Turunan Fungsi</string>
+    <string name="tiga_dimensi">Tiga Dimensi</string>
+    <string name="trigonometri">Trigonometri</string>
+    <string name="transformasi">Transformasi</string>
+    <string name="senior_materi_pencacahan"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Kaidah%20Pencacahan%2Fmateri_teknik_membilang.pdf?alt=media&token=50bc8277-7931-4760-bc91-2bf26ad654c0]]></string>
+    <string name="senior_maskon_pencacahan"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Kaidah%20Pencacahan%2Fmaskon_membilang.pdf?alt=media&token=4622a122-4901-4774-b9fe-9226ca4124fb]]></string>
+    <string name="tv_video">Video</string>
+    <string name="icon_video"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Icon%2Fvideo_camera.png?alt=media&token=7144d9a1-2200-4a9c-a272-f7998d96b0cc]]></string>
+    <string name="player_error">Video Player Error</string>
+    <string name="matriks_full_materi"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Matrix%2FMateri%20Matriks%20SMA%20XI.rar?alt=media&token=9738ccf2-5dce-4083-86a5-8ad602ab46cc]]></string>
+    <string name="senior_maskon_matriks"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Matrix%2Fmaskon_matrix.pdf?alt=media&token=6f9afde8-3c7b-4978-87ce-845498319603]]></string>
+    <string name="senior_materi_matriks"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Matrix%2Fmateri%20matrix.pdf?alt=media&token=16c4fe52-1f9d-4df0-9101-ab770e19ec86]]></string>
+    <string name="teknik_membilang">Teknik Membilang</string>
+    <string name="ordo_matriks">Ordo Matriks</string>
+    <string name="kaidah_pencacahan_tujpel_membilang"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Kaidah%20Pencacahan%2FTujpel_membilang.pdf?alt=media&token=6d95d049-06b3-4a55-b99e-c3a3cc97edb7]]></string>
+    <string name="permutasi">Permutasi</string>
+    <string name="tujpel_permutasi"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Kaidah%20Pencacahan%2FTujpel_permutasi.pdf?alt=media&token=adc0da8c-9f27-4c8d-b0fb-8858a2caffe9]]></string>
+    <string name="kombinasi">Kombinasi</string>
+    <string name="tujpel_kombinasi"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Kaidah%20Pencacahan%2Ftujpel_kombinasi.pdf?alt=media&token=0c1dd9e6-8d9d-430f-893a-3670e7200721]]></string>
+    <string name="determinan_invers_spl">Determinan, Invers Matriks, SPL Matriks</string>
+    <string name="operasi_matriks">Operasi Matriks</string>
+    <string name="tujpel_ordo_matriks"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Matrix%2Ftujpel_matrix.pdf?alt=media&token=e09653ef-0643-4f1a-a2c3-a7ca2d8a1dfe]]></string>
+    <string name="tujpel_determinan"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Matrix%2Ftujpel_determinan_matrix_xi.pdf?alt=media&token=8c0fae41-4d1e-4de8-8010-5df38f400956]]></string>
+    <string name="tujpel_operasi_matriks"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Matrix%2Ftujpel_operasi_matrix_xi.pdf?alt=media&token=54db029c-7547-45bd-b6bf-2c03e6f81232]]></string>
+    <string name="maskon_teknik_membilang"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Kaidah%20Pencacahan%2Fmaskon_kombinasi.pdf?alt=media&token=86a279fe-59ea-4368-b2a0-b67973eb06f8]]></string>
+    <string name="maskon_ordo_matriks"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Matrix%2Fmaskon_matrix.pdf?alt=media&token=6f9afde8-3c7b-4978-87ce-845498319603]]></string>
+    <string name="maskon_permutasi"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Kaidah%20Pencacahan%2Fmaskon_permutasi.pdf?alt=media&token=a7c8329d-4ba4-4771-b274-b373ef24672f]]></string>
+    <string name="maskon_kombinasi"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Kaidah%20Pencacahan%2Fmaskon_kombinasi.pdf?alt=media&token=86a279fe-59ea-4368-b2a0-b67973eb06f8]]></string>
+    <string name="maskon_determinan"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Matrix%2Fmaskon_detrminan_xi.pdf?alt=media&token=4aab3562-18ff-4274-a678-4e1b69fb3482]]></string>
+    <string name="maskon_operasi_matriks"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Matrix%2Fmaskon_operasi_matrix_xi.pdf?alt=media&token=cf0df8d7-b235-4f22-a26e-9e92be31c39f]]></string>
+    <string name="materi_ordo_matriks"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Matrix%2Fmateri%20matrix.pdf?alt=media&token=16c4fe52-1f9d-4df0-9101-ab770e19ec86]]></string>
+    <string name="materi_determinan"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Matrix%2Fmateri_determinan_xi.pdf?alt=media&token=77e1075b-3f34-42c2-821e-c0a44dd1a16f]]></string>
+    <string name="materi_operasi_matriks"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Matrix%2Fmateri_operasi_matrix_xi.pdf?alt=media&token=0b6be7e5-fb9c-4a1a-9c37-c2dcdfc974a9]]></string>
+    <string name="materi_teknik_membilang"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Kaidah%20Pencacahan%2Fmateri_teknik_membilang.pdf?alt=media&token=50bc8277-7931-4760-bc91-2bf26ad654c0]]></string>
+    <string name="materi_permutasi"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Kaidah%20Pencacahan%2Fmateri_permutasi.pdf?alt=media&token=1fe7d53b-df32-4f83-8e19-5580cb3122c6]]></string>
+    <string name="materi_kombinasi"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Kaidah%20Pencacahan%2Fmateri_kombinasi.pdf?alt=media&token=c0952587-84bc-4020-8627-3eb6ed231930]]></string>
+    <string name="peluang_materi_1">Materi Peluang Chapter 1</string>
+    <string name="peluang_materi_2">Materi Peluang Chapter 2</string>
+    <string name="img_sejarah_matrix"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Matrix%2Fsejarah.jpg?alt=media&token=5b975b4d-7b38-4ead-85eb-054eb03e4489]]></string>
+    <string name="peluang_full_materi"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/MateriPeluang%2Fpeluang.rar?alt=media&token=221b35f5-d119-429a-be88-580b67b349d9]]></string>
+    <string name="barisderet_full_materi"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/baris%20dan%20deret%2Fbaris%20dan%20deret.rar?alt=media&token=45a9ab53-c09e-4637-95c6-7b01e15df493]]></string>
+    <string name="barisderet_materi_1"><![CDATA[Baris & Deret Aritmatika]]></string>
+    <string name="barisderet_materi_2"><![CDATA[Baris & Deret Geometri]]></string>
+    <string name="barisderet_materi_3">Bahan Ajar Postest</string>
+    <string name="limit_fungsi_full_materi"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/materi%20limit%20fungsi%2Flimit%20fungsi.rar?alt=media&token=f89069eb-f640-4665-844e-704ed7b3761f]]></string>
+    <string name="limit_fungsi_materi_1">Materi Limit Fungsi</string>
+    <string name="turunan_fungsi_materi_1">TURUNAN FUNGSI BAG 1</string>
+    <string name="turunan_fungsi_materi_2">TURUNAN FUNGSI BAG 2</string>
+    <string name="turunan_fungsi_full_materi"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Turunan%20Fungsi%2Fturunan%20fungsi.rar?alt=media&token=c24f9eea-8cbd-4afb-b429-03c5762be47f]]></string>
+    <string name="tiga_dimensi_full_materi"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Tiga_Dimensi%2F3%20dimensi.rar?alt=media&token=84b6fc35-b3fa-488b-a3d7-d0065e17292d]]></string>
+    <string name="tiga_dimensi_materi_1">Materi 3 Dimensi</string>
+    <string name="trigonometri_materi_1">Materi Trigonometri</string>
+    <string name="trigonometri_full_materi"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Trigonometri%2Fmateri%20trigonometri.rar?alt=media&token=b8f52dfd-2ce0-41eb-abaa-d53302e5616a]]></string>
+    <string name="transformasi_materi_1">Materi Transformasi</string>
+    <string name="transformasi_full_materi"><![CDATA[https://firebasestorage.googleapis.com/v0/b/mastering-maths.appspot.com/o/Transformasi%2Ftransformasi.rar?alt=media&token=7a2be16a-8771-4ef4-9942-6c1f84f37eb0]]></string>
 </resources>

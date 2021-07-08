@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.firebase.auth.FirebaseAuth
 import com.unpas.masteringmaths.R
 import com.unpas.masteringmaths.database.SharedPrefManager
 import com.unpas.masteringmaths.main.GlideApp
@@ -33,10 +34,6 @@ class FirestorePostAdapter(
     FirestoreRecyclerAdapter<PostData, RecyclerView.ViewHolder>(options) {
 
     private var userId: String? = null
-
-    fun setUserId(userId: String) {
-        this.userId = userId
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val viewHolder: RecyclerView.ViewHolder
@@ -69,6 +66,7 @@ class FirestorePostAdapter(
         val postId = snapshots.getSnapshot(position).id
         val post = getItem(position)
         val isTeacher = SharedPrefManager.getInstance(context).getUserStatus.toString()
+        userId = FirebaseAuth.getInstance().currentUser?.uid.toString()
 
         if (post.postType == TYPE_POST_ASSIGNMENT) {
             val view = holder.itemView
@@ -103,10 +101,11 @@ class FirestorePostAdapter(
                             0 -> {
                                 listener.onUpdateClick(
                                     userId.toString(),
-                                    "Edit Tugas",
+                                    "Edit Task",
                                     true,
                                     item.postContent.toString(),
-                                    postId
+                                    postId,
+                                    true
                                 )
                             }
                             1 -> {
@@ -172,7 +171,8 @@ class FirestorePostAdapter(
                                     "Edit Postingan",
                                     true,
                                     item.postContent.toString(),
-                                    postId
+                                    postId,
+                                    false
                                 )
                             }
                             1 -> {

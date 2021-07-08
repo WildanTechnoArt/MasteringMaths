@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.activity_assignment_view.*
 
 class AssignmentViewActivity : AppCompatActivity() {
 
-    private val tabMenus = arrayListOf("Intruksi", "Pengajuan")
+    private val tabMenus = arrayListOf("Instructions", "Submission")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,9 +25,9 @@ class AssignmentViewActivity : AppCompatActivity() {
         container.adapter = pagerAdapterAssignment
 
         TabLayoutMediator(
-            tab_layout, container, TabLayoutMediator.TabConfigurationStrategy { tab, position ->
-                tab.text = tabMenus[position]
-            }
-        )
+            tab_layout, container
+        ) { tab, position ->
+            tab.text = tabMenus[position]
+        }.attach()
     }
 }

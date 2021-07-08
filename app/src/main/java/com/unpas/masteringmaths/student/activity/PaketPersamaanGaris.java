@@ -20,25 +20,13 @@ public class PaketPersamaanGaris extends AppCompatActivity {
         lay2 = findViewById(R.id.layM2);
         lay3 = findViewById(R.id.layM3);
 
-        lay1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(PaketPersamaanGaris.this,ExamKemiringan.class));
-            }
-        });
+        lay1.setOnClickListener(view ->
+                startActivity(new Intent(PaketPersamaanGaris.this,ExamKemiringan.class)));
 
-        lay2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(PaketPersamaanGaris.this,ExamGarisLurus.class));
-            }
-        });
+        lay2.setOnClickListener(view ->
+                startActivity(new Intent(PaketPersamaanGaris.this,ExamGarisLurus.class)));
 
-        lay3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(PaketPersamaanGaris.this,ExamDuaGaris.class));
-            }
-        });
+        lay3.setOnClickListener(view ->
+                startActivity(new Intent(PaketPersamaanGaris.this,ExamDuaGaris.class)));
     }
 }

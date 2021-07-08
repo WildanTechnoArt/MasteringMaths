@@ -3,7 +3,6 @@ package com.unpas.masteringmaths.teacher.activity
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -25,8 +24,11 @@ import com.unpas.masteringmaths.utils.UtilsConstant.Companion.CLASS_ID
 import com.unpas.masteringmaths.utils.UtilsConstant.Companion.CLASS_NAME
 import com.unpas.masteringmaths.teacher.view.PostView
 import com.unpas.masteringmaths.utils.UtilsConstant.Companion.GET_POST
+import com.unpas.masteringmaths.utils.UtilsConstant.Companion.IS_ASSIGNMENT
 import com.unpas.masteringmaths.utils.UtilsConstant.Companion.IS_EDITED
+import com.unpas.masteringmaths.utils.UtilsConstant.Companion.IS_TEACHER
 import com.unpas.masteringmaths.utils.UtilsConstant.Companion.POST_ID
+import com.unpas.masteringmaths.utils.UtilsConstant.Companion.TEACHER_ID
 import com.unpas.masteringmaths.utils.UtilsConstant.Companion.TOOLBAR_TITLE
 import kotlinx.android.synthetic.main.activity_post.*
 import kotlinx.android.synthetic.main.toolbar_layout.*
@@ -44,13 +46,15 @@ class CreatePostActivity : AppCompatActivity(), PostView.View {
     private lateinit var getPostId: String
     private lateinit var getPostContent: String
     private var post: String? = null
-
     private var isDocument: Boolean? = false
+    private var isAssisgment: Boolean? = true
+    private var isTeacher: Boolean? = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post)
         prepare()
+        checkIsAssignment()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -62,7 +66,7 @@ class CreatePostActivity : AppCompatActivity(), PostView.View {
         post = input_post.text.toString().trim()
         when (item.itemId) {
             R.id.post -> {
-                if (post != null) {
+                if (post != "") {
                     if (isEdited == true) {
                         getPostId = intent?.getStringExtra(POST_ID).toString()
                         presenter.updatePost(
@@ -76,6 +80,9 @@ class CreatePostActivity : AppCompatActivity(), PostView.View {
                             username
                         )
                     } else {
+                        if (isTeacher == false) {
+                            userId = intent.getStringExtra(TEACHER_ID).toString()
+                        }
                         presenter.addPost(className, userId, photoUrl, post, nip, classId, username)
                     }
                 } else {
@@ -153,7 +160,7 @@ class CreatePostActivity : AppCompatActivity(), PostView.View {
             input_post.setText(getPostContent)
         }
 
-        fab_create_post.setOnClickListener {
+        fab_assignment.setOnClickListener {
             val itemMenu = arrayOf("Upload File Dokumen", "Upload File Gambar")
             val alert = MaterialAlertDialogBuilder(this)
                 .setTitle("Pilih Opsi")
@@ -203,17 +210,9 @@ class CreatePostActivity : AppCompatActivity(), PostView.View {
             val intent = Intent(Intent.ACTION_GET_CONTENT)
             intent.addCategory(Intent.CATEGORY_OPENABLE)
 
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                intent.type = if (mimeTypes.size == 1) mimeTypes[0] else "*/*"
-                if (mimeTypes.isNotEmpty()) {
-                    intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes)
-                }
-            } else {
-                var mimeTypesStr = ""
-                for (mimeType in mimeTypes) {
-                    mimeTypesStr += "$mimeType|"
-                }
-                intent.type = mimeTypesStr.substring(0, mimeTypesStr.length - 1)
+            intent.type = if (mimeTypes.size == 1) mimeTypes[0] else "*/*"
+            if (mimeTypes.isNotEmpty()) {
+                intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes)
             }
 
             startActivityForResult(Intent.createChooser(intent, "SELECT FILE"), FILE_PICK)
@@ -269,20 +268,15 @@ class CreatePostActivity : AppCompatActivity(), PostView.View {
                         val intent = Intent(Intent.ACTION_GET_CONTENT)
                         intent.addCategory(Intent.CATEGORY_OPENABLE)
 
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                            intent.type = if (mimeTypes.size == 1) mimeTypes[0] else "*/*"
-                            if (mimeTypes.isNotEmpty()) {
-                                intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes)
-                            }
-                        } else {
-                            var mimeTypesStr = ""
-                            for (mimeType in mimeTypes) {
-                                mimeTypesStr += "$mimeType|"
-                            }
-                            intent.type = mimeTypesStr.substring(0, mimeTypesStr.length - 1)
+                        intent.type = if (mimeTypes.size == 1) mimeTypes[0] else "*/*"
+                        if (mimeTypes.isNotEmpty()) {
+                            intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes)
                         }
 
-                        startActivityForResult(Intent.createChooser(intent, "SELECT FILE"), FILE_PICK)
+                        startActivityForResult(
+                            Intent.createChooser(intent, "SELECT FILE"),
+                            FILE_PICK
+                        )
                     } else {
                         val galleryIntent = Intent()
                         galleryIntent.type = "image/*"
@@ -333,5 +327,19 @@ class CreatePostActivity : AppCompatActivity(), PostView.View {
 
     override fun showFileName(fileName: String) {
         tv_file_name.text = fileName
+    }
+
+    private fun checkIsAssignment() {
+        isAssisgment = intent.getBooleanExtra(IS_ASSIGNMENT, false)
+        isTeacher = intent.getBooleanExtra(IS_TEACHER, false)
+        if (isAssisgment == true || isTeacher == true) {
+            img_file.visibility = View.VISIBLE
+            tv_file_name.visibility = View.VISIBLE
+            fab_assignment.visibility = View.VISIBLE
+        } else {
+            img_file.visibility = View.GONE
+            tv_file_name.visibility = View.GONE
+            fab_assignment.visibility = View.GONE
+        }
     }
 }

@@ -40,7 +40,7 @@ class TeacherProfileFragment : Fragment(), ProfileFragmentView.View {
         presenter.requestDataUser()
         presenter.getPhotoFromStorage()
 
-        swipe_refresh.setOnRefreshListener {
+        swipe_refresh?.setOnRefreshListener {
             presenter.requestDataUser()
         }
 
@@ -165,7 +165,7 @@ class TeacherProfileFragment : Fragment(), ProfileFragmentView.View {
         mContext = view.context
 
         (mContext as AppCompatActivity).setSupportActionBar(toolbar)
-        (mContext as AppCompatActivity).supportActionBar?.title = "Profil Guru"
+        (mContext as AppCompatActivity).supportActionBar?.title = "Teacher Profile"
 
         presenter = ProfilePresenter(mContext, this)
     }

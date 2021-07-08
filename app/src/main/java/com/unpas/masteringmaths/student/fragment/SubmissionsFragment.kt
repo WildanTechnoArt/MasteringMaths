@@ -54,7 +54,7 @@ class SubmissionsFragment : Fragment() {
     }
 
     private fun init(view: View) {
-        swipe_refresh.isEnabled = false
+        swipe_refresh?.isEnabled = false
         btn_attach.isEnabled = false
 
         mTeacherId = (context as AppCompatActivity).intent?.getStringExtra(UtilsConstant.TEACHER_ID)
@@ -142,10 +142,23 @@ class SubmissionsFragment : Fragment() {
             }
 
         } else {
-            val galleryIntent = Intent()
-            galleryIntent.type = "text/*"
-            galleryIntent.action = Intent.ACTION_GET_CONTENT
-            startActivityForResult(Intent.createChooser(galleryIntent, "SELECT FILE"), FILE_PICK)
+            val mimeTypes = arrayOf(
+                "application/pdf",
+                "application/msword",
+                "application/vnd.ms-powerpoint",
+                "application/vnd.ms-excel",
+                "text/plain"
+            )
+
+            val intent = Intent(Intent.ACTION_GET_CONTENT)
+            intent.addCategory(Intent.CATEGORY_OPENABLE)
+
+            intent.type = if (mimeTypes.size == 1) mimeTypes[0] else "*/*"
+            if (mimeTypes.isNotEmpty()) {
+                intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes)
+            }
+
+            startActivityForResult(Intent.createChooser(intent, "SELECT FILE"), FILE_PICK)
         }
     }
 
@@ -184,15 +197,15 @@ class SubmissionsFragment : Fragment() {
 
     @SuppressLint("SetTextI18n")
     private fun checkSubmission() {
-        swipe_refresh.isRefreshing = true
+        swipe_refresh?.isRefreshing = true
         val db = FirebaseFirestore.getInstance()
         db.collection("submissions")
             .document(mTeacherId.toString())
             .collection(mAssignmentId.toString())
             .document(mStudentId.toString())
             .addSnapshotListener { snapshot, _ ->
-                swipe_refresh.isRefreshing = false
-                btn_attach.isEnabled = true
+                swipe_refresh?.isRefreshing = false
+                btn_attach?.isEnabled = true
                 if (snapshot?.exists() == false) {
                     tv_submission_status.setTextColor(Color.parseColor("#FFFFB300"))
                     tv_submission_status.text = "Unverified"
@@ -211,11 +224,11 @@ class SubmissionsFragment : Fragment() {
                     tv_submission_status.visibility = View.VISIBLE
 
                     if (isApproved == true) {
-                        tv_submission_status.text = "Sudah Diperiksa"
-                        tv_submission_status.setTextColor(Color.parseColor("#FF48D700"))
+                        tv_submission_status?.text = "Sudah Diperiksa"
+                        tv_submission_status?.setTextColor(Color.parseColor("#FF48D700"))
                     } else {
-                        tv_submission_status.text = "Belum Diperiksa"
-                        tv_submission_status.setTextColor(Color.parseColor("#FFFFB300"))
+                        tv_submission_status?.text = "Belum Diperiksa"
+                        tv_submission_status?.setTextColor(Color.parseColor("#FFFFB300"))
                     }
 
                     input_text.setText(getTextAnswer.toString())
@@ -262,7 +275,7 @@ class SubmissionsFragment : Fragment() {
         val db = FirebaseFirestore.getInstance()
 
         if (fileUri != null) {
-            swipe_refresh.isRefreshing = true
+            swipe_refresh?.isRefreshing = true
 
             val fileURL = "submissions/$mStudentId" + "_" + "${fileUri?.lastPathSegment}"
             val filePath = fileReference.child(fileURL)
@@ -287,7 +300,7 @@ class SubmissionsFragment : Fragment() {
                                 .document(mStudentId.toString())
                                 .set(data)
                                 .addOnSuccessListener {
-                                    swipe_refresh.isRefreshing = false
+                                    swipe_refresh?.isRefreshing = false
                                     input_text.isEnabled = false
                                     tv_file_name.visibility = View.GONE
                                     btn_attach.visibility = View.GONE
@@ -298,9 +311,10 @@ class SubmissionsFragment : Fragment() {
                                     tv_submission_status.visibility = View.VISIBLE
                                     Toast.makeText(
                                         context,
-                                        "Tugas Berhasil Dikirim",
+                                        "Task Submitted Successfully",
                                         Toast.LENGTH_SHORT
                                     ).show()
+                                    checkSubmission()
                                 }
                                 .addOnFailureListener {
                                     Toast.makeText(
@@ -308,11 +322,11 @@ class SubmissionsFragment : Fragment() {
                                         context?.getString(R.string.error_request),
                                         Toast.LENGTH_SHORT
                                     ).show()
-                                    swipe_refresh.isRefreshing = false
+                                    swipe_refresh?.isRefreshing = false
                                 }
 
                         }.addOnFailureListener {
-                            swipe_refresh.isRefreshing = false
+                            swipe_refresh?.isRefreshing = false
                             Toast.makeText(
                                 context,
                                 context?.getString(R.string.upload_failed),
@@ -321,7 +335,7 @@ class SubmissionsFragment : Fragment() {
                         }
 
                 } else {
-                    swipe_refresh.isRefreshing = false
+                    swipe_refresh?.isRefreshing = false
                     Toast.makeText(
                         context,
                         context?.getString(R.string.upload_failed),
@@ -372,7 +386,7 @@ class SubmissionsFragment : Fragment() {
                     val getIsApproved = snapshot.getBoolean("approved")
                     if (getIsApproved == true) {
                         item = menuItem?.findItem(R.id.submit) as MenuItem
-                        item?.title = "KIRIM ULANG"
+                        item?.title = "RESENDING"
                         item?.isVisible = true
                     } else {
                         item = menuItem?.findItem(R.id.submit) as MenuItem
@@ -380,7 +394,7 @@ class SubmissionsFragment : Fragment() {
                     }
                 } else {
                     item = menuItem?.findItem(R.id.submit) as MenuItem
-                    item?.title = "KIRIM"
+                    item?.title = "SEND"
                     item?.isVisible = true
                 }
             }
@@ -390,18 +404,18 @@ class SubmissionsFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.submit -> {
-                if (menuItem?.getItem(0)?.title == "KIRIM") {
+                if (menuItem?.getItem(0)?.title == "SEND") {
                     uploadFile()
                 } else {
-                    menuItem?.getItem(0)?.title = "KIRIM"
-                    input_text.isEnabled = true
-                    tv_file_name.visibility = View.VISIBLE
-                    btn_attach.visibility = View.VISIBLE
-                    line.visibility = View.GONE
-                    line_three.visibility = View.GONE
-                    tv_grade.visibility = View.GONE
-                    tv_status.visibility = View.GONE
-                    tv_submission_status.visibility = View.GONE
+                    menuItem?.getItem(0)?.title = "SEND"
+                    input_text?.isEnabled = true
+                    tv_file_name?.visibility = View.VISIBLE
+                    btn_attach?.visibility = View.VISIBLE
+                    line?.visibility = View.GONE
+                    line_three?.visibility = View.GONE
+                    tv_grade?.visibility = View.GONE
+                    tv_status?.visibility = View.GONE
+                    tv_submission_status?.visibility = View.GONE
                 }
             }
         }

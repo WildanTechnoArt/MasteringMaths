@@ -2,7 +2,6 @@ package com.unpas.masteringmaths.student.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,26 +19,14 @@ public class PaketSpldv extends AppCompatActivity {
         lay2 = findViewById(R.id.layM2);
         lay3 = findViewById(R.id.layM3);
 
-        lay1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(PaketSpldv.this,ExamEliminasi.class));
-            }
-        });
+        lay1.setOnClickListener(view ->
+                startActivity(new Intent(PaketSpldv.this,ExamEliminasi.class)));
 
-        lay2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(PaketSpldv.this,ExamSubstitusi.class));
-            }
-        });
+        lay2.setOnClickListener(view ->
+                startActivity(new Intent(PaketSpldv.this,ExamSubstitusi.class)));
 
-        lay3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(PaketSpldv.this,ExamGrafik.class));
-            }
-        });
+        lay3.setOnClickListener(view ->
+                startActivity(new Intent(PaketSpldv.this,ExamGrafik.class)));
 
     }
 }
